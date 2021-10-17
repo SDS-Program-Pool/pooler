@@ -38,23 +38,51 @@
                                         </div>
                                         <!-- Login submission form-->
 
-                                        <form method="POST" action="{{ route('login') }}">
+                                        <form method="POST" action="{{ route('register') }}">
                                             @csrf
                                             <div class="mb-4">
-                                                <mwc-textfield class="w-100" label="Username" id="username" type="text" name="username" outlined id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username">
-                                                
-                                                </mwc-textfield>
+                                                <input class="w-100" label="username" id="username" type="text" name="username" outlined id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username">
                                             </div>
 
+                                            @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror                                 
+                                            <input id="email" name="email" type="text"> email
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror                
+                        
                                             <input id="first_name" name="first_name" type="text">
+
+                                            @error('first_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror                
+                        
                                             <input id="last_name" name="last_name" type="text">
 
 
-                                            <div class="mb-4">
-                                                    <mwc-textfield class="w-100" label="Password" outlined icontrailing="visibility_off" type="password" id="password" type="text" name="password" required autocomplete="password"> 
+                                            @error('last_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror  
 
-                                                    </mwc-textfield>
+
+                                            <div class="mb-4">
+                                                    <input class="w-100" label="Password" outlined icontrailing="visibility_off" type="password" id="password" type="text" name="password" required autocomplete="password"> 
                                             </div>
+
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror  
                                             <div class="d-flex align-items-center">
                                                 <mwc-formfield label="Remember password"><mwc-checkbox></mwc-checkbox></mwc-formfield>
                                             </div>
