@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('v1.dashboard');
+    return view('v1.dashboard.dashboard');
 })->middleware(['auth']);
 
 /**
