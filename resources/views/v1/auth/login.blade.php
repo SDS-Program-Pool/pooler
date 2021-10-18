@@ -40,13 +40,15 @@
 
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
-                                            <div class="mb-4">
-                                                <input class="w-100" label="username" id="username" type="text" name="username" outlined id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username">
-                                            </div>
+
 
                                             <div class="mb-4">
-                                                <input class="w-100" label="Password" outlined icontrailing="visibility_off" type="password" id="password" type="text" name="password" required autocomplete="password"> 
-                                            </div>
+                                                <input class="w-100" label="username" id="username" type="text" name="username" outlined id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username">
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <input class="w-100" label="Password" outlined icontrailing="visibility_off" type="password" id="password" type="text" name="password" required autocomplete="password"> 
+                                        </div>
                                             
                                             <div class="d-flex align-items-center">
                                                 <mwc-formfield label="Remember password"><mwc-checkbox></mwc-checkbox></mwc-formfield>
