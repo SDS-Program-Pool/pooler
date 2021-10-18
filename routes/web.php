@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Dashboard
+ */
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('v1.dashboard.dashboard');
+})->middleware(['auth']);
 
-
+/**
+ * 
+ */
