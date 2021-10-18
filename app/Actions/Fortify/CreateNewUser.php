@@ -31,13 +31,8 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
-            //'password' => $this->passwordRules(),
-            //'is_verified' => ['requied','boolean'],
-<<<<<<< Updated upstream
-=======
             'password' => $this->passwordRules(),
-            'is_verified' => ['required','boolean'],
->>>>>>> Stashed changes
+            //'is_verified' => ['requied','boolean'],
         ])->validate();
 
         return User::create([
