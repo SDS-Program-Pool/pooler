@@ -33,6 +33,11 @@ class CreateNewUser implements CreatesNewUsers
             ],
             //'password' => $this->passwordRules(),
             //'is_verified' => ['requied','boolean'],
+<<<<<<< Updated upstream
+=======
+            'password' => $this->passwordRules(),
+            'is_verified' => ['required','boolean'],
+>>>>>>> Stashed changes
         ])->validate();
 
         return User::create([
