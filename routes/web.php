@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 
 /**
@@ -15,4 +16,4 @@ Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->na
 /**
  * Profile
  */
-Route::get('profile', [DashboardController::class, 'index'])->middleware(['auth'])->name('profile.index');
+Route::get('profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('profile.index');
