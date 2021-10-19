@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
         <!-- Load main stylesheet-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{{url('css/styles.css')}}" rel="stylesheet" />
     </head>
     <body class="nav-fixed bg-light">
         <!-- Top app bar navigation menu-->
@@ -444,8 +444,8 @@
         <!-- Load Bootstrap JS bundle-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <!-- Load global scripts-->
-        <script type="module" src="js/material.js"></script>
-        <script src="js/scripts.js"></script>
+        <script type="module" src="{{url('js/material.js')}}"></script>
+        <script src="{{url('js/scripts.js')}}"></script>
         <!--  Load Chart.js via CDN-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
         <!--  Load Chart.js customized defaults-->
