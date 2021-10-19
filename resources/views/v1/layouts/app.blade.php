@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title></title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Load Favicon-->
         <link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <!-- Load Material Icons from Google Fonts-->
@@ -24,7 +26,7 @@
                 <!-- Drawer toggle button-->
                 <button class="btn btn-lg btn-icon order-1 order-lg-0" id="drawerToggle" href="javascript:void(0);"><i class="material-icons">menu</i></button>
                 <!-- Navbar brand-->
-                <a class="navbar-brand me-auto" href="index.html"><div class="text-uppercase font-monospace">Program Pooler</div></a>
+                <a class="navbar-brand me-auto" href="{{route('dashboard.index')}}"><div class="text-uppercase font-monospace">Program Pooler</div></a>
                 <!-- Navbar items-->
                 <div class="d-flex align-items-center mx-3 me-lg-0">
                     <!-- Navbar-->
@@ -128,7 +130,7 @@
                             <button class="btn btn-lg btn-icon dropdown-toggle" id="dropdownMenuProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">person</i></button>
                             <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuProfile">
                                 <li>
-                                    <a class="dropdown-item" href="#!">
+                                    <a class="dropdown-item" href="{{route('profile.index')}}">
                                         <i class="material-icons leading-icon">person</i>
                                         <div class="me-3">Profile</div>
                                     </a>
@@ -147,7 +149,14 @@
                                 </li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li>
-                                    <a class="dropdown-item" href="#!">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                         @csrf
+                                     </form>
+
                                         <i class="material-icons leading-icon">logout</i>
                                         <div class="me-3">Logout</div>
                                     </a>
