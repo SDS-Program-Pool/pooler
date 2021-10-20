@@ -5,14 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileSecurityTwoFactorController;
-use App\Http\Controllers\Student\UploadCodeController;
+use App\Http\Controllers\Student\ProjectCreateController;
+use App\Http\Controllers\Student\ProjectController;
 
 
 /**
  * Dashboard
  */
-
-
 Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard.index');
 
 /**
@@ -26,8 +25,20 @@ Route::get('profile', [ProfileController::class, 'index'])->middleware(['auth'])
  */
 Route::get('profile/two-factor', [ProfileSecurityTwoFactorController::class, 'index'])->middleware(['auth'])->name('profile.two-factor.index');
 
+
 /**
- * Upload Code
+ * Project Create
  */
-Route::get('upload-code', [UploadCodeController::class, 'index'])->middleware(['auth'])->name('upload-code.index');
-Route::post('upload-code', [UploadCodeController::class, 'store'])->middleware(['auth'])->name('upload-code.store');
+Route::get('projects', [ProjectController::class, 'index'])->middleware(['auth'])->name('projects.index');
+
+/**
+ * Project Team Creation
+ */
+
+Route::get('projects/create', [ProjectCreateController::class, 'index'])->middleware(['auth'])->name('projects.create.index');
+
+/**
+ * Project Upload
+ */
+Route::get('project/upload', [UploadCodeController::class, 'index'])->middleware(['auth'])->name('upload-code.index');
+Route::post('project/upload', [UploadCodeController::class, 'store'])->middleware(['auth'])->name('upload-code.store');

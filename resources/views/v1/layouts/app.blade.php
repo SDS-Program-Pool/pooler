@@ -190,12 +190,17 @@
                             <!-- Divider-->
                             <div class="drawer-menu-divider d-sm-none"></div>
                             <!-- Drawer section heading (Interface)-->
-                            <div class="drawer-menu-heading">Interface</div>
+                            <div class="drawer-menu-heading">Student</div>
                             <!-- Drawer link (Overview)-->
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="{{route('dashboard.index')}}">
                                 <div class="nav-link-icon"><i class="material-icons">language</i></div>
                                 Overview
                             </a>
+                            <!-- Drawer link (Overview)-->
+                            <a class="nav-link" href="{{route('projects.index')}}">
+                                <div class="nav-link-icon"><i class="material-icons">language</i></div>
+                                Projects
+                            </a>                            
                             <!-- Drawer link (Dashboards)-->
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                                 <div class="nav-link-icon"><i class="material-icons">dashboard</i></div>
