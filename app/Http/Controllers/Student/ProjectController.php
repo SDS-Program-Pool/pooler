@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
-use App\Actions\Team\IndividualTeamCreation as IndividualTeamCreation;
-use App\Actions\Team\FeatureBranchTeamCreation as FeatureBranchTeamCreation;
-use App\Actions\Team\TeamCreation as TeamCreation;
+use App\Actions\Team\IndividualTeamCreation;
+use App\Actions\Team\FeatureBranchTeamCreation;
+use App\Actions\Team\TeamCreation;
 
 use Illuminate\Http\Request;
 
