@@ -40,14 +40,27 @@
                 <div class="card card-raised mb-5">
                     <div class="card-body p-5">
                         <div class="card-title">Two-Factor Authentication</div>
-                        <div class="card-subtitle mb-4">Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.</div>
+                        <div class="card-subtitle mb-4">As a matter of course, 2FA is mandatory for this system.</div>
                         <form>
                             <div class="mb-4">
                                 <mwc-formfield label="On"><mwc-radio name="twoFactorAuth" checked></mwc-radio></mwc-formfield>
                                 <mwc-formfield label="Off"><mwc-radio name="twoFactorAuth"></mwc-radio></mwc-formfield>
                             </div>
-                            <mwc-textfield class="w-100" label="SMS Number" outlined type="tel" value="407-555-0187"></mwc-textfield>
                         </form>
+
+                            <!-- 2FA enabled -->        
+                            @if(auth()->user()->two_factor_secret)
+                            {!! auth()->user()->twoFactorQrCodeSvg() !!}
+                            <!-- 2FA not enabled -->
+                            @else
+                            <form action="/user/two-factor-authentication" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">
+                                Generate 2FA QR Code
+                            </button>
+                            
+                            </form>
+                            @endif
                     </div>
                 </div>
             </div>
