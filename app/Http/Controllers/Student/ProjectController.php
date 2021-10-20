@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Lorisleiva\Actions\Concerns\AsAction;
+
 
 class ProjectController extends Controller
 {
+    use AsAction;
+    
     public function index()
     {
         return view('v1.project.index');
