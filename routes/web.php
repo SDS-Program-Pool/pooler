@@ -35,7 +35,9 @@ Route::get('projects', [ProjectController::class, 'index'])->middleware(['auth']
  * Project Team Creation
  */
 
-Route::get('projects/create', [ProjectCreateController::class, 'index'])->middleware(['auth'])->name('projects.create.index');
+Route::get('projects/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
+Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
+
 
 /**
  * Project Upload
