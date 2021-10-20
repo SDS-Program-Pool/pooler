@@ -22,7 +22,7 @@
                         <div class="card-text">Details and history</div>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="{{route('projects.create.index')}}">upload</a>
+                        <a href="{{route('projects.create')}}">upload</a>
                         <button class="btn btn-lg btn-text-primary btn-icon" type="button"><i class="material-icons">upload</i></button>
                     </div>
                 </div>

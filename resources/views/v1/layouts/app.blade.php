@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Load Favicon-->
-        <link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="{{url('assets/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
         <!-- Load Material Icons from Google Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
         <!-- Load Simple DataTables Stylesheet-->
@@ -454,12 +454,12 @@
         <!--  Load Chart.js via CDN-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
         <!--  Load Chart.js customized defaults-->
-        <script src="js/charts/chart-defaults.js"></script>
+        <script src="{{url('js/charts/chart-defaults.js')}}"></script>
         <!--  Load chart demos for this page-->
-        <script src="js/charts/demos/chart-pie-demo.js"></script>
-        <script src="js/charts/demos/dashboard-chart-bar-grouped-demo.js"></script>
+        <script src="{{url('js/charts/demos/chart-pie-demo.js')}}"></script>
+        <script src="{{url('js/charts/demos/dashboard-chart-bar-grouped-demo.js')}}"></script>
         <!-- Load Simple DataTables Scripts-->
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables/datatables-simple-demo.js"></script>
+        <script src="{{url('js/datatables/datatables-simple-demo.js')}}"></script>
     </body>
 </html>
