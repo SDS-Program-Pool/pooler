@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Actions\Team\IndividualTeamCreation;
 use App\Actions\Team\FeatureBranchTeamCreation;
 use App\Actions\Team\TeamCreation;
+use App\Actions\CodeUpload\Upload;
 
 use Illuminate\Http\Request;
 
@@ -21,38 +22,33 @@ class ProjectController extends Controller
 
     public function create()
     {
+
         return view('v1.project.create');
+
     }
 
     public function store(Request $request)
     {
-
-        // Validate the ZIP File
-
-        // Upload the ZIP File
-
-        // Error Handling for ZIP File
-
-        // Pass over to projectStrategy
-
-        $projectStrategy = $this->projectStrategy()->create($request);
-
-    //  $demo = new IndividualTeamCreation;
-
-      //$test = $demo->hello();
-
-      //print_r($test);
-
-       // $data = $this->projectStrategy()->create($request);
+        // Upload Zip
 
 
-      dd($request['team_type']);
+        // Trigger Project Creation
+        
+        
+
+        // Trigger Team Creation
+
+        $teamStrategy = $this->teamStrategy()->create($request);
+
+        // Allocate Zip file to Team
+
+        // Return View to user with success or errors.
 
        // return view('v1.project.index');
 
     }
 
-    public function projectStrategy()
+    public function teamStrategy()
     {
 
         // Strategy Pattern to call correct function for business logic

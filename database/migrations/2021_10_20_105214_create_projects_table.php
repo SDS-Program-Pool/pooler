@@ -14,6 +14,7 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
+            // Sort UUID out asap
             $table->uuid('id')->primary();
             $table->integer('user_id')->unsigned()->nullable(); // Project Owner
             $table->timestamps();
