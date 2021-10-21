@@ -14,11 +14,12 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            // Sort UUID out asap
             $table->uuid('id')->primary();
             $table->integer('user_id')->unsigned()->nullable(); // Project Owner
+            $table->boolean('is_team_individual')->nullable();
+            $table->boolean('is_team')->nullable();
+            $table->boolean('is_team_feature_branch')->nullable();
             $table->timestamps();
-            
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('set null');
         });
