@@ -3,19 +3,34 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Actions\Team\IndividualTeamCreation;
 use App\Actions\Team\FeatureBranchTeamCreation;
 use App\Actions\Team\TeamCreation;
 use App\Actions\CodeUpload\Upload;
 
-use Illuminate\Http\Request;
+use App\Models\Project;
+
 
 class ProjectController extends Controller
 {
     public function index()
     {
-      
-        return view('v1.project.index');
+
+        // to do setup eloquent relationships with model view to prevent shit like this
+        // need to setup relationship for user has many projects 
+        // so we can e.g User::Projects->all(); 
+        // i'm going on a walk
+        $user = Auth::id();
+        dd($user);
+
+        $projects = Project::whereUserId(Auth::id())->get();
+
+        dd($projects);
+
+        return view('v1.project.index', compact($projects));
 
         // We need a DB call here in order to show existing projects.
     }
