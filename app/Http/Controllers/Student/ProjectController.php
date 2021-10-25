@@ -12,6 +12,7 @@ use App\Actions\Team\TeamCreation;
 use App\Actions\CodeUpload\Upload;
 
 use App\Models\Project;
+use App\Models\User;
 
 
 class ProjectController extends Controller
@@ -23,14 +24,14 @@ class ProjectController extends Controller
         // need to setup relationship for user has many projects 
         // so we can e.g User::Projects->all(); 
         // i'm going on a walk
-        $user = Auth::id();
-        dd($user);
 
-        $projects = Project::whereUserId(Auth::id())->get();
 
-        dd($projects);
+    
+        $project_data = Project::whereUserId(Auth::id())->get();
 
-        return view('v1.project.index', compact($projects));
+ 
+
+        return view('v1.project.index', compact('project_data'));
 
         // We need a DB call here in order to show existing projects.
     }

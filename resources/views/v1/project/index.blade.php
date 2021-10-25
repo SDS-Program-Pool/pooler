@@ -41,10 +41,10 @@
                     </thead>
                     <tbody>
 
-                        @foreach($projects as $project)
-
-                            {{$project}}
-                        @endforeach
+                        <?php
+                                dd($project_data);
+                        ?>
+                     
                         <tr>
                             <td>02/02/2002</td>
                             <td>9958</td>
