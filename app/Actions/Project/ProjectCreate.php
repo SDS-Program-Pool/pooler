@@ -11,9 +11,13 @@ class ProjectCreate
 {
     public function create(Request $request)
     {
-        // Create a project
         // Create a DB record for a *new project* and return the ID back so we can play with it later.
         // Need to set the project owner.
+
+        $validated = $request->validate([
+            'team_type' => 'required|in:team_individual,team_feature_branch,team',
+            //'file' => 'required|mimes:tar,zip',
+        ]);
 
         $project = new Project;
 
@@ -35,6 +39,8 @@ class ProjectCreate
         else{
             throw new \Exception("Team Type Could not be Selected Project/ProjectCreate");
         }
+
+        $project->save();
 
     }
 
