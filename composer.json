@@ -12,6 +12,7 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "lorisleiva/laravel-actions": "^2.1",
         "spatie/laravel-model-status": "^1.10",
         "spatie/laravel-permission": "^5.1"
