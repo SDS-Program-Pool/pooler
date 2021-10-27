@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Actions\Team\IndividualTeamCreation;
 use App\Actions\Team\FeatureBranchTeamCreation;
 use App\Actions\Team\TeamCreation;
+use App\Actions\Project\ProjectCreate;
 use App\Actions\CodeUpload\Upload;
 
 use App\Models\Project;
@@ -20,20 +21,12 @@ class ProjectController extends Controller
     public function index()
     {
 
-        // to do setup eloquent relationships with model view to prevent shit like this
-        // need to setup relationship for user has many projects 
-        // so we can e.g User::Projects->all(); 
-        // i'm going on a walk
-
-
-    
         $project_data = Project::whereUserId(Auth::id())->get();
 
- 
+        // tldr need to setup some more relations to get more project data
 
         return view('v1.project.index', compact('project_data'));
 
-        // We need a DB call here in order to show existing projects.
     }
 
     public function create()
@@ -52,7 +45,9 @@ class ProjectController extends Controller
 
         // Trigger Project Creation
         
-            // Project Creation Function
+        $projectStrategy = $this->projectStrategy()->create($request);
+
+        dd($project_data);
             
         // Trigger Team Creation
 
@@ -83,6 +78,29 @@ class ProjectController extends Controller
         if(! array_key_exists($team_type, $strategy))
         {
             throw new \Exception("Could not find team type strategy");
+            
+        }
+
+        return($strategy[$team_type]);
+
+    }
+
+    public function projectStrategy()
+    {
+
+        // Do not technically *need* this, but keeping if team creation types ever changes.
+
+        $team_type = 'create';
+        
+        $strategy = [
+
+            'create' => new ProjectCreate,
+
+        ];
+
+        if(! array_key_exists($team_type, $strategy))
+        {
+            throw new \Exception("Could not find project create strategy");
             
         }
 
