@@ -44,16 +44,14 @@ class ProjectController extends Controller
 
 
         // Trigger Project Creation
-        
         $projectStrategy = $this->projectStrategy()->create($request);
-
-        dd($project_data);
             
         // Trigger Team Creation
-
         $teamStrategy = $this->teamStrategy()->create($request);
 
         // Allocate Zip file to Team
+
+        // Send an email notif to the user to let them know all is okay.
 
         // Return View to user with success or errors.
 

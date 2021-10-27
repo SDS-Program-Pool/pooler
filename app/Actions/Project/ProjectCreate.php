@@ -24,6 +24,7 @@ class ProjectCreate
         $project->user_id = Auth::id();
 
         // could refactor to switch statement as we're using plain text...? C.T
+        // Could also set the rest to false to prevent any issues? e.g T,F,F
         if($request->team_type === 'team_individual'){
 
             $project->is_team_individual = TRUE;
