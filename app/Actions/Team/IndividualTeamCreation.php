@@ -5,7 +5,9 @@ namespace App\Actions\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Models\Team;
+use App\Models\ProjectTeam;
+use App\Actions\Team\AddMember;
+
 
 class IndividualTeamCreation
 {
@@ -22,15 +24,24 @@ class IndividualTeamCreation
 
         // Uncomment this at a later date once main dev stuff is sorted ^^^^
 
-        $team = new Team;
+        $team = new ProjectTeam;
 
         $team->user_id = Auth::id();
         $team->project_id = $project->id;
-        $team->isOwner = TRUE;
+        $team->is_owner = TRUE;
 
         $team->save();
 
-        return ($team);
+        // Add Team Members
+
+        // call add member function????
+
+        $member = new AddMember;
+        $member->create($team,$request);
+
+        dd($member);
+
+        return($team);
 
     }
 
