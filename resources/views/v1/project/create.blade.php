@@ -19,9 +19,9 @@
 
                 <div class="mb-4">
                     <select class="form-select" id="team_type" name="team_type" aria-label="select team type">
-                        <option value="team_individual" selected="">Individual</option>
-                        <option value="team_feature_branch">Team - Feature Branch</option>
-                        <option value="team">Team</option>
+                        <option value="IndividualTeamCreation" selected="">Individual</option>
+                        <option value="FeatureBranchTeamCreation">Team - Feature Branch</option>
+                        <option value="TeamCreation">Team (group mark)</option>
                     </select>
                 </div>
 

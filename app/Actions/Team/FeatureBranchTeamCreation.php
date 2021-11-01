@@ -8,7 +8,7 @@ class FeatureBranchTeamCreation
 {
     public function create()
     {
-        dd("Hello");
+        dd("Hello feature branch");
         return "Hello";
     }
 

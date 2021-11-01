@@ -15,7 +15,7 @@ class ProjectCreate
         // Need to set the project owner.
 
         $validated = $request->validate([
-            'team_type' => 'required|in:team_individual,team_feature_branch,team',
+            'team_type' => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation',
             //'file' => 'required|mimes:tar,zip',
         ]);
 
@@ -25,15 +25,15 @@ class ProjectCreate
 
         // could refactor to switch statement as we're using plain text...? C.T
         // Could also set the rest to false to prevent any issues? e.g T,F,F
-        if($request->team_type === 'team_individual'){
+        if($request->team_type === 'IndividualTeamCreation'){
 
             $project->is_team_individual = TRUE;
         }
-        elseif($request->team_type === 'team'){
+        elseif($request->team_type === 'TeamCreation'){
 
             $project->is_team = TRUE;
         }
-        elseif($request->team_type === 'team_feature_branch'){
+        elseif($request->team_type === 'FeatureBranchTeamCreation'){
 
             $project->is_team_feature_branch = TRUE;
         }
@@ -42,6 +42,8 @@ class ProjectCreate
         }
 
         $project->save();
+
+        return($project);
 
     }
 

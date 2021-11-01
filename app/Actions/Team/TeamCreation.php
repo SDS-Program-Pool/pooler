@@ -8,7 +8,7 @@ class TeamCreation
 {
     public function create()
     {
-        dd("Hello");
+        dd("Hello team");
         return "Hello";
     }
 

@@ -47,7 +47,7 @@ class ProjectController extends Controller
         $projectStrategy = $this->projectStrategy()->create($request);
             
         // Trigger Team Creation
-        $teamStrategy = $this->teamStrategy()->create($request);
+        $teamStrategy = $this->teamStrategy()->create($request, $projectStrategy);
 
         // Allocate Zip file to Team
 
@@ -62,15 +62,17 @@ class ProjectController extends Controller
     public function teamStrategy()
     {
 
+        // Validate that the team type exists do this... C.T 
+
         // Strategy Pattern to call correct function for business logic
 
         $team_type = request('team_type');
         
         $strategy = [
 
-            'individual' => new IndividualTeamCreation,
-            'team_feature_branch' => new FeatureBranchTeamCreation,
-            'team_individual' => new TeamCreation,
+            'IndividualTeamCreation' => new IndividualTeamCreation,
+            'FeatureBranchTeamCreation' => new FeatureBranchTeamCreation,
+            'TeamCreation' => new TeamCreation,
         ];
 
         if(! array_key_exists($team_type, $strategy))
