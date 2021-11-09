@@ -30,17 +30,11 @@ Route::get('profile/two-factor', [ProfileSecurityTwoFactorController::class, 'in
  * Project Create
  */
 Route::get('projects', [ProjectController::class, 'index'])->middleware(['auth'])->name('projects.index');
+Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');
 
 /**
  * Project Team Creation
  */
 
-Route::get('projects/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
-Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
-
-
-/**
- * Project Upload
- */
-Route::get('project/upload', [UploadCodeController::class, 'index'])->middleware(['auth'])->name('upload-code.index');
-Route::post('project/upload', [UploadCodeController::class, 'store'])->middleware(['auth'])->name('upload-code.store');
+Route::get('project/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
+Route::post('project/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');

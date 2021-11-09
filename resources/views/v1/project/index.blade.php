@@ -32,12 +32,22 @@
       </tr>
     </thead>
     <tbody class="govuk-table__body">
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">First 6 weeks</th>
-        <td class="govuk-table__cell">£109.80 per week</td>
-        <td class="govuk-table__cell">£109.80 per week</td>
-        <td class="govuk-table__cell">£109.80 per week</td>
-      </tr>
+        
+          @if($project_data)
+
+            @foreach($project_data as $project)
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">{{$project->name}}</th>
+                <td class="govuk-table__cell">{{$project->created_at}}</td>
+                <td class="govuk-table__cell">{{$project->status}}</td>
+                <td class="govuk-table__cell"><a href="{{ route('projects.show',$project->id) }}" target=”_blank”>View More</td>
+              </tr>
+            @endforeach
+          @else
+
+          <h2> No Items in Table </h2>
+          @endif
+          
     </tbody>
   </table>
 

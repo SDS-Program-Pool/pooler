@@ -53,7 +53,16 @@ class ProjectController extends Controller
 
         // Send an email notif to the user to let them know all is okay.
 
-        return view('v1.project.index');
+        return view('v1.project.index'); // with a sucess flashed onto screen??
+
+    }
+
+    public function show(Request $request)
+    {
+
+        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->firstOrFail();
+
+        return view('v1.project.show', compact('project_data'));
 
     }
 
