@@ -22,6 +22,13 @@
     </ol>
 </div>
 
+{{$project_data}}
+
+
+or... e.g
+
+{{$project_data->id}}
+
 <!-- 
 show project name,
 upload date,
