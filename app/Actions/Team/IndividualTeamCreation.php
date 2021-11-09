@@ -29,17 +29,14 @@ class IndividualTeamCreation
         $team->user_id = Auth::id();
         $team->project_id = $project->id;
         $team->is_owner = TRUE;
-
         $team->save();
 
-        // Add Team Members
-
-        // call add member function????
+        // Why is this model here?? for DRY it should be a seperate class/func in the Team dir C.T 09-11-21
 
         $member = new AddMember;
         $member->create($team,$request);
 
-        dd($member);
+        dd('Individual Team Creation');
 
         return($team);
 

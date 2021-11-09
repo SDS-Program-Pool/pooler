@@ -16,6 +16,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
+            $table->longText('name');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Project Owner
             $table->boolean('is_team_individual')->nullable();
             $table->boolean('is_team')->nullable();

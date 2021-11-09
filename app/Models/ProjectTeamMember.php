@@ -4,17 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Uuids;
 
 class ProjectTeamMember extends Model
 {
-    use HasFactory;
+    use Uuids; use HasFactory;
 
-    public function projects()
-    {
-        return $this->hasMany(Project::class);
-    }
-    public function projectTeams()
+    public function team()
     {
         return $this->hasMany(ProjectTeam::class);
     }
+
 }
