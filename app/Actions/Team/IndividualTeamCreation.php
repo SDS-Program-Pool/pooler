@@ -33,9 +33,13 @@ class IndividualTeamCreation
         $member = new AddMember;
         $member->create($team,$request);
 
-        dd('Individual Team Creation');
+        
+        $return = array(
+            'team' => $team,
+            'member' => $member,
+        );
 
-        return($team);
+        return($return);
 
     }
 

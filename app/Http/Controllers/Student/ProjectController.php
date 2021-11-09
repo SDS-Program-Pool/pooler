@@ -39,9 +39,8 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         // Upload Zip
-
-            // Code Upload Function pass the zip to it
-
+        $upload = new Upload;
+        $upload = $upload->upload($request);
 
         // Trigger Project Creation
         $projectStrategy = $this->projectStrategy()->create($request);
@@ -89,6 +88,7 @@ class ProjectController extends Controller
     {
 
         // Do not technically *need* this, but keeping if team creation types ever changes.
+        // Could refactor to upload style...??
 
         $team_type = 'create';
         
