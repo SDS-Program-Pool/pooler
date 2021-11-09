@@ -16,17 +16,13 @@ class AddMember
         // Add a team member
         // add record to DB
         // Verify email if the current user is not equal to the user being added
-
-        
-
-      // dd($team, $request);
-
+  
         $teamMember = new ProjectTeamMember;
 
         $teamMember->project_id = $project->project_id;
         $teamMember->user_id = Auth::id();
         
-       // if($request)
+       // if($request) need the consent if statement here..
         $teamMember->consent = TRUE;
 
         $teamMember->save();

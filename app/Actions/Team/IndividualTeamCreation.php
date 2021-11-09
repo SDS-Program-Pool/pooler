@@ -13,10 +13,7 @@ class IndividualTeamCreation
 {
     public function create(Request $request, $project)
     {
-        // create a team
-        // add team members
-        // could have a seperate file class for team member creation
-
+        
         $validated = $request->validate([
             //'team_type' => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation',
             //'file' => 'required|mimes:tar,zip',
