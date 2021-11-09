@@ -53,7 +53,9 @@ class ProjectController extends Controller
 
         // Send an email notif to the user to let them know all is okay.
 
-        return view('v1.project.index'); // with a sucess flashed onto screen??
+        $project_data = Project::whereUserId(Auth::id())->get();
+
+        return redirect()->route('projects.index')->with('message', 'Project Created!');
 
     }
 

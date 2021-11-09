@@ -19,6 +19,22 @@
     </ol>
   </div>
 
+@if(Session::has('message'))
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      {{ Session::get('message') }}
+    </h3>
+  </div>
+</div>
+
+@endif
 
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Project Dashboard</caption>
@@ -39,7 +55,11 @@
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$project->name}}</th>
                 <td class="govuk-table__cell">{{$project->created_at}}</td>
-                <td class="govuk-table__cell">{{$project->status}}</td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">
+                  Submitted
+                  </strong>
+                </td>
                 <td class="govuk-table__cell"><a href="{{ route('projects.show',$project->id) }}" target=”_blank”>View More</td>
               </tr>
             @endforeach
