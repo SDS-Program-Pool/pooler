@@ -22,8 +22,14 @@
     </ol>
   </div>
 
-                <form method="POST" action="{{ route('projects.store') }}">
+                <form enctype="multipart/form-data" method="POST" action="{{ route('projects.store') }}">
                     @csrf
+
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="project_name">
+                        What is the name of the project?
+                      </label>
+                      <input class="govuk-input" id="project_name" name="project_name" type="text"></div>
 
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -63,10 +69,10 @@
                     </div>
 
                     <div class="govuk-form-group">
-                      <label class="govuk-label" for="file-upload-1">
+                      <label class="govuk-label" for="code-upload">
                         Upload a zip or tar of your code. Max 50MB
                       </label>
-                      <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                      <input class="govuk-file-upload" id="code-upload" name="code-upload" type="file">
                     </div>
 
                   <!--   <details class="govuk-details" data-module="govuk-details">

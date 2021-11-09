@@ -20,4 +20,8 @@ class Project extends Model
     {
         return $this->hasOne(ProjectTeam::class);
     }
+    public function source()
+    {
+        return $this->BelongsTo(ProjectSource::class);
+    }
 }

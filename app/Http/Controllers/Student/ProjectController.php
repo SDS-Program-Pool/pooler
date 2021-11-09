@@ -38,9 +38,6 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        // Upload Zip
-        $upload = new Upload;
-        $upload = $upload->upload($request);
 
         // Trigger Project Creation
         $projectStrategy = $this->projectStrategy()->create($request);
@@ -48,13 +45,15 @@ class ProjectController extends Controller
         // Trigger Team Creation
         $teamStrategy = $this->teamStrategy()->create($request, $projectStrategy);
 
-        // Allocate Zip file to Team
+        // Upload Zip
+        $upload = new Upload;
+        $upload = $upload->upload($request, $projectStrategy);
+
+        // How do we handle this if the upload zip fails?? auto delete project stratgey automagically, let user delete, cron job deletion??
 
         // Send an email notif to the user to let them know all is okay.
 
-        // Return View to user with success or errors.
-
-       // return view('v1.project.index');
+        return view('v1.project.index');
 
     }
 

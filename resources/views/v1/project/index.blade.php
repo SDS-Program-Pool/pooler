@@ -41,16 +41,6 @@
     </tbody>
   </table>
 
-  @foreach($project_data as $project)
 
-                        <tr>
-                            <td>02/02/2002</td>
-                            <td>{{$project->id}}</td>
-                            <td>Test</td>
-                            <td>Value</td>
-                            <td><span class="badge bg-primary">Processing</span></td>
-                        </tr>
-
-                        @endforeach
 
 @endsection

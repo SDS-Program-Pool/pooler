@@ -16,8 +16,11 @@ class CreateProjectSourcesTable extends Migration
         Schema::create('project_sources', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('user_id')->unsigned()->nullable();
+            $table->longText('source');
             $table->uuid('project_id');
             $table->timestamps();
+            $table->foreign('project_id')->references('id')->on('projects')
+            ->onDelete('cascade');
         });
     }
 

@@ -2,33 +2,40 @@
 
 namespace App\Actions\CodeUpload;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
+
+use App\Models\ProjectSource;
+use App\Models\ProjectTeam;
+
 
 class Upload
 {
-    public function upload()
+    public function upload($request, $project)
     {
-        $file_uuid = Str::uuid()->toString();
+        // For Dev purposes this will be set to local. This will be changed for production!!!
 
+        $source = $request->file('code-upload')->store('public');
 
-        Storage::disk('local')->put('example.txt', 'Contents');
+        $store = new ProjectSource;
+        $store->user_id = Auth::id();
+        $store->project_id = $project->id;
+        $store->source = $source;
 
-        dd($file_uuid);
-        dd("Hello upload ");
-        return "Hello";
+        $store->save();
 
-        // Automatically generate a unique ID for filename...
-       // $path = Storage::putFile('photos', new File('/path/to/photo'));
+        return $store;
+
+        // Validate is zip is tar and is size req
+        // Rename and upload to S3
+        // Store name and set to database
 
     }
 
-    private function store()
-    {
-        // Upload to object storage
-    }
 
 }
 
