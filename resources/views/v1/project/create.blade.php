@@ -1,15 +1,27 @@
 @extends('v1.layouts.app')
+@section('title', 'Create Project')
+
+
+@extends('v1.project.menu')
 
 @section('content')
 
-<main>
-    <!-- Page header-->
-    <header class="bg-dark">
-        <div class="container-xl px-5"><h1 class="text-white py-3 mb-0 display-6">Upload My Code</h1></div>
-    </header>
-    <div class="container-xl p-5">
-        <div class="card card-raised">
-            <div class="card-body text-center p-5">
+<h1 class="govuk-heading-xl">Upload Code</h1>
+
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">My Projects</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="{{ route('projects.create') }}">Upload Code</a>
+      </li>
+    </ol>
+  </div>
+
                 <form method="POST" action="{{ route('projects.store') }}">
                     @csrf
                 <div class="mb-3">
@@ -29,9 +41,7 @@
                     Submit
                 </button>
             </form>
-            </div>
-        </div>
-    </div>
-</main>
+           
+
 
 @endsection

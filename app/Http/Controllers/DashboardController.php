@@ -30,6 +30,10 @@ class DashboardController extends Controller
 
         //dd($user->hasRole('student'));
 
+        // for testing purposes only!!
+
+        return view("v1.dashboard.student");
+
         if (Auth::user()->hasRole('student')) {
 
             return view("v1.dashboard.student");
