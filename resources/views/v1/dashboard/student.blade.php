@@ -16,7 +16,7 @@
           </a>
         </li>
         <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="#3">
+          <a class="govuk-header__link" href="{{route('marks.index')}}">
             Mark Work
           </a>
         </li>
