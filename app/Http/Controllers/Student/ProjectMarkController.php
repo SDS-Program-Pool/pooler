@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Student;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProjectMarkAllocation;
@@ -14,6 +15,6 @@ class ProjectMarkController extends Controller
 
         $mark_data = ProjectMarkAllocation::whereUserId(Auth::id())->get();
 
-        return view('mark.index', compact('mark_data'));
+        return view('v1.mark.index', compact('mark_data'));
     }
 }

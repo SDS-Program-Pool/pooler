@@ -14,8 +14,16 @@ class CreateProjectMarksTable extends Migration
     public function up()
     {
         Schema::create('project_marks', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
+            $table->uuid('project_id');
+            $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
+            // All the other Things here??? all the params we want to be confirmed with TW
             $table->timestamps();
+            $table->foreign('project_id')->references('id')->on('projects')
+            ->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('set null');
         });
     }
 
