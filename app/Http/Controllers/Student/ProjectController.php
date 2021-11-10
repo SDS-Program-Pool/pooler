@@ -33,6 +33,7 @@ class ProjectController extends Controller
 
        foreach($project_allocation_data as $data)
        {
+           dump($data);
            $project_alloc_id_array[] = ($data->project_id);
        }
 
@@ -51,16 +52,9 @@ class ProjectController extends Controller
 
         $all_users = User::get('id');
 
-        foreach($diff as $id)
-        {
-            $project_team_members[] = ProjectTeamMember::whereProjectId($id)->get('user_id');
-        }
+        $test = Project::with('team_members')->get();
 
-       // Query Relationship. Project->ProjectTeam->Members
-
-       $test = Project::with('team_members')->get();
-
-       dump($test);
+        dump($test);
     
         
        
