@@ -36,6 +36,18 @@
 
 @endif
 
+@if(!$project_data)
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    You currently have no projects.
+  </strong>
+</div>
+
+@endif
+
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Project Dashboard</caption>
     <thead class="govuk-table__head">

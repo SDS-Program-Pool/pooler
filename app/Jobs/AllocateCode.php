@@ -31,5 +31,11 @@ class AllocateCode implements ShouldQueue
     public function handle()
     {
         //
+
+        // Cross reference Projects to ProjectMarkAllocation
+        // Where no match is found, randomally alloc from array of users excluding those who submitted/in team
+        // allocate
+
+        
     }
 }
