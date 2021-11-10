@@ -15,8 +15,7 @@ use App\Actions\CodeUpload\Upload;
 use App\Models\Project;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
-
-use App\Jobs\AllocateCode;
+use App\Models\ProjectTeamMember;
 
 class ProjectController extends Controller
 {
@@ -26,10 +25,6 @@ class ProjectController extends Controller
 
         $project_data = Project::get('id');
         $project_allocation_data = ProjectMarkAllocation::all('project_id');
-
-      // dump($project_data);
-      // dd($project_allocation_data);
-
     
        foreach($project_data as $data)
        {
@@ -41,23 +36,44 @@ class ProjectController extends Controller
            $project_alloc_id_array[] = ($data->project_id);
        }
 
-       $diff = array_diff($project_id_array, $project_alloc_id_array);
+       $diff = array_diff($project_id_array, $project_alloc_id_array); // Projects that have NOT been allocated i.e not in our ProjectAlloc table
 
-       dd($diff);
-
-       //dump($project_id_array);
-
+       // Time to Allocate
     
+       // find the users who are in team_members who are on this proj.
+       // Search users table to generate array
+       // Remove those working on it from the array
+       // random allocate provided that they have not got more than 3 (weighting system.)
 
-      // dd($project_data->diff($project_allocation_data));
 
-      //  if(empty($project_allocation_data)){ $project_allocation_data = array();}
+       // We know what projects have not been allocated
+       // We need to run a sql query and get all data e.g user_id
 
-        //$diff = array_diff($project_data, $project_allocation_data);
+        $all_users = User::get('id');
 
-       // AllocateCode::dispatch();
+        foreach($diff as $id)
+        {
+            $project_team_members[] = ProjectTeamMember::whereProjectId($id)->get('user_id');
+        }
+
+       // Query Relationship. Project->ProjectTeam->Members
+
+       $test = Project::with('team_members')->get();
+
+       dump($test);
+    
+        
+       
+
+
+
+
 
         
+
+
+
+
 
 
         //$project_data = Project::whereUserId(Auth::id())->get();

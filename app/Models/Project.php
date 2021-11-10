@@ -24,4 +24,9 @@ class Project extends Model
     {
         return $this->BelongsTo(ProjectSource::class);
     }
+
+    public function team_members()
+    {
+        return $this->hasManyThrough(ProjectTeamMember::class, ProjectTeam::class);
+    }
 }

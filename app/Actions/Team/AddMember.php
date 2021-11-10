@@ -10,7 +10,7 @@ use App\Models\ProjectTeamMember;
 
 class AddMember
 {
-    public function create($project, $request)
+    public function create($project_team, $request)
     {
 
         // Add a team member
@@ -19,7 +19,7 @@ class AddMember
   
         $teamMember = new ProjectTeamMember;
 
-        $teamMember->project_id = $project->project_id;
+        $teamMember->project_team_id = $project_team->id;
         $teamMember->user_id = Auth::id();
         
        // if($request) need the consent if statement here..

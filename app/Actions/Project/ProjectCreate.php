@@ -18,6 +18,7 @@ class ProjectCreate
             'team_type' => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation',
             'project_name' => 'required',
             //'file' => 'required|mimes:tar,zip',
+            // 'name'
         ]);
 
         $project = new Project;

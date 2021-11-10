@@ -16,11 +16,11 @@ class CreateProjectTeamMembersTable extends Migration
         Schema::create('project_team_members', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->uuid('project_id');
+            $table->uuid('project_team_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Team Member
             $table->boolean('consent')->nullable();
             $table->timestamps();
-            $table->foreign('project_id')->references('id')->on('projects')
+            $table->foreign('project_team_id')->references('id')->on('project_teams')
             ->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('set null');
