@@ -113,13 +113,14 @@
           </ul>
 
 
-          <span class="govuk-footer__licence-description">
-            Licence
-            <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+          <span class="govuk-footer__misc-description">
+            <p> This page took {{ round(microtime(true) - LARAVEL_START, 3) }} seconds to render</p>
+            <p> This system is hosted on the Cyber Security Centre infrastructure.</p>
           </span>
+          
         </div>
         <div class="govuk-footer__meta-item">
-          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© WMG</a>
+          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">Copyright © WMG CSC Internal</a>
         </div>
       </div>
     </div>

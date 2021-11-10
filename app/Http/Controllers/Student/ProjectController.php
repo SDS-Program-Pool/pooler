@@ -13,19 +13,58 @@ use App\Actions\Project\ProjectCreate;
 use App\Actions\CodeUpload\Upload;
 
 use App\Models\Project;
+use App\Models\ProjectMarkAllocation;
 use App\Models\User;
 
+use App\Jobs\AllocateCode;
 
 class ProjectController extends Controller
 {
     public function index()
     {
 
-        $project_data = Project::whereUserId(Auth::id())->get();
+
+        $project_data = Project::get('id');
+        $project_allocation_data = ProjectMarkAllocation::all('project_id');
+
+      // dump($project_data);
+      // dd($project_allocation_data);
+
+    
+       foreach($project_data as $data)
+       {
+           $project_id_array[] = ($data->id);
+       }
+
+       foreach($project_allocation_data as $data)
+       {
+           $project_alloc_id_array[] = ($data->project_id);
+       }
+
+       $diff = array_diff($project_id_array, $project_alloc_id_array);
+
+       dd($diff);
+
+       //dump($project_id_array);
+
+    
+
+      // dd($project_data->diff($project_allocation_data));
+
+      //  if(empty($project_allocation_data)){ $project_allocation_data = array();}
+
+        //$diff = array_diff($project_data, $project_allocation_data);
+
+       // AllocateCode::dispatch();
+
+        
+
+
+        //$project_data = Project::whereUserId(Auth::id())->get();
 
         // tldr need to setup some more relations to get more project data
 
-        return view('v1.project.index', compact('project_data'));
+        //return view('v1.project.index', compact('project_data'));
 
     }
 
@@ -52,6 +91,9 @@ class ProjectController extends Controller
         // How do we handle this if the upload zip fails?? auto delete project stratgey automagically, let user delete, cron job deletion??
 
         // Send an email notif to the user to let them know all is okay.
+
+        // Allocate Code
+
 
         $project_data = Project::whereUserId(Auth::id())->get();
 
