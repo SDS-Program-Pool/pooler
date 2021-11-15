@@ -22,12 +22,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-
-       // $test = new Allocation;
-       // $test = $test->first_allocation();
-
-       // dd($test);
-
+    
         $project_data = Project::whereUserId(Auth::id())->get();
 
         // tldr need to setup some more relations to get more project data
@@ -58,9 +53,11 @@ class ProjectController extends Controller
 
         // How do we handle this if the upload zip fails?? auto delete project stratgey automagically, let user delete, cron job deletion??
 
-        // Send an email notif to the user to let them know all is okay.
+        // Send an email notif to the user to let them know all is okay
 
         // Allocate Code
+        $allocate = new Allocation;
+        $allocate = $allocate->first_allocation($projectStrategy,$teamStrategy);
 
 
         $project_data = Project::whereUserId(Auth::id())->get();

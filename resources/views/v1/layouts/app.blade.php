@@ -114,6 +114,10 @@
 
 
           <span class="govuk-footer__misc-description">
+            @if (Auth::check())
+              <p> You are logged in as {{Auth::user()->username}} </p>
+            @endif
+
             <p> This page took {{ round(microtime(true) - LARAVEL_START, 3) }} seconds to render</p>
             <p> This system is hosted on the Cyber Security Centre infrastructure.</p>
           </span>

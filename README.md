@@ -14,3 +14,4 @@
 - 2FA
 - CSV Upload
 - KTI (Keep Tim Informed) aka staff dashboard
+- LDAP auth to CSC

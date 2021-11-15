@@ -21,13 +21,29 @@ use App\Models\ProjectTeamMember;
 class Allocation
 {
 
-    public function first_allocation()
+    public function first_allocation($projectStrategy,$teamStrategy)
     {
-        // Allocate
-        // 
+
+        $team_members = $this->team_members($projectStrategy->id);
+
+        $test = User::whereNotIn('id',['3'])->get();
+
+        dd($test);
+
+        
 
 
     
+    }
+
+    /**
+     * Return a collection of users who are working on an individual team project
+     */
+    private function team_members($project_id)
+    {
+
+        return Project::with('team_members')->whereId($project_id)->get();
+        
     }
 
 }
