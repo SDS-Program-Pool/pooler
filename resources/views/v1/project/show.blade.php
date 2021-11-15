@@ -29,22 +29,22 @@
   </h2>
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#past-day">
+      <a class="govuk-tabs__tab" href="#overview">
         Overview
       </a>
     </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-week">
+      <a class="govuk-tabs__tab" href="#mark">
         Mark
       </a>
     </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-month">
+      <a class="govuk-tabs__tab" href="#mark-review">
         Mark Review
       </a>
     </li>
   </ul>
-  <div class="govuk-tabs__panel" id="past-day">
+  <div class="govuk-tabs__panel" id="overview">
     <h2 class="govuk-heading-l">Overview</h2>
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -74,7 +74,7 @@
     </table>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -104,7 +104,7 @@
     </table>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
     <table class="govuk-table">
       <thead class="govuk-table__head">
