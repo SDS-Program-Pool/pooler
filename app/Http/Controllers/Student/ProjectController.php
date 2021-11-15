@@ -23,16 +23,16 @@ class ProjectController extends Controller
     public function index()
     {
 
-        $test = new Allocation;
-        $test = $test->first_allocation();
+       // $test = new Allocation;
+       // $test = $test->first_allocation();
 
-        dd($test);
+       // dd($test);
 
-        //$project_data = Project::whereUserId(Auth::id())->get();
+        $project_data = Project::whereUserId(Auth::id())->get();
 
         // tldr need to setup some more relations to get more project data
 
-        //return view('v1.project.index', compact('project_data'));
+        return view('v1.project.index', compact('project_data'));
 
     }
 
