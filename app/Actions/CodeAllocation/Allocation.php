@@ -26,7 +26,7 @@ class Allocation
 
         $team_members = $this->team_members($projectStrategy->id);
 
-        $test = User::whereNotIn('id',['3'])->get();
+        $test = User::whereNotIn('id',$team_members)->get();
 
         dd($test);
 
@@ -42,7 +42,19 @@ class Allocation
     private function team_members($project_id)
     {
 
-        return Project::with('team_members')->whereId($project_id)->get();
+        $projects =  Project::with('team_members')->whereId($project_id)->get();
+
+        foreach($projects as $project)
+        {
+            foreach($project->team_members as $user)
+            {
+                $user_id = array($user->user_id);
+            }
+
+        }
+
+        return $user_id;
+
         
     }
 
