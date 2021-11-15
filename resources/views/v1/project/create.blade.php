@@ -43,7 +43,7 @@
                               Individual
                             </label>
                             <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-                              If all your commits are from you, selet this.
+                              If all your commits are from you, select this.
                             </div>
                           </div>
                           <div class="govuk-radios__item">
