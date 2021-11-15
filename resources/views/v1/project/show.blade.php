@@ -8,7 +8,7 @@
 
 <h1 class="govuk-heading-xl">Project - {{ $project_data->name }}</h1>
 
-<div class="govuk-breadcrumbs">
+<div class="govuk-breadcrumbs govuk-!-padding-bottom-4">
     <ol class="govuk-breadcrumbs__list">
       <li class="govuk-breadcrumbs__list-item">
         <a class="govuk-breadcrumbs__link" href="/">Home</a>
