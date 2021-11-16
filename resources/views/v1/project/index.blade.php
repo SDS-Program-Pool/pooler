@@ -30,13 +30,7 @@
   <div class="govuk-notification-banner__content">
     <h3 class="govuk-notification-banner__heading">
       {{ Session::get('message') }}
-    </h3>
-  </div>
-</div>
-
-@endif
-
-@if(!$project_data)
+    </h3>but
 
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -82,6 +76,9 @@
           
     </tbody>
   </table>
+  <a href="{{ route('projects.create') }}" class="govuk-button" data-module="govuk-button">
+    Upload code
+  </a>
 
 
 

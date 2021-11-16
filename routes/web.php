@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileSecurityTwoFactorController;
 use App\Http\Controllers\Student\ProjectController;
 use App\Http\Controllers\Student\ProjectMarkController;
-
+use App\Http\Controllers\Student\SettingController;
 
 /**
  * Dashboard
@@ -41,3 +41,9 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
 Route::get('mark', [ProjectMarkController::class, 'index'])->middleware(['auth'])->name('marks.index');
 Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marks.store');
 Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marks.show');
+
+/**
+ * Settings
+ */
+
+Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');

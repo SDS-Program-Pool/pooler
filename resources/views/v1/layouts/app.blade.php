@@ -62,7 +62,7 @@
       alpha
     </strong>
         <span class="govuk-phase-banner__text">
-          This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+          This is a new service – your <a class="govuk-link" href="https://github.com/SDS-Program-Pool/pooler/issues" target="_blank">feedback</a> will help us to improve it.
         </span>
       </p>
     </div>
