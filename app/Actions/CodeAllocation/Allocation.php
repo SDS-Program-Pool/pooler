@@ -21,15 +21,40 @@ use App\Models\ProjectTeamMember;
 class Allocation
 {
 
+    /**
+     * Get Team Members via team_members private function 
+     * Get ALL users through users private function
+     * Find all users where not in the project
+     * Generate array of users IDs via foreach loop (more efficient way to do this)
+     * Store Record into DB
+     */
     public function first_allocation($projectStrategy,$teamStrategy)
     {
 
         $team_members = $this->team_members($projectStrategy->id);
 
-        $test = User::whereNotIn('id',$team_members)->get();
+        $users = User::whereNotIn('id',$team_members)->get();
 
-        dd($test);
+        foreach($users as $user){
 
+            $users_array[] = $user->id;
+
+        }
+
+
+        // Generate the array keys of 3 random markers
+        $markers_array = array_rand($users_array,3);
+
+        // Generate the user ID's of those based on the array keys from above
+        
+
+        foreach($markers_array as $markers_array)
+        {
+            print_r($users_array[$markers_array]);
+
+        }
+
+        //$new_marker = new Projectmarker
         
 
 
