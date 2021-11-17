@@ -19,18 +19,22 @@
     </ol>
   </div>
 
-@if(Session::has('message'))
+  @if(Session::has('message'))
 
-<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Success
-    </h2>
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        {{ Session::get('message') }}
+      </h3>
+    </div>
   </div>
-  <div class="govuk-notification-banner__content">
-    <h3 class="govuk-notification-banner__heading">
-      {{ Session::get('message') }}
-    </h3>but
+  
+  @endif
 
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -40,7 +44,6 @@
   </strong>
 </div>
 
-@endif
 
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Project Dashboard</caption>
