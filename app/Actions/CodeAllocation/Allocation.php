@@ -6,12 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Actions\Team\IndividualTeamCreation;
-use App\Actions\Team\FeatureBranchTeamCreation;
-use App\Actions\Team\TeamCreation;
-use App\Actions\Project\ProjectCreate;
-use App\Actions\CodeUpload\Upload;
-
 use App\Models\Project;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
@@ -27,6 +21,7 @@ class Allocation
      * Find all users where not in the project
      * Generate array of users IDs via foreach loop (more efficient way to do this)
      * Store Record into DB
+     * A re allocate function would need to check the markers table as well... todo.
      */
     public function first_allocation($projectStrategy,$teamStrategy)
     {
@@ -50,11 +45,18 @@ class Allocation
 
         foreach($markers_array as $markers_array)
         {
-            print_r($users_array[$markers_array]);
+            $project_mark_allocation = new ProjectMarkAllocation;
+
+            $project_mark_allocation->project_id = $projectStrategy->id;
+            $project_mark_allocation->user_id = $users_array[$markers_array];
+
+            $project_mark_allocation->save();
+
+            // send an email as well to the person
+
 
         }
 
-        //$new_marker = new Projectmarker
         
 
 
@@ -73,13 +75,11 @@ class Allocation
         {
             foreach($project->team_members as $user)
             {
-                $user_id = array($user->user_id);
+                $user_id_array = array($user->user_id);
             }
-
         }
 
-        return $user_id;
-
+        return $user_id_array;
         
     }
 
