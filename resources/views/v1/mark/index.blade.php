@@ -41,7 +41,7 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header">Allocation Time</th>
+        <th scope="col" class="govuk-table__header">Allocated At</th>
         <th scope="col" class="govuk-table__header">Time Remaining</th>
         <th scope="col" class="govuk-table__header">Status</th>
         <th scope="col" class="govuk-table__header">View More</th>
@@ -54,14 +54,15 @@
 
             @foreach($mark_data as $mark_data)
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{$project->name}}</th>
-                <td class="govuk-table__cell">{{$project->created_at}}</td>
+                <th scope="row" class="govuk-table__header">{{$mark_data->name}}</th>
+                <td class="govuk-table__cell">{{$mark_data->created_at}}</td>
+                <td class="govuk-table__cell">{{$mark_data->created_at}}</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
                   Submitted
                   </strong>
                 </td>
-                <td class="govuk-table__cell"><a href="{{ route('projects.show',$project->id) }}" target=”_blank”>View More</td>
+                <td class="govuk-table__cell"><a href="{{ route('projects.show',$mark_data->id) }}" target=”_blank”>View More</td>
               </tr>
             @endforeach
           @else

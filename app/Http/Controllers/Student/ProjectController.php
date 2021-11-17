@@ -53,14 +53,11 @@ class ProjectController extends Controller
 
         // How do we handle this if the upload zip fails?? auto delete project stratgey automagically, let user delete, cron job deletion??
 
-        // Send an email notif to the user to let them know all is okay
-
         // Allocate Code
         $allocate = new Allocation;
         $allocate = $allocate->first_allocation($projectStrategy,$teamStrategy);
 
-
-        $project_data = Project::whereUserId(Auth::id())->get();
+        // Send an email notif to the user to let them know all is okay
 
         return redirect()->route('projects.index')->with('message', 'Project Created!');
 

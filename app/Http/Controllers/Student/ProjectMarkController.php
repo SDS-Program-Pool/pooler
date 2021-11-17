@@ -15,6 +15,8 @@ class ProjectMarkController extends Controller
 
         $mark_data = ProjectMarkAllocation::whereUserId(Auth::id())->get();
 
+        dd($mark_data);
+
         return view('v1.mark.index', compact('mark_data'));
     }
 }
