@@ -86,7 +86,7 @@
           <h2 class="govuk-visually-hidden">Support links</h2>
           <ul class="govuk-footer__inline-list">
             <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#1">
+              <a class="govuk-footer__link" href="mailto:contact@program-pool.co.uk">
                 Help
               </a>
             </li>
@@ -96,7 +96,7 @@
               </a>
             </li>
             <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#3">
+              <a class="govuk-footer__link" href="mailto:contact@program-pool.co.uk">
                 Contact
               </a>
             </li>

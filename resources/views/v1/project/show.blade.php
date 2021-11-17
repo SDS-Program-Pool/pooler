@@ -102,7 +102,7 @@
 
   </div>
   <!--  ADD BACK --hidden flag after __panel on each relavent div.  -->
-  <div class="govuk-tabs__panel govuk-tabs__panel" id="mark">
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
@@ -135,7 +135,7 @@
     </dl>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
