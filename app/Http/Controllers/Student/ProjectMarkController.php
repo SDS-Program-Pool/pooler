@@ -15,8 +15,6 @@ class ProjectMarkController extends Controller
     {
         $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
 
-        dd($marking_array);
-
         return view('v1.mark.show', compact('marking_array'));
         
     }

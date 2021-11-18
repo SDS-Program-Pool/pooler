@@ -37,6 +37,20 @@
   @endif
 
 
+  <!-- 
+
+    - Download Link To Project
+    - Accept/Reject Code
+      - Accept
+        - If Accepted, show accept time but also allow rejection
+      - Reject
+        - Redirect to Tasks and Flash successful reject
+        - Store in DB that they rejected it. 
+    - If continue is pressed 
+
+
+  -->
+
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Marking Dashboard</caption>
     <thead class="govuk-table__head">
