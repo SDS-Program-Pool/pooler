@@ -6,17 +6,23 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProjectMarkAllocation;
+use App\Models\Project;
 
 
 class ProjectMarkController extends Controller
 {
-    public function index()
+    public function show(Request $request)
+    {
+        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
+
+        dd($marking_array);
+
+        return view('v1.mark.show', compact('marking_array'));
+        
+    }
+
+    public function store(Request $request)
     {
 
-        $mark_data = ProjectMarkAllocation::whereUserId(Auth::id())->get();
-
-        dd($mark_data);
-
-        return view('v1.mark.index', compact('mark_data'));
     }
 }

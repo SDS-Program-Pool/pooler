@@ -45,7 +45,6 @@
         <th scope="col" class="govuk-table__header">Time Remaining</th>
         <th scope="col" class="govuk-table__header">Status</th>
         <th scope="col" class="govuk-table__header">View More</th>
-
       </tr>
     </thead>
     <tbody class="govuk-table__body">

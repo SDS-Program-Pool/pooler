@@ -39,6 +39,9 @@ class Allocation
 
         // Generate the array keys of 3 random markers
         $markers_array = array_rand($users_array,3);
+        // requires an if statement to check if users array contains data and to do array rand.
+        // else just return a warning that the code could not be allocated...??? 
+        
 
         // Generate the user ID's of those based on the array keys from above
         

@@ -22,7 +22,7 @@ class Project extends Model
     }
     public function source()
     {
-        return $this->BelongsTo(ProjectSource::class);
+        return $this->hasOne(ProjectSource::class,'project_id');
     }
 
     public function team_members()

@@ -5,8 +5,8 @@
     <nav>
       <ul id="navigation" class="govuk-header__navigation " aria-label="Navigation menu">
         <li class="govuk-header__navigation-item govuk-header__navigation-item">
-          <a class="govuk-header__link" href="{{route('marks.index')}}">
-            My Tasks
+          <a class="govuk-header__link" href="{{route('tasks.index')}}">
+            Tasks
           </a>
         </li>
       </ul>
