@@ -40,7 +40,7 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
 /** 
  * Project Mark
  */
-Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
+Route::post('project/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
 Route::post('project/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
 
 Route::get('project/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
