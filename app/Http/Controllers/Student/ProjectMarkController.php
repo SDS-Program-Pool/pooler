@@ -36,7 +36,26 @@ class ProjectMarkController extends Controller
             'take_project' => 'required|boolean',
         ]);
 
-        
+        if($request->take_project === 1)
+        {
+            // Project taken (YES they'll mark it)
+            $ProjectMarkAllocation = ProjectMarkAllocation::whereId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+            $ProjectMarkAllocation->taken_by_user = TRUE;
+            $ProjectMarkAllocation->save();
+
+            return route('marking.mark',$request->route('id'));
+
+
+        }
+        elseif($request->take_project === 0)
+        {
+            // Project rejected
+            $ProjectMarkAllocation = ProjectMarkAllocation::whereId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+            $ProjectMarkAllocation->taken_by_user = FALSE;
+            $ProjectMarkAllocation->save();
+        }
+
+
     
 
     }

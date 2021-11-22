@@ -41,9 +41,10 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
  * Project Mark
  */
 Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
-Route::post('mark/{id}/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
+Route::post('project/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
 
-Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
+Route::get('project/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
+Route::get('project/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
 
 /**
  * Project Download

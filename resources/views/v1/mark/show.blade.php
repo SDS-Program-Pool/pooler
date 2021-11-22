@@ -65,7 +65,7 @@
       </legend>
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="take_project" name="take_project" type="radio" value="TRUE">
+          <input class="govuk-radios__input" id="take_project" name="take_project" type="radio" value="1">
           <label class="govuk-label govuk-radios__label" for="take_project">
             Yes
           </label>
@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="take_project-2" name="take_project" type="radio" value="FALSE">
+          <input class="govuk-radios__input" id="take_project-2" name="take_project" type="radio" value="0">
           <label class="govuk-label govuk-radios__label" for="take_project-2">
             No
           </label>
