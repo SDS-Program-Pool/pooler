@@ -29,4 +29,10 @@ class Project extends Model
     {
         return $this->hasManyThrough(ProjectTeamMember::class, ProjectTeam::class);
     }
+
+    public function mark_allocations()
+    {
+        return $this->hasMany(ProjectMarkAllocation::class);
+      
+    }
 }

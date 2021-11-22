@@ -40,8 +40,8 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
 /** 
  * Project Mark
  */
-Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marks.store');
-Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marks.show');
+Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
+Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
 
 /**
  * Project Download

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Actions\Team\IndividualTeamCreation;
 use App\Actions\Team\FeatureBranchTeamCreation;
@@ -69,7 +71,7 @@ class ProjectController extends Controller
     public function show(Request $request)
     {
 
-        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->firstOrFail();
+        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->with('source')->firstOrFail();
 
         return view('v1.project.show', compact('project_data'));
 

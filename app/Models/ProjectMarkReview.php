@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectMarkReview extends Model
 {
     use HasFactory;
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+      
+    }
 }

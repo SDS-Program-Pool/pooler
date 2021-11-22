@@ -41,6 +41,7 @@ class Allocation
         $markers_array = array_rand($users_array,3);
         // requires an if statement to check if users array contains data and to do array rand.
         // else just return a warning that the code could not be allocated...??? 
+        // where someone can say yes/no
         
 
         // Generate the user ID's of those based on the array keys from above

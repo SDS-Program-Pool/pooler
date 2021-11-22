@@ -13,8 +13,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $marking_array = ProjectMarkAllocation::whereUserId(Auth::id())->get();
-
+        $marking_array = ProjectMarkAllocation::whereUserId(Auth::id())->with('project')->get();
+        
         return view('v1.task.student.index', compact('marking_array'));
     }
 }

@@ -12,7 +12,7 @@ class DownloadController extends Controller
     public function getDownload(Request $request)
     {
         
-        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->with('source')->firstOrFail();
+        $project_data = Project::whereId($request->route('id'))->with('source')->firstOrFail();
 
         return Storage::download($project_data->source->source);
 

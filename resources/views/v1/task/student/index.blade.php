@@ -42,8 +42,8 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header">Allocation Date</th>
-        <th scope="col" class="govuk-table__header">Marking Due Date</th>
+        <th scope="col" class="govuk-table__header">Dates</th>
+        <th scope="col" class="govuk-table__header">Status</th>
         <th scope="col" class="govuk-table__header">Mark Work</th>
       </tr>
     </thead>
@@ -53,14 +53,14 @@
 
             @foreach($marking_array as $marking)
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{$marking->name}}</th>
-                <td class="govuk-table__cell">{{$marking->created_at}}</td>
+                <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
+                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}} Due @ $date</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
-                  Submitted
+                  Ready to Mark
                   </strong>
                 </td>
-                <td class="govuk-table__cell"><a href="{{ route('projects.show',$marking->id) }}" target=”_blank”>View More</td>
+                <td class="govuk-table__cell"><a href="{{ route('marking.show',$marking->project->id) }}" target=”_blank”>View More</td>
               </tr>
             @endforeach
           @else
@@ -86,25 +86,7 @@
     </thead>
     <tbody class="govuk-table__body">
         
-          @if($marking_array)
-
-            @foreach($marking_array as $marking)
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{$marking->name}}</th>
-                <td class="govuk-table__cell">{{$marking->created_at}}</td>
-                <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-tag--blue">
-                  Submitted
-                  </strong>
-                </td>
-                <td class="govuk-table__cell"><a href="{{ route('projects.show',$marking->id) }}" target=”_blank”>View More</td>
-              </tr>
-            @endforeach
-          @else
-
-          <h2> No Items in Table </h2>
-          @endif
-          
+        
     </tbody>
   </table>
 

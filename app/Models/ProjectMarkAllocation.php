@@ -10,5 +10,9 @@ class ProjectMarkAllocation extends Model
 {
     use Uuids; use HasFactory;
 
-    // needs relation to project mark
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+      
+    }
 }
