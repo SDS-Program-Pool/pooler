@@ -79,10 +79,10 @@
           File
         </dt>
         <dd class="govuk-summary-list__value">
-          test.zip
+          {{$project_data->source->source}}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="{{ route('downloads.index', $project_data->id) }}">
             Download<span class="govuk-visually-hidden"> file</span>
           </a>
         </dd>

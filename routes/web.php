@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileSecurityTwoFactorController;
 use App\Http\Controllers\Student\ProjectController;
@@ -39,9 +40,15 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
 /** 
  * Project Mark
  */
-
 Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marks.store');
 Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marks.show');
+
+/**
+ * Project Download
+ */
+Route::get('download/{id}', [DownloadController::class, 'getDownload'])->middleware(['auth'])->name('downloads.index');
+
+ 
 
 /**
  * Tasks
