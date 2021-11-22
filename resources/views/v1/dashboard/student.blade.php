@@ -30,6 +30,123 @@
 
 @section('content')
 
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Notification
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      You have progress on one of your projects.
+      <a class="govuk-notification-banner__link" href="#">View progress</a>.
+    </p>
+  </div>
+</div>
+<!--<div class="govuk-form-group">
+  <label class="govuk-label" for="one-half">
+    Search
+  </label>
+  <input class="govuk-input govuk-!-width-one-half" id="one-half" name="one-half" type="text">
+</div>-->
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="{{ route('dashboard.index') }}">Home</a>
+    </li>
+  </ol>
+</div>
+
+<h1 class="govuk-heading-l">
+  Welcome back to the Program Pool, {{Auth::user()->username}}
+</h1>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Submitted Projects
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Amount of projects done here...
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        View Projects<span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Marked Projects
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Amount of marked projects you've marked here...
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        View Tasks<span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Account Information
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ Auth::user()->username }}<br>Date Enrolled: account_creation_date<br>SE23 6FH
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact information</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Contact details
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">07700 900457</p>
+      <p class="govuk-body">sarah.phillips@example.com</p>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact details</span>
+      </a>
+    </dd>
+  </div>
+</dl>
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Mark History</h1>
+        <p class="govuk-body">View your average mark here.</p>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">To-do list</h2>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="#">Something you have to do here...</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Something you have to do here...</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Something you have to do here...</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">Something you have to do here...</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
 
 <!-- If user is student render the student dashboard etc etc.-->
 
