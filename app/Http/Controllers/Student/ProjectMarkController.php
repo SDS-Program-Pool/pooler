@@ -19,6 +19,28 @@ class ProjectMarkController extends Controller
         
     }
 
+    public function mark(Request $request)
+    {
+
+        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
+
+        return view('v1.mark.mark', compact('marking_array'));
+
+  
+    }
+
+    public function acceptOrReject(Request $request)
+    {
+
+        $validated = $request->validate([
+            'take_project' => 'required|boolean',
+        ]);
+
+        
+    
+
+    }
+
     public function store(Request $request)
     {
 

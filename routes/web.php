@@ -41,6 +41,8 @@ Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['aut
  * Project Mark
  */
 Route::post('mark/{id}', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
+Route::post('mark/{id}/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
+
 Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
 
 /**
@@ -48,7 +50,7 @@ Route::get('mark/{id}', [ProjectMarkController::class, 'show'])->middleware(['au
  */
 Route::get('download/{id}', [DownloadController::class, 'getDownload'])->middleware(['auth'])->name('downloads.index');
 
- 
+
 
 /**
  * Tasks
