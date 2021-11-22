@@ -93,27 +93,9 @@
       Account Information
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ Auth::user()->username }}<br>Date Enrolled: account_creation_date<br>SE23 6FH
+      {{ Auth::user()->username }}
     </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> contact information</span>
-      </a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Contact details
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">07700 900457</p>
-      <p class="govuk-body">sarah.phillips@example.com</p>
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> contact details</span>
-      </a>
-    </dd>
+    <dd class="govuk-summary-list__actions"></dd>
   </div>
 </dl>
 <div class="govuk-width-container">
@@ -144,6 +126,19 @@
         </ul>
       </div>
     </div>
+    <div class="govuk-form-group govuk-!-padding-top-3">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="more-detail">
+          Custom Notes
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Do not include personal or financial information, like your National Insurance number or credit card details.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+    <button class="govuk-button" data-module="govuk-button">
+      Save
+    </button>
 
   </main>
 </div>
