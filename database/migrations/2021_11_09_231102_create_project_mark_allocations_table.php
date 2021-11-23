@@ -20,6 +20,7 @@ class CreateProjectMarkAllocationsTable extends Migration
             $table->BigInteger('user_id')->unsigned()->nullable(); // Project Member
             $table->boolean('taken_by_user')->nullable();
             $table->boolean('notified')->nullable();
+            $table->boolean('marked')->nullable();
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')
             ->onDelete('cascade');

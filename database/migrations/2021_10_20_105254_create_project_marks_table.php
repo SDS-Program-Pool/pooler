@@ -18,7 +18,8 @@ class CreateProjectMarksTable extends Migration
             $table->primary('id');
             $table->uuid('project_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
-            // All the other Things here??? all the params we want to be confirmed with TW
+            $table->string('mark_percentage');
+            $table->longText('qualitative_feedback');
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')
             ->onDelete('cascade');

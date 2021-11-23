@@ -36,32 +36,39 @@ class ProjectMarkController extends Controller
             'take_project' => 'required|boolean',
         ]);
 
-        if($request->take_project === 1)
+        if($request->take_project == TRUE)
         {
             // Project taken (YES they'll mark it)
-            $ProjectMarkAllocation = ProjectMarkAllocation::whereId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+            $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::id())->firstOrFail();
             $ProjectMarkAllocation->taken_by_user = TRUE;
             $ProjectMarkAllocation->save();
 
-            return route('marking.mark',$request->route('id'));
+            return redirect()->route('marking.mark',$request->route('id'));
 
 
         }
-        elseif($request->take_project === 0)
+        elseif($request->take_project == FALSE)
         {
             // Project rejected
-            $ProjectMarkAllocation = ProjectMarkAllocation::whereId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+            $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
             $ProjectMarkAllocation->taken_by_user = FALSE;
             $ProjectMarkAllocation->save();
+
+            return redirect()->route('tasks.index')->with('message', 'Project Rejected!');
+
         }
-
-
+        return redirect()->route('tasks.index')->with('message', 'How have you got here!');
     
 
     }
 
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'mark' => 'required|numeric',
+            'qualfeedback' => 'required',
+        ]);
 
     }
 }

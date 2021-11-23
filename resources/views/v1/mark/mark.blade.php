@@ -57,8 +57,35 @@
 @endif 
 <!-- ID please fix this to make it pretty ^^-->
 
-<form method="POST" action="{{ route('marking.store') }}">
-    @csrf
+
+    <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+            What is the mark of this project?
+          </label>
+        </h1>
+        <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Help with marking
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              Insert some grade disctrpitors here.
+            </div>
+          </details>
+        <input class="govuk-input govuk-input--width-2" id="mark" name="mark" type="number">
+      </div>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="qualfeedback">
+            Can you provide any more feedback?
+          </label>
+        </h1>
+        <div id="qualfeedback-hint" class="govuk-hint">
+          Including things such as where the $user went right or wrong. Markdown is supported.
+        </div>
+        <textarea class="govuk-textarea" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
+      </div>
 
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Save and continue
