@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProjectMarkAllocation;
+use App\Models\ProjectMark;
 use App\Models\Project;
 
 
@@ -67,8 +68,18 @@ class ProjectMarkController extends Controller
 
         $validated = $request->validate([
             'mark' => 'required|numeric',
-            'qualfeedback' => 'required',
+            'qualfeedback' => 'required|min:3|max:500',
         ]);
+
+        $mark = new ProjectMark;
+        $mark->project_id = $request->route('id');
+        $mark->user_id = Auth::user()->id;
+        $mark->mark_percentage = $request->mark;
+        $mark->qualitative_feedback = $request->qualfeedback;
+        $mark->save();
+
+        return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');
+
 
     }
 }

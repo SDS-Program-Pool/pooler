@@ -45,7 +45,7 @@ class ProjectController extends Controller
 
         // Trigger Project Creation
         $projectStrategy = $this->projectStrategy()->create($request);
-        $projectStrategy->setStatus('Created');
+        //$projectStrategy->setStatus('Created');
             
         // Trigger Team Creation
         $teamStrategy = $this->teamStrategy()->create($request, $projectStrategy);
