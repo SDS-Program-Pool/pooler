@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileSecurityTwoFactorController;
 use App\Http\Controllers\Student\ProjectController;
 use App\Http\Controllers\Student\ProjectMarkController;
+use App\Http\Controllers\Student\ProjectMarkReviewController;
 use App\Http\Controllers\Student\SettingController;
 use App\Http\Controllers\Student\TaskController;
 
@@ -45,6 +46,12 @@ Route::post('project/{id}/mark/take', [ProjectMarkController::class, 'acceptOrRe
 
 Route::get('project/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
 Route::get('project/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
+
+/**
+ * Project Mark Review
+ */
+Route::post('project/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
+Route::get('project/{id}/review', [ProjectMarkReviewController::class, 'index'])->middleware(['auth'])->name('marking_review.mark');
 
 /**
  * Project Download
