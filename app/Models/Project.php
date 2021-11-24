@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Traits\Uuids;
 
+use Spatie\ModelStatus\HasStatuses;
+
 class Project extends Model
 {
-    use Uuids; use HasFactory; 
+    use Uuids; use HasFactory; use HasStatuses;
 
     public function user()
     {

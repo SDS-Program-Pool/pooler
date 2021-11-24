@@ -30,10 +30,18 @@ class Allocation
 
         $users = User::whereNotIn('id',$team_members)->get();
 
-        foreach($users as $user){
+        foreach($users as $user)
+        {
 
             $users_array[] = $user->id;
 
+        }
+
+        if(sizeOf($users_array) < 3)
+        {
+            // log unavail to allocate the project, manual allocation required. 
+            return redirect()->route('projects.index')->with('message', 'Unable to allocate project to a marker');
+            
         }
 
 
@@ -62,10 +70,14 @@ class Allocation
         }
 
         
+
+        
         // need a return statement for success or fail codes???
 
     
     }
+
+    public function re_allocate(){}
 
     /**
      * Return a collection of users who are working on an individual team project
