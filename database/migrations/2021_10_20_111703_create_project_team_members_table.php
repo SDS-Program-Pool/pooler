@@ -14,9 +14,8 @@ class CreateProjectTeamMembersTable extends Migration
     public function up()
     {
         Schema::create('project_team_members', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
-            $table->uuid('project_team_id');
+            $table->bigIncrements('id');
+            $table->foreignId('project_team_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Team Member
             $table->boolean('consent')->nullable();
             $table->timestamps();

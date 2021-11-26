@@ -14,9 +14,8 @@ class CreateProjectMarkReviewAllocationsTable extends Migration
     public function up()
     {
         Schema::create('project_mark_review_allocations', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
-            $table->uuid('project_id');
+            $table->bigIncrements('id');
+            $table->foreignId('project_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Project Member
             $table->boolean('notified')->nullable();
             $table->boolean('marked')->nullable();

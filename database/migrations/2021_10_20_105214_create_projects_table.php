@@ -14,7 +14,7 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->unsignedBigInteger('id')->unique();
             $table->primary('id');
             $table->longText('name');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Project Owner

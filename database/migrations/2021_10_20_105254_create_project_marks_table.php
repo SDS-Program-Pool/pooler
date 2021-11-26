@@ -14,9 +14,8 @@ class CreateProjectMarksTable extends Migration
     public function up()
     {
         Schema::create('project_marks', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
-            $table->uuid('project_id');
+            $table->bigIncrements('id');
+            $table->foreignId('project_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
             $table->string('mark_percentage');
             $table->longText('qualitative_feedback');
