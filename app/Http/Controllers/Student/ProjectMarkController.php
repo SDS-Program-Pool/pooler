@@ -44,6 +44,8 @@ class ProjectMarkController extends Controller
             $ProjectMarkAllocation->taken_by_user = TRUE;
             $ProjectMarkAllocation->save();
 
+            $ProjectMarkAllocation->project->setStatus('Project Taken for Marking');
+
             return redirect()->route('marking.mark',$request->route('id'));
 
 
@@ -54,6 +56,8 @@ class ProjectMarkController extends Controller
             $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
             $ProjectMarkAllocation->taken_by_user = FALSE;
             $ProjectMarkAllocation->save();
+
+            $ProjectMarkAllocation->project->setStatus('Project rejected for Marking by a marker');
 
             return redirect()->route('tasks.index')->with('message', 'Project Rejected!');
 
@@ -77,6 +81,8 @@ class ProjectMarkController extends Controller
         $mark->mark_percentage = $request->mark;
         $mark->qualitative_feedback = $request->qualfeedback;
         $mark->save();
+
+       // $mark->project->setStatus('Marked by 1 user');
 
         return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');
 
