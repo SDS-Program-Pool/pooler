@@ -61,7 +61,7 @@
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend">
-        Would you like to mark this project?
+        Do you agree with the marking?
       </legend>
       <div class="govuk-radios">
         <div class="govuk-radios__item">

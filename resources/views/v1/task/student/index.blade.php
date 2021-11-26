@@ -94,7 +94,7 @@
           Ready to Mark
           </strong>
         </td>
-        <td class="govuk-table__cell"><a href="{{ route('marking.show',$markReview->project->id) }}" target=”_blank”>View More</td>
+        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>View More</td>
       </tr>
       @endforeach
         
