@@ -37,5 +37,40 @@ class UserSeeder extends Seeder
             'email' => 'demo2@warwick.ac.uk',
             'password' => Hash::make('Password1!'),
         ]);
+        DB::table('users')->insert([
+            'first_name' => Str::random(10),
+            'last_name' => Str::random(10),
+            'username' => 'marker3',            
+            'email' => 'demo3@warwick.ac.uk',
+            'password' => Hash::make('Password1!'),
+        ]);
+        DB::table('users')->insert([
+            'first_name' => Str::random(10),
+            'last_name' => Str::random(10),
+            'username' => 'marker4',            
+            'email' => 'demo4@warwick.ac.uk',
+            'password' => Hash::make('Password1!'),
+        ]);
+        DB::table('users')->insert([
+            'first_name' => Str::random(10),
+            'last_name' => Str::random(10),
+            'username' => 'marker5',            
+            'email' => 'demo5@warwick.ac.uk',
+            'password' => Hash::make('Password1!'),
+        ]);
+        DB::table('users')->insert([
+            'first_name' => Str::random(10),
+            'last_name' => Str::random(10),
+            'username' => 'marker6',            
+            'email' => 'demo6@warwick.ac.uk',
+            'password' => Hash::make('Password1!'),
+        ]);
+        DB::table('users')->insert([
+            'first_name' => Str::random(10),
+            'last_name' => Str::random(10),
+            'username' => 'marker7',            
+            'email' => 'demo7@warwick.ac.uk',
+            'password' => Hash::make('Password1!'),
+        ]);
     }
 }

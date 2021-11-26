@@ -14,11 +14,13 @@ use App\Actions\Team\TeamCreation;
 use App\Actions\Project\ProjectCreate;
 use App\Actions\CodeUpload\Upload;
 use App\Actions\CodeAllocation\Allocation;
+use App\Actions\CodeAllocation\MarkReviewAllocation;
 
 use App\Models\Project;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
 use App\Models\ProjectTeamMember;
+
 
 class ProjectController extends Controller
 {
@@ -45,7 +47,7 @@ class ProjectController extends Controller
 
         // Trigger Project Creation
         $projectStrategy = $this->projectStrategy()->create($request);
-        //$projectStrategy->setStatus('Created');
+        $projectStrategy->setStatus('Created');
             
         // Trigger Team Creation
         $teamStrategy = $this->teamStrategy()->create($request, $projectStrategy);
@@ -59,6 +61,10 @@ class ProjectController extends Controller
         // Allocate Code
         $allocate = new Allocation;
         $allocate = $allocate->first_allocation($projectStrategy,$teamStrategy);
+
+        // Allocate 2nd Mark
+        $alloc_2 = new MarkReviewAllocation;
+        $alloc_2 = $alloc_2->first_allocation($projectStrategy,$teamStrategy);
 
         // Send an email notif to the user to let them know all is okay
 
