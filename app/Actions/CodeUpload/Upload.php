@@ -17,8 +17,7 @@ class Upload
 {
     public function upload($request, $project)
     {
-        // For Dev purposes this will be set to local. This will be changed for production!!!
-
+        
         $source = $request->file('code-upload')->store('public');
 
         $store = new ProjectSource;
@@ -32,7 +31,6 @@ class Upload
 
         // Validate is zip is tar and is size req
         // Rename and upload to S3
-        // Store name and set to database
 
     }
 
