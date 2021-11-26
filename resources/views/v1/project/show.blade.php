@@ -93,7 +93,7 @@
         </dt>
         <dd class="govuk-summary-list__value">
           <strong class="govuk-tag govuk-tag--green">
-            Finished
+            {{$project_data->latestStatus();}}
           </strong>
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
@@ -102,7 +102,7 @@
 
   </div>
   <!--  ADD BACK --hidden flag after __panel on each relavent div.  -->
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark">
+  <div class="govuk-tabs__panel govuk-tabs__panel" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
@@ -114,28 +114,10 @@
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Assessor 2
-        </dt>
-        <dd class="govuk-summary-list__value">
-          No data found.
-        </dd>
-        <dd class="govuk-summary-list__actions"></dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Assessor 3
-        </dt>
-        <dd class="govuk-summary-list__value">
-          No data found.
-        </dd>
-        <dd class="govuk-summary-list__actions"></dd>
-      </div>
     </dl>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mark-review">
+  <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">

@@ -66,7 +66,7 @@
                 <td class="govuk-table__cell">{{$project->created_at}}</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
-                      TDB
+                      {{$project->latestStatus();}}
                   </strong>
                 </td>
                 <td class="govuk-table__cell"><a href="{{ route('projects.show',$project->id) }}" target=”_blank”>View More</td>
