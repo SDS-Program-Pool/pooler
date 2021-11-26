@@ -98,6 +98,19 @@
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status History
+        </dt>
+        <dd class="govuk-summary-list__value">
+          @foreach ($project_data->statuses as $status)
+            <strong class="govuk-tag govuk-tag--green">
+              {{$status->name}} @ {{$status->created_at}}
+            </strong>
+          @endforeach
+        </dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
     </dl>
 
   </div>
