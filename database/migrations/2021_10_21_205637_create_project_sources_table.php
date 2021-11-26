@@ -14,11 +14,13 @@ class CreateProjectSourcesTable extends Migration
     public function up()
     {
         Schema::create('project_sources', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->bigIncrements('id');
+            $table->foreignId('user_id')->unsigned()->nullable();
+            $table->foreignId('project_id');
             $table->longText('source');
-            $table->uuid('project_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade');
             $table->foreign('project_id')->references('id')->on('projects')
             ->onDelete('cascade');
         });

@@ -21,8 +21,11 @@ class ProjectCreate
             // 'name'
         ]);
 
+        $id = mt_rand(1000,1000000);
+
         $project = new Project;
 
+        $project->id = $id;
         $project->user_id = Auth::id();
         $project->name = $request->project_name;
 
@@ -45,6 +48,7 @@ class ProjectCreate
         }
 
         $project->save();
+
 
         return($project);
 
