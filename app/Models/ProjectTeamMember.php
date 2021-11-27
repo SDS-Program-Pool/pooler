@@ -13,7 +13,4 @@ class ProjectTeamMember extends Model
     {
         return $this->belongsTo(ProjectTeam::class);
     }
-
-
-
 }

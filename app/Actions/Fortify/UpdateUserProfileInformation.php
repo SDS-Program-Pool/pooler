@@ -12,16 +12,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Validate and update the given user's profile information.
      *
-     * @param  mixed  $user
-     * @param  array  $input
+     * @param mixed $user
+     * @param array $input
+     *
      * @return void
      */
     public function update($user, array $input)
     {
         Validator::make($input, [
             'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => [
+            'last_name'  => ['required', 'string', 'max:255'],
+            'email'      => [
                 'required',
                 'string',
                 'email',
@@ -36,8 +37,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'first_name' => $input['first_name'],
-                'last_name' => $input['last_name'],
-                'email' => $input['email'],
+                'last_name'  => $input['last_name'],
+                'email'      => $input['email'],
             ])->save();
         }
     }
@@ -45,16 +46,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     /**
      * Update the given verified user's profile information.
      *
-     * @param  mixed  $user
-     * @param  array  $input
+     * @param mixed $user
+     * @param array $input
+     *
      * @return void
      */
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'first_name' => $input['first_name'],
-            'last_name' => $input['last_name'],
-            'email' => $input['email'],
+            'first_name'        => $input['first_name'],
+            'last_name'         => $input['last_name'],
+            'email'             => $input['email'],
             'email_verified_at' => null,
         ])->save();
 
