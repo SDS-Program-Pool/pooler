@@ -3,15 +3,13 @@
 ## Current Features
 - Auth
 - Program Upload
-
-## In Progress
 - Program Allocation
 - Program Marking
-
-## Feature List/To Do
 - Program Second Marking
-- Auth Settings 
-- 2FA
-- CSV Upload
+
+## In Progress
 - KTI (Keep Tim Informed) aka staff dashboard
 - LDAP auth to CSC
+
+## Feature List/To Do
+- Check github and Jira
