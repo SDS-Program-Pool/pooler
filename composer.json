@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "wm145/pooler",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Program upload and marking software for WM145",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
