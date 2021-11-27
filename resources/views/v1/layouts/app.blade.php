@@ -122,13 +122,16 @@
           
         </div>
         <div class="govuk-footer__meta-item">
-          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">Copyright © WMG CSC Internal</a>
+          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://warwick.ac.uk/fac/sci/wmg/research/digital/csc/">Copyright © WMG CSC Internal</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script src="/govuk-frontend/all.js"></script>
+  <script>
+    window.GOVUKFrontend.initAll()
+  </script>
 </body>
 
 </html>
