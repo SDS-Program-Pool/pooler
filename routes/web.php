@@ -11,6 +11,7 @@ use App\Http\Controllers\Student\ProjectMarkController;
 use App\Http\Controllers\Student\ProjectMarkReviewController;
 use App\Http\Controllers\Student\SettingController;
 use App\Http\Controllers\Student\TaskController;
+use App\Http\Controllers\OpenSourceController;
 
 
 /**
@@ -71,3 +72,9 @@ Route::get('tasks', [TaskController::class, 'index'])->middleware(['auth'])->nam
  */
 
 Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');
+
+
+/**
+ * Open Source Licences
+ */
+Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensource.index');

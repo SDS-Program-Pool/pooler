@@ -106,7 +106,7 @@
               </a>
             </li>
             <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#4">
+              <a class="govuk-footer__link" href="{{route('opensource.index')}}">
                 Open Source Licences
               </a>
             </li>
