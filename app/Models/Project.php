@@ -39,6 +39,12 @@ class Project extends Model
       
     }
 
+    public function mark_review_allocations()
+    {
+        return $this->hasMany(ProjectMarkAllocation::class);
+      
+    }
+
     public function marks()
     {
         return $this->hasMany(ProjectMark::class,'project_id');

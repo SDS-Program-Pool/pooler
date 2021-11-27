@@ -72,7 +72,6 @@
   </table>
 
 
-
   <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Mark Review Dashboard</caption>
     <thead class="govuk-table__head">
@@ -86,9 +85,22 @@
     </thead>
     <tbody class="govuk-table__body">
         
+      @foreach($markReviewsArray as $markReview)
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{$markReview->project->name}}</th>
+        <td class="govuk-table__cell">Allocated @ {{$markReview->created_at}} Due @ $date</td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--blue">
+          Ready to Mark
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>View More</td>
+      </tr>
+      @endforeach
         
     </tbody>
   </table>
+  
 
 
 @endsection

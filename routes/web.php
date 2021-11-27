@@ -51,7 +51,7 @@ Route::get('project/{id}/mark', [ProjectMarkController::class, 'mark'])->middlew
  * Project Mark Review
  */
 Route::post('project/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
-Route::get('project/{id}/review', [ProjectMarkReviewController::class, 'index'])->middleware(['auth'])->name('marking_review.mark');
+Route::get('project/{id}/review', [ProjectMarkReviewController::class, 'show'])->middleware(['auth'])->name('marking_review.show');
 
 /**
  * Project Download
