@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\ProjectMark;
 use App\Models\ProjectMarkReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,16 +13,10 @@ class ProjectMarkReviewController extends Controller
 {
     public function show(Request $request)
     {
-        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
+        $projectArray = Project::whereId($request->route('id'))->with('source','marks')->firstOrFail();
+       // $marksArray = ProjectMark::whereProjectId($request->route('id'))->firstOrFail();
 
-        return view('v1.markreview.show', compact('marking_array'));
-    }
-
-    public function mark(Request $request)
-    {
-        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
-
-        return view('v1.markreview.mark', compact('marking_array'));
+        return view('v1.markreview.show', compact('projectArray'));
     }
 
     public function store(Request $request)

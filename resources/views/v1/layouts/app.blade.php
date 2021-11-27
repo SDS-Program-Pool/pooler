@@ -122,7 +122,8 @@
           
         </div>
         <div class="govuk-footer__meta-item">
-          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://warwick.ac.uk/fac/sci/wmg/research/digital/csc/">Copyright © WMG CSC Internal</a>
+          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://warwick.ac.uk/fac/sci/wmg/research/digital/csc/">
+            Copyright &COPY; {{ now()->year }} WMG CSC</a>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@
             @foreach($marking_array as $marking)
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
-                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}} Due @ $date</td>
+                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}}</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
                   Ready to Mark

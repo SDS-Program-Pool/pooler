@@ -117,16 +117,29 @@
   <!--  ADD BACK --hidden flag after __panel on each relavent div.  -->
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
+    @if($project_data->marks->isEmpty())
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        This project has not yet been marked. 
+      </strong>
+    </div>
+    @endif
     <dl class="govuk-summary-list">
+      @foreach($project_data->marks as $mark)
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Assessor 1
+          Person X
         </dt>
         <dd class="govuk-summary-list__value">
-          No data found.
+          <p class="govuk-body">Percentage - {{$mark->mark_percentage}} %</p>
+          <p class="govuk-body">Feedback <pre> {{$mark->qualitative_feedback}} </pre> </p>
+
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
+      @endforeach
     </dl>
 
   </div>
@@ -172,21 +185,5 @@
 
   </div>
 </div>
-
-
-<!-- 
-show project name,
-upload date,
-download zip
-request re mark
-show feedback
-show marks
-
-https://design-system.service.gov.uk/components/
-
-Isaac Maybe you do this...?
--->
-
-
                
 @endsection

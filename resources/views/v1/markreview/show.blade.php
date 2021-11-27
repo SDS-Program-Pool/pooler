@@ -6,7 +6,7 @@
 
 @section('content')
 
-<h1 class="govuk-heading-xl">Mark Review of Project {{$marking_array->name}} </h1>
+<h1 class="govuk-heading-xl">Mark Review of Project {{$projectArray->name}} </h1>
 
 <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -17,7 +17,7 @@
         <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Tasks</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Mark Review of Project {{$marking_array->name}} </a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Mark Review of Project {{$projectArray->name}} </a>
       </li>
     </ol>
   </div>
@@ -35,15 +35,15 @@
     </thead>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">{{$marking_array->name}}</th>
-        <td class="govuk-table__cell">{{$marking_array->created_at}}</td>
-        <td class="govuk-table__cell">a model thing.</td>
-        <td class="govuk-table__cell"><a href="{{route("downloads.index",$marking_array->id)}}"> Download </a> </td>
+        <th scope="row" class="govuk-table__header">{{$projectArray->name}}</th>
+        <td class="govuk-table__cell">{{$projectArray->created_at}}</td>
+        <td class="govuk-table__cell">{{$projectArray->MarkBy}}</td>
+        <td class="govuk-table__cell"><a href="{{route("downloads.index",$projectArray->id)}}"> Download </a> </td>
       </tr>
     </tbody>
   </table>
 
-  <form method="POST" action="{{ route('marking.accept_or_reject', $marking_array->id) }}">
+  <form method="POST" action="{{ route('marking.accept_or_reject', $projectArray->id) }}">
     @csrf
 
 @if ($errors->any())
@@ -56,6 +56,7 @@
     </div>
 @endif 
 
+{{$projectArray->marks}}
 
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Marking</caption>

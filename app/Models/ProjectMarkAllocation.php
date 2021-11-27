@@ -13,4 +13,12 @@ class ProjectMarkAllocation extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    /**
+     * @return string
+     */
+    public function getCreatedAtAttribute()
+    {
+        //return Carbon::parse($this->attributes['created_at'])->diffForHumans();
+    }
 }
