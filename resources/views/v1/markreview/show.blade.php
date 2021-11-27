@@ -63,36 +63,61 @@
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Ref #</th>
         <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Percentage</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-half">Feedback</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Feedback</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Score Marking</th>
       </tr>
     </thead>
     <tbody class="govuk-table__body">
+
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">1</th>
         <td class="govuk-table__cell">80%</td>
         <td class="govuk-table__cell">my qual feedback</td>
+        <td class="govuk-table__cell">
+            <div class="govuk-form-group">
+            <input class="govuk-input govuk-input--width-2" id="width-2" name="width-2" type="text">
+            </div>
+        </td>
       </tr>
+
     </tbody>
-  </table>
+</table>
 
 
-  <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m">Marking Review</caption>
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Ref #</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Percentage</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-half">Feedback</th>
-      </tr>
-    </thead>
-    <tbody class="govuk-table__body">
-      <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">1</th>
-        <td class="govuk-table__cell">80%</td>
-        <td class="govuk-table__cell">my qual feedback</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        How confident are you in your mark review?
+      </h1>
+    </legend>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          High
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          Medium
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+          Low
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+
+
+
 
 
 
@@ -100,5 +125,6 @@
     Save and continue
   </button>
 </form>
+
 
 @endsection
