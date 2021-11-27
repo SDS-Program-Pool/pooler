@@ -55,36 +55,46 @@
         </ul>
     </div>
 @endif 
-<!-- ID please fix this to make it pretty ^^-->
 
 
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend">
-        Do you agree with the marking?
-      </legend>
-      <div class="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="take_project" name="take_project" type="radio" value="1">
-          <label class="govuk-label govuk-radios__label" for="take_project">
-            Yes
-          </label>
-          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-            By selecting "Yes", you agree to mark this project.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="take_project-2" name="take_project" type="radio" value="0">
-          <label class="govuk-label govuk-radios__label" for="take_project-2">
-            No
-          </label>
-          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-            By selecting "No", this program will be re-allocated to other students.
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Marking</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Ref #</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Percentage</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-half">Feedback</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1</th>
+        <td class="govuk-table__cell">80%</td>
+        <td class="govuk-table__cell">my qual feedback</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Marking Review</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Ref #</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Percentage</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-half">Feedback</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">1</th>
+        <td class="govuk-table__cell">80%</td>
+        <td class="govuk-table__cell">my qual feedback</td>
+      </tr>
+    </tbody>
+  </table>
+
+
 
   <button type="submit" class="govuk-button" data-module="govuk-button">
     Save and continue
