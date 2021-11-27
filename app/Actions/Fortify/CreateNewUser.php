@@ -15,16 +15,17 @@ class CreateNewUser implements CreatesNewUsers
     /**
      * Validate and create a newly registered user.
      *
-     * @param  array  $input
+     * @param array $input
+     *
      * @return \App\Models\User
      */
     public function create(array $input)
     {
         Validator::make($input, [
-            'username' => ['required', 'string', 'max:255'],
+            'username'   => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => [
+            'last_name'  => ['required', 'string', 'max:255'],
+            'email'      => [
                 'required',
                 'string',
                 'email',
@@ -38,11 +39,11 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
-            'username' => $input['username'],
+            'username'   => $input['username'],
             'first_name' => $input['first_name'],
-            'last_name' => $input['last_name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
+            'last_name'  => $input['last_name'],
+            'email'      => $input['email'],
+            'password'   => Hash::make($input['password']),
         ]);
     }
 }

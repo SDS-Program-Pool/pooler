@@ -2,10 +2,9 @@
 
 namespace App\Actions\Project;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\Project;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectCreate
 {
@@ -15,15 +14,15 @@ class ProjectCreate
         // Need to set the project owner.
 
         $validated = $request->validate([
-            'team_type' => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation',
+            'team_type'    => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation',
             'project_name' => 'required',
             //'file' => 'required|mimes:tar,zip',
             // 'name'
         ]);
 
-        $id = mt_rand(1000,1000000);
+        $id = mt_rand(1000, 1000000);
 
-        $project = new Project;
+        $project = new Project();
 
         $project->id = $id;
         $project->user_id = Auth::id();
@@ -31,27 +30,18 @@ class ProjectCreate
 
         // could refactor to switch statement as we're using plain text...? C.T
         // Could also set the rest to false to prevent any issues? e.g T,F,F
-        if($request->team_type === 'IndividualTeamCreation'){
-
-            $project->is_team_individual = TRUE;
-        }
-        elseif($request->team_type === 'TeamCreation'){
-
-            $project->is_team = TRUE;
-        }
-        elseif($request->team_type === 'FeatureBranchTeamCreation'){
-
-            $project->is_team_feature_branch = TRUE;
-        }
-        else{
-            throw new \Exception("Team Type Could not be Selected Project/ProjectCreate");
+        if ($request->team_type === 'IndividualTeamCreation') {
+            $project->is_team_individual = true;
+        } elseif ($request->team_type === 'TeamCreation') {
+            $project->is_team = true;
+        } elseif ($request->team_type === 'FeatureBranchTeamCreation') {
+            $project->is_team_feature_branch = true;
+        } else {
+            throw new \Exception('Team Type Could not be Selected Project/ProjectCreate');
         }
 
         $project->save();
 
-
-        return($project);
-
+        return $project;
     }
-
 }

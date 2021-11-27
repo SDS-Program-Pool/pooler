@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 class ProfileSecurityTwoFactorController extends Controller
 {
@@ -12,6 +10,6 @@ class ProfileSecurityTwoFactorController extends Controller
     {
         $user = Auth::user();
 
-        return view("v1.profile.2fa", compact('user'));
+        return view('v1.profile.2fa', compact('user'));
     }
 }

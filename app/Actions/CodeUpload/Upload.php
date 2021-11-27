@@ -2,25 +2,17 @@
 
 namespace App\Actions\CodeUpload;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Http\File;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Str;
-
 use App\Models\ProjectSource;
-use App\Models\ProjectTeam;
-
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class Upload
 {
     public function upload($request, $project)
     {
-        
         $source = $request->file('code-upload')->store('public');
 
-        $store = new ProjectSource;
+        $store = new ProjectSource();
         $store->user_id = Auth::id();
         $store->project_id = $project->id;
         $store->source = $source;
@@ -31,14 +23,8 @@ class Upload
 
         // Validate is zip is tar and is size req
         // Rename and upload to S3
-
     }
-
-
 }
-
-
-
 
 // Validate the ZIP File
 

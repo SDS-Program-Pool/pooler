@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Spatie\ModelStatus\HasStatuses;
 
 class Project extends Model
 {
-    use HasFactory; use HasStatuses;
-    
-    public $incrementing = false;
+    use HasFactory;
+    use HasStatuses;
 
+    public $incrementing = false;
 
     public function user()
     {
@@ -23,9 +22,10 @@ class Project extends Model
     {
         return $this->hasOne(ProjectTeam::class);
     }
+
     public function source()
     {
-        return $this->hasOne(ProjectSource::class,'project_id');
+        return $this->hasOne(ProjectSource::class, 'project_id');
     }
 
     public function team_members()
@@ -36,18 +36,15 @@ class Project extends Model
     public function mark_allocations()
     {
         return $this->hasMany(ProjectMarkAllocation::class);
-      
     }
 
     public function mark_review_allocations()
     {
         return $this->hasMany(ProjectMarkAllocation::class);
-      
     }
 
     public function marks()
     {
-        return $this->hasMany(ProjectMark::class,'project_id');
-      
+        return $this->hasMany(ProjectMark::class, 'project_id');
     }
 }
