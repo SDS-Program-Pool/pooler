@@ -1,0 +1,4 @@
+Contact: mailto:u2136323@live.warwick.ac.uk
+Encryption: INTERNAL - Exchange Encryption
+Preferred-Languages: en
+Canonical: https://wm145.stuxnet.lab/.well-known/security.txt

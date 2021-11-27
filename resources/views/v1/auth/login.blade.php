@@ -18,13 +18,14 @@
 </div>
 @enderror
 
+<div class="govuk-hint" id="username-hint">
+  Warwick Cyber Security Center Labs. This service is restricted to authorized users only. All activities on this system are logged.
+</div>
+
 <form method="POST" action="{{ route('login') }}">
     @csrf
     <div class="govuk-form-group @error('username') govuk-form-group--error @enderror"> 
         <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">CSC Username</label> 
-        <div class="govuk-hint" id="username-hint">
-            This could be up to 8 characters.
-        </div>
         @error('username')
         <span id="usernamepass-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> Your username or password is incorrect
