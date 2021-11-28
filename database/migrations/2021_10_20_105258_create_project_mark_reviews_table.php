@@ -18,6 +18,7 @@ class CreateProjectMarkReviewsTable extends Migration
             $table->foreignId('project_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
             $table->boolean('agree_with_marking');
+            $table->string('confidence');
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')
             ->onDelete('cascade');

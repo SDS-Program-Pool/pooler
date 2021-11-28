@@ -14,7 +14,6 @@ class ProjectMarkReviewController extends Controller
     public function show(Request $request)
     {
         $projectArray = Project::whereId($request->route('id'))->with('source','marks')->firstOrFail();
-       // $marksArray = ProjectMark::whereProjectId($request->route('id'))->firstOrFail();
 
         return view('v1.markreview.show', compact('projectArray'));
     }
@@ -22,8 +21,8 @@ class ProjectMarkReviewController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'mark*'       => 'required|numeric',
-            'confidence*' => 'required|numeric',
+            'mark*'       => 'required|array:mark',
+            'confidence' => 'required|in:high,medium,low',
         ]);
 
         $mark = new ProjectMarkReview();
@@ -35,6 +34,6 @@ class ProjectMarkReviewController extends Controller
 
         // $mark->project->setStatus('Marked by 1 user');
 
-        return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');
+        return redirect()->route('tasks.index')->with('message', 'Project successfully mark marked.');
     }
 }

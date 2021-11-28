@@ -56,8 +56,6 @@
     </div>
 @endif 
 
-{{$projectArray->marks}}
-
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Marking</caption>
     <thead class="govuk-table__head">
@@ -70,16 +68,18 @@
     </thead>
     <tbody class="govuk-table__body">
 
+      @foreach($projectArray->marks as $marks)
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">1</th>
-        <td class="govuk-table__cell">80%</td>
-        <td class="govuk-table__cell">my qual feedback</td>
+        <td class="govuk-table__cell">{{$marks->mark_percentage}} %</td>
+        <td class="govuk-table__cell"><pre>{{$marks->qualitative_feedback}}</pre></td>
         <td class="govuk-table__cell">
             <div class="govuk-form-group">
             <input class="govuk-input govuk-input--width-2" id="width-2" name="width-2" type="text">
             </div>
         </td>
       </tr>
+      @endforeach
 
     </tbody>
 </table>
@@ -94,20 +94,20 @@
     </legend>
     <div class="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
-        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+        <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="high">
+        <label class="govuk-label govuk-radios__label" for="confidence">
           High
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
-        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+        <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="medium">
+        <label class="govuk-label govuk-radios__label" for="confidence">
           Medium
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
-        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+        <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="low">
+        <label class="govuk-label govuk-radios__label" for="confidence">
           Low
         </label>
       </div>
