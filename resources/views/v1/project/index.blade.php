@@ -36,14 +36,17 @@
   
   @endif
 
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-warning-text__assistive">Warning</span>
-    You currently have no projects.
-  </strong>
-</div>
+@if($project_data->isEmpty())
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      You currently have no projects.
+    </strong>
+  </div>
+@endif
 
+@if($project_data->isNotEmpty())
 
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Project Dashboard</caption>
@@ -53,15 +56,11 @@
         <th scope="col" class="govuk-table__header">Submission Date</th>
         <th scope="col" class="govuk-table__header">Status</th>
         <th scope="col" class="govuk-table__header">View More</th>
-
       </tr>
     </thead>
     <tbody class="govuk-table__body">
-        
-          @if($project_data)
-
             @foreach($project_data as $project)
-              <tr class="govuk-table__row">
+            <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$project->name}}</th>
                 <td class="govuk-table__cell">{{$project->created_at}}</td>
                 <td class="govuk-table__cell">
@@ -72,13 +71,11 @@
                 <td class="govuk-table__cell"><a href="{{ route('projects.show',$project->id) }}" target=”_blank”>View More</td>
               </tr>
             @endforeach
-          @else
-
-          <h2> No Items in Table </h2>
-          @endif
-          
     </tbody>
   </table>
+
+  @endif
+
   <a href="{{ route('projects.create') }}" class="govuk-button" data-module="govuk-button">
     Upload code
   </a>

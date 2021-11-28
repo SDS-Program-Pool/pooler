@@ -43,7 +43,7 @@
     </tbody>
   </table>
 
-  <form method="POST" action="{{ route('marking.accept_or_reject', $projectArray->id) }}">
+  <form method="POST" action="{{ route('marking_review.store', $projectArray->id) }}">
     @csrf
 
 @if ($errors->any())
@@ -70,13 +70,14 @@
 
       @foreach($projectArray->marks as $marks)
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header">1</th>
+        <th scope="row" class="govuk-table__header">{{$marks->id}}</th>
         <td class="govuk-table__cell">{{$marks->mark_percentage}} %</td>
         <td class="govuk-table__cell"><pre>{{$marks->qualitative_feedback}}</pre></td>
         <td class="govuk-table__cell">
             <div class="govuk-form-group">
-            <input class="govuk-input govuk-input--width-2" id="width-2" name="width-2" type="text">
-            </div>
+            <input class="govuk-input govuk-input--width-2" id="mark_percentage[{{$loop->index}}][percentage]{{$marks->id}}" name="mark_percentage[{{$loop->index}}][percentage]{{$marks->id}}" type="text">
+            <input type="hidden" id="mark_percentage[{{$loop->index}}][mark_id]" name="mark_percentage[{{$loop->index}}][mark_id]" value="{{$marks->id}}">
+          </div>
         </td>
       </tr>
       @endforeach

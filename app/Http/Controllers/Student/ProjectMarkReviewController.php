@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
-use App\Models\ProjectMark;
 use App\Models\ProjectMarkReview;
+use App\Models\ProjectMarkReviewMark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,21 +20,29 @@ class ProjectMarkReviewController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'mark*'       => 'required|array:mark',
-            'confidence' => 'required|in:high,medium,low',
-        ]);
-
-        // need to store 3 marks that correlate with the marks
-        // could have a mark review table
-        // Could have another table to inbetween mark review and
-
-        $mark = new ProjectMarkReview();
+    
+        $mark = new ProjectMarkReview;
         $mark->project_id = $request->route('id');
         $mark->user_id = Auth::user()->id;
-        $mark->mark_percentage = $request->mark;
-        $mark->qualitative_feedback = $request->qualfeedback;
+        $mark->confidence = $request->confidence;
         $mark->save();
+
+        $markId = $mark->id;
+
+        foreach($request->mark_percentage as $percentageArray)
+        {
+        
+            $mark = new ProjectMarkReviewMark;
+            $mark->project_mark_reviews_id = $markId;
+            $mark->marks_id = $percentageArray['mark_id'];
+            $mark->user_id = Auth::user()->id;
+            $mark->percentage = $percentageArray['percentage'];
+
+            //dump($mark->id);
+            $mark->save();
+
+        }
+       // dd('test');
 
         // $mark->project->setStatus('Marked by 1 user');
 

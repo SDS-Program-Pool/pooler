@@ -16,10 +16,13 @@ class CreateProjectMarkReviewMarksTable extends Migration
         Schema::create('project_mark_review_marks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('project_mark_reviews_id');
+            $table->foreignId('marks_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
             $table->string('percentage');
             $table->timestamps();
             $table->foreign('project_mark_reviews_id')->references('id')->on('project_mark_reviews')
+            ->onDelete('cascade');
+            $table->foreign('marks_id')->references('id')->on('project_marks')
             ->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('set null');
