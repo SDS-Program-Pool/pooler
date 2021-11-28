@@ -3,7 +3,7 @@
     "type": "project",
     "description": "Program upload and marking software for WM145",
     "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "license": "GPL-3.0-only",
     "require": {
         "php": "^7.3|^8.0",
         "directorytree/ldaprecord-laravel": "^2.5",

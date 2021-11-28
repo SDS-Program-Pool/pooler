@@ -112,9 +112,8 @@
         <dd class="govuk-summary-list__actions"></dd>
       </div>
     </dl>
-
   </div>
-  <!--  ADD BACK --hidden flag after __panel on each relavent div.  -->
+
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
     @if($project_data->marks->isEmpty())
@@ -125,7 +124,7 @@
         This project has not yet been marked. 
       </strong>
     </div>
-    @endif
+    @else
     <dl class="govuk-summary-list">
       @foreach($project_data->marks as $mark)
       <div class="govuk-summary-list__row">
@@ -141,10 +140,20 @@
       </div>
       @endforeach
     </dl>
+    @endif
 
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
+    @if($project_data->marks->isEmpty())
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        This project has not yet been marked. 
+      </strong>
+    </div>
+    @else
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -182,6 +191,7 @@
         </dd>
       </div>
     </dl>
+    @endif
 
   </div>
 </div>

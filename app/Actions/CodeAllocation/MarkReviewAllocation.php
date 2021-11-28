@@ -8,18 +8,12 @@ use App\Models\User;
 
 class MarkReviewAllocation
 {
-    /**
-     * Get Team Members via team_members private function
-     * Get ALL users through users private function
-     * Find all users where not in the project
-     * Generate array of users IDs via foreach loop (more efficient way to do this)
-     * Store Record into DB
-     * A re allocate function would need to check the markers table as well... todo.
-     */
+
     public function first_allocation($projectStrategy, $teamStrategy)
     {
         $team_members = $this->team_members($projectStrategy->id);
         $markers = $this->markers($projectStrategy->id);
+
         $array = array_merge($team_members, $markers);
 
         $users = User::whereNotIn('id', $array)->get();
@@ -27,6 +21,10 @@ class MarkReviewAllocation
         foreach ($users as $user) {
             $users_array[] = $user->id;
         }
+
+        dd($array);
+
+        dd($users_array);
 
         if (sizeof($users_array) < 3) {
             // log unavail to allocate the project, manual allocation required.
