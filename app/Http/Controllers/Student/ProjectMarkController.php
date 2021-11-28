@@ -68,6 +68,8 @@ class ProjectMarkController extends Controller
         $mark->qualitative_feedback = $request->qualfeedback;
         $mark->save();
 
+        // update the projectmarkallocation to set marked to true
+
         // $mark->project->setStatus('Marked by 1 user');
 
         return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectMarkReview;
+use App\Models\ProjectMarkReviewMark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,34 +13,39 @@ class ProjectMarkReviewController extends Controller
 {
     public function show(Request $request)
     {
-        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
+        $projectArray = Project::whereId($request->route('id'))->with('source','marks')->firstOrFail();
 
-        return view('v1.markreview.show', compact('marking_array'));
-    }
-
-    public function mark(Request $request)
-    {
-        $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
-
-        return view('v1.markreview.mark', compact('marking_array'));
+        return view('v1.markreview.show', compact('projectArray'));
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'mark*'       => 'required|numeric',
-            'confidence*' => 'required|numeric',
-        ]);
-
-        $mark = new ProjectMarkReview();
+    
+        $mark = new ProjectMarkReview;
         $mark->project_id = $request->route('id');
         $mark->user_id = Auth::user()->id;
-        $mark->mark_percentage = $request->mark;
-        $mark->qualitative_feedback = $request->qualfeedback;
+        $mark->confidence = $request->confidence;
         $mark->save();
+
+        $markId = $mark->id;
+
+        foreach($request->mark_percentage as $percentageArray)
+        {
+        
+            $mark = new ProjectMarkReviewMark;
+            $mark->project_mark_reviews_id = $markId;
+            $mark->marks_id = $percentageArray['mark_id'];
+            $mark->user_id = Auth::user()->id;
+            $mark->percentage = $percentageArray['percentage'];
+
+            //dump($mark->id);
+            $mark->save();
+
+        }
+       // dd('test');
 
         // $mark->project->setStatus('Marked by 1 user');
 
-        return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');
+        return redirect()->route('tasks.index')->with('message', 'Project successfully mark marked.');
     }
 }

@@ -37,6 +37,17 @@
   @endif
 
 
+@if($marking_array->isEmpty())
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      You currently have no projects to mark.
+    </strong>
+  </div>
+@endif
+
+@if($marking_array->isNotEmpty())
 <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Marking Dashboard</caption>
     <thead class="govuk-table__head">
@@ -49,12 +60,10 @@
     </thead>
     <tbody class="govuk-table__body">
         
-          @if($marking_array)
-
             @foreach($marking_array as $marking)
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
-                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}} Due @ $date</td>
+                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}}</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
                   Ready to Mark
@@ -63,15 +72,24 @@
                 <td class="govuk-table__cell"><a href="{{ route('marking.show',$marking->project->id) }}" target=”_blank”>View More</td>
               </tr>
             @endforeach
-          @else
-
-          <h2> No Items in Table </h2>
-          @endif
           
     </tbody>
   </table>
+@endif
 
 
+
+@if($markReviewsArray->isEmpty())
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      You currently have no projects to review the marks of.
+    </strong>
+  </div>
+@endif
+
+@if($markReviewsArray->isNotEmpty())
   <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Mark Review Dashboard</caption>
     <thead class="govuk-table__head">
@@ -100,6 +118,7 @@
         
     </tbody>
   </table>
+  @endif
   
 
 

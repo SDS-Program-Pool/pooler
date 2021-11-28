@@ -4,6 +4,9 @@
 <a href="https://packagist.org/packages/wm145/pooler"><img src="https://img.shields.io/packagist/v/wm145/pooler" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/wm145/pooler"><img src="https://img.shields.io/packagist/l/wm145/pooler" alt="License"></a>
 </p>
+<a href="#" data-toggle="modal" data-target="#badge-modal">
+<img src="https://github.styleci.io/repos/418145146/shield?branch=main" alt="StyleCI Shield">
+</a>
 
 ## Current Features
 - Auth
