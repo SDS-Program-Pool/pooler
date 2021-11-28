@@ -25,6 +25,10 @@ class ProjectMarkReviewController extends Controller
             'confidence' => 'required|in:high,medium,low',
         ]);
 
+        // need to store 3 marks that correlate with the marks
+        // could have a mark review table
+        // Could have another table to inbetween mark review and
+
         $mark = new ProjectMarkReview();
         $mark->project_id = $request->route('id');
         $mark->user_id = Auth::user()->id;
