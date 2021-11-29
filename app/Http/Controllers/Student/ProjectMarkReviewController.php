@@ -23,10 +23,9 @@ class ProjectMarkReviewController extends Controller
 
         $validated = $request->validate([
             'confidence' => 'required|in:high,medium,low',
+            'mark_percentage.*.percentage' => 'required|numeric|min:0|max:100',
 
         ]);
-        // need to validate mark percentage, this'll be a tad difficult
-
     
         $mark = new ProjectMarkReview;
         $mark->project_id = $request->route('id');
@@ -44,12 +43,9 @@ class ProjectMarkReviewController extends Controller
             $mark->marks_id = $percentageArray['mark_id'];
             $mark->user_id = Auth::user()->id;
             $mark->percentage = $percentageArray['percentage'];
-
-            //dump($mark->id);
             $mark->save();
 
         }
-       // dd('test');
 
         // $mark->project->setStatus('Marked by 1 user');
 
