@@ -22,9 +22,9 @@ class MarkReviewAllocation
             $users_array[] = $user->id;
         }
 
-        dd($array);
+       // dd($array);
 
-        dd($users_array);
+        //dd($users_array);
 
         if (sizeof($users_array) < 3) {
             // log unavail to allocate the project, manual allocation required.

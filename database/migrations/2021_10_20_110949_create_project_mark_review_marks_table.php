@@ -18,7 +18,7 @@ class CreateProjectMarkReviewMarksTable extends Migration
             $table->foreignId('project_mark_reviews_id');
             $table->foreignId('marks_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
-            $table->string('percentage');
+            $table->BigInteger('percentage');
             $table->timestamps();
             $table->foreign('project_mark_reviews_id')->references('id')->on('project_mark_reviews')
             ->onDelete('cascade');

@@ -17,7 +17,7 @@ class CreateProjectMarksTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('project_id');
             $table->BigInteger('user_id')->unsigned()->nullable(); // Marker ID
-            $table->string('mark_percentage');
+            $table->BigInteger('mark_percentage');
             $table->longText('qualitative_feedback');
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')

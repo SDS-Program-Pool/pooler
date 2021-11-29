@@ -20,6 +20,13 @@ class ProjectMarkReviewController extends Controller
 
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'confidence' => 'required|in:high,medium,low',
+
+        ]);
+        // need to validate mark percentage, this'll be a tad difficult
+
     
         $mark = new ProjectMarkReview;
         $mark->project_id = $request->route('id');
