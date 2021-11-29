@@ -10,6 +10,8 @@ use App\Http\Controllers\Student\ProjectMarkController;
 use App\Http\Controllers\Student\ProjectMarkReviewController;
 use App\Http\Controllers\Student\SettingController;
 use App\Http\Controllers\Student\TaskController;
+use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
+use App\Http\Controllers\Staff\ProjectController as StaffProjectController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -69,3 +71,10 @@ Route::get('settings', [SettingController::class, 'index'])->middleware(['auth']
  * Open Source Licences.
  */
 Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensource.index');
+
+/**
+ * Staff Dashboard
+ */
+
+Route::get('staff', [StaffDashboardController::class, 'index'])->name('staff.index');
+Route::get('staff/projects', [StaffProjectController::class, 'index'])->name('staff_projects.index');

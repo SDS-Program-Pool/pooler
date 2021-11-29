@@ -30,6 +30,7 @@
 
 @section('content')
 
+<!--
 <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -42,7 +43,8 @@
       <a class="govuk-notification-banner__link" href="#">View progress</a>.
     </p>
   </div>
-</div>
+</div> -->
+
 <!--<div class="govuk-form-group">
   <label class="govuk-label" for="one-half">
     Search
@@ -70,7 +72,7 @@
       Amount of projects done here...
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
+      <a class="govuk-link" href="{{route('projects.index')}}">
         View Projects<span class="govuk-visually-hidden"></span>
       </a>
     </dd>
@@ -83,7 +85,7 @@
       Amount of marked projects you've marked here...
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
+      <a class="govuk-link" href="{{route('tasks.index')}}">
         View Tasks<span class="govuk-visually-hidden"></span>
       </a>
     </dd>
@@ -142,8 +144,6 @@
 
   </main>
 </div>
-
-<!-- If user is student render the student dashboard etc etc.-->
 
 
 @endsection
