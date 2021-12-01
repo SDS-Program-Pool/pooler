@@ -15,9 +15,9 @@
         "laravel/tinker": "^2.5",
         "league/flysystem-aws-s3-v3": "^1.0",
         "lorisleiva/laravel-actions": "^2.1",
+        "nesbot/carbon": "^2.53.1",
         "spatie/laravel-model-status": "^1.10",
-        "spatie/laravel-permission": "^5.1",
-        "nesbot/carbon": "^2.53.1"
+        "spatie/laravel-permission": "^5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
