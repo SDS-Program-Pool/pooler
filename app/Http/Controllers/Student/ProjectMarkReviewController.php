@@ -39,7 +39,7 @@ class ProjectMarkReviewController extends Controller
         {
         
             $mark = new ProjectMarkReviewMark;
-            $mark->project_mark_reviews_id = $markId;
+            $mark->project_mark_review_id = $markId;
             $mark->marks_id = $percentageArray['mark_id'];
             $mark->user_id = Auth::user()->id;
             $mark->percentage = $percentageArray['percentage'];

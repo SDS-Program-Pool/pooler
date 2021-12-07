@@ -145,7 +145,7 @@
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
-    @if($project_data->marks->isEmpty())
+    @if($project_data->mark_review->isEmpty())
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
@@ -154,6 +154,7 @@
       </strong>
     </div>
     @else
+    {{$project_data->mark_review_marks}}
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">

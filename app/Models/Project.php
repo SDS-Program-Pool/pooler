@@ -47,4 +47,14 @@ class Project extends Model
     {
         return $this->hasMany(ProjectMark::class, 'project_id');
     }
+
+    public function mark_review()
+    {
+        return $this->hasMany(ProjectMarkReview::class, 'project_id');
+    }
+    
+    public function mark_review_marks()
+    {
+       return $this->hasManyThrough(ProjectMarkReviewMark::class, ProjectMarkReview::class);
+    }
 }
