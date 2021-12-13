@@ -48,6 +48,11 @@
         Mark Review
       </a>
     </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#final-outcome">
+        Final Outcome
+      </a>
+    </li>
   </ul>
   <div class="govuk-tabs__panel" id="overview">
     <h2 class="govuk-heading-l">Overview</h2>
@@ -129,7 +134,7 @@
       @foreach($project_data->marks as $mark)
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Person X
+          Feedback ID # {{$mark->id}}
         </dt>
         <dd class="govuk-summary-list__value">
           <p class="govuk-body">Percentage - {{$mark->mark_percentage}} %</p>
@@ -143,6 +148,7 @@
     @endif
 
   </div>
+
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
     @if($project_data->mark_review->isEmpty())
@@ -154,7 +160,38 @@
       </strong>
     </div>
     @else
-    {{$project_data->mark_review_marks}}
+    <dl class="govuk-summary-list">
+
+      @foreach($project_data->mark_review_marks as $mark_reviews)
+  
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mark Review ID # {{$mark_reviews->id}}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">Feedback Item #1 was scored {{$mark_reviews->percentage}}% with {{$mark_reviews->project_mark_review->confidence}} confidence</p>
+
+        </dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
+  
+      @endforeach
+    </dl>
+    @endif
+
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel" id="final-outcome">
+    <h2 class="govuk-heading-l">Mark Review</h2>
+    @if($project_data->mark_review->isEmpty())
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        This project has not yet been marked. 
+      </strong>
+    </div>
+    @else
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -192,9 +229,12 @@
         </dd>
       </div>
     </dl>
-    @endif
-
+    @endif 
+    </div>
   </div>
+
+
+
 </div>
                
 @endsection

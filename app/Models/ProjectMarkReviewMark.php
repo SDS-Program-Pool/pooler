@@ -13,4 +13,5 @@ class ProjectMarkReviewMark extends Model
     {
         return $this->belongsTo(ProjectMarkReview::class);
     }
+
 }

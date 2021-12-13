@@ -14,9 +14,14 @@ class ProjectMarkReview extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function project_mark_review_mark()
+    public function project_mark_review_marks()
     {
         return $this->hasMany(ProjectMarkReviewMark::class);
+    }
+
+    public function project_marks()
+    {
+        return $this->hasMany(ProjectMark::class);
     }
 
 }
