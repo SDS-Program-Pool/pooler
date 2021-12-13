@@ -17,7 +17,6 @@
 
 ## In Progress
 - KTI (Keep Tim Informed) aka staff dashboard
-- LDAP auth to CSC
 
 ## Feature List/To Do
 - Check github and Jira
