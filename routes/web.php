@@ -74,4 +74,5 @@ Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensour
 Route::get('staff', [StaffDashboardController::class, 'index'])->name('staff.index');
 Route::get('staff/projects', [StaffProjectController::class, 'index'])->name('staff_projects.index');
 Route::get('staff/students', [StaffStudentController::class, 'index'])->name('staff_students.index');
+Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->name('staff_students.show');
 
