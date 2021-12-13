@@ -16,7 +16,7 @@
 - Program Second Marking
 
 ## In Progress
-- KTI (Keep Tim Informed) aka staff dashboard
+- staff dashboard
 
 ## Feature List/To Do
 - Check github and Jira
