@@ -8,6 +8,8 @@
 <img src="https://github.styleci.io/repos/418145146/shield?branch=main" alt="StyleCI Shield">
 </a>
 
+A system to allow students to exchange code with each other, conduct peer marking etc.
+
 ## Current Features
 - Auth
 - Program Upload
@@ -19,4 +21,4 @@
 - staff dashboard
 
 ## Feature List/To Do
-- Check github and Jira
+- Check github and or Jira

@@ -52,6 +52,7 @@ class ProjectMarkController extends Controller
         }
 
         return redirect()->route('tasks.index')->with('message', 'How have you got here!');
+        // could remove elseif statement and just have the code so if somehow the validation fails the logic just defaults to reject??? C.T
     }
 
     public function store(Request $request)
@@ -59,6 +60,7 @@ class ProjectMarkController extends Controller
         $validated = $request->validate([
             'mark' => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
+            'confidence' => 'required|',
         ]);
 
         $mark = new ProjectMark();
@@ -66,6 +68,7 @@ class ProjectMarkController extends Controller
         $mark->user_id = Auth::user()->id;
         $mark->mark_percentage = $request->mark;
         $mark->qualitative_feedback = $request->qualfeedback;
+        $mark->confidence = $request->confidence;
         $mark->save();
 
         // update the projectmarkallocation to set marked to true

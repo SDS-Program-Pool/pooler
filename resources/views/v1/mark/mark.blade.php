@@ -55,7 +55,6 @@
         </ul>
     </div>
 @endif 
-<!-- ID please fix this to make it pretty ^^-->
 
 
     <div class="govuk-form-group">
@@ -70,9 +69,15 @@
               </span>
             </summary>
             <div class="govuk-details__text">
-              Insert some grade disctrpitors here.
+              Refer to Moodle/WM145
+
+
+
             </div>
           </details>
+          <div id="mark-hint" class="govuk-hint">
+            Include an integer from 40 -> 100. Do not include a percentage sign
+          </div>
         <input class="govuk-input govuk-input--width-2" id="mark" name="mark" type="number">
       </div>
 
@@ -82,9 +87,40 @@
           </label>
         </h1>
         <div id="qualfeedback-hint" class="govuk-hint">
-          Including things such as where the $user went right or wrong. Markdown is supported.
+          Including things such as where the $user went right or wrong.
         </div>
         <textarea class="govuk-textarea" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              How confident are you in your marking?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="high">
+              <label class="govuk-label govuk-radios__label" for="confidence">
+                High
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="medium">
+              <label class="govuk-label govuk-radios__label" for="confidence">
+                Medium
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="low">
+              <label class="govuk-label govuk-radios__label" for="confidence">
+                Low
+              </label>
+            </div>
+          </div>
+      
+        </fieldset>
       </div>
 
   <button type="submit" class="govuk-button" data-module="govuk-button">

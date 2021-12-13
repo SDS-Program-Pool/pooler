@@ -6,9 +6,7 @@
   <title>@yield('title') - Program Pool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="blue">
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/images/favicon.ico" type="image/x-icon">
   <link rel="mask-icon" href="/images/govuk-mask-icon.svg" color="blue">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/govuk-apple-touch-icon-180x180.png">
@@ -20,19 +18,10 @@
   <link href="/govuk-frontend/all.css" rel="stylesheet">
   <!--<![endif]-->
 
-  <!--[if IE 8]>
-    <link href="/govuk-frontend/all-ie8.css" rel="stylesheet">
-  <![endif]-->
-
-  <!--[if lt IE 9]>
-    <script src="/html5-shiv/html5shiv.js"></script>
-  <![endif]-->
-
 </head>
 
 <body class="govuk-template__body app-body-class" data-test="My value" data-other="report:details">
   <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-
 
   <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
@@ -42,7 +31,7 @@
         <a href="/" class="govuk-header__link govuk-header__link--homepage">
           <span class="govuk-header__logotype">
             <span class="govuk-header__logotype-text">
-              Program Pool
+              WMG CSC
             </span>
           </span>
         </a>
