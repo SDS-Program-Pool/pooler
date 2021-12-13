@@ -55,7 +55,6 @@
         <th scope="col" class="govuk-table__header">Projects Submitted</th>
         <th scope="col" class="govuk-table__header">Average Mark</th>
         <th scope="col" class="govuk-table__header">View Profile</th>
-
       </tr>
     </thead>
     <tbody class="govuk-table__body">
