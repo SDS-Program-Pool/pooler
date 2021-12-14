@@ -32,16 +32,14 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
-            //'password' => $this->passwordRules(),
-            //'is_verified' => ['requied','boolean'],
             'password' => $this->passwordRules(),
-            //'is_verified' => ['requied','boolean'],
         ])->validate();
 
         return User::create([
             'username'   => $input['username'],
             'first_name' => $input['first_name'],
             'last_name'  => $input['last_name'],
+            'is_staff'   => FALSE,
             'email'      => $input['email'],
             'password'   => Hash::make($input['password']),
         ]);

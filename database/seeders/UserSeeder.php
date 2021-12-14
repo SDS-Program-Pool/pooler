@@ -38,7 +38,6 @@ class UserSeeder extends Seeder
             'username'   => 'marker2',
             'email'      => 'demo2@warwick.ac.uk',
             'password'   => Hash::make('Password1!'),
-            'student'    => TRUE,
             'is_staff'      => FALSE,
         ]);
         DB::table('users')->insert([
