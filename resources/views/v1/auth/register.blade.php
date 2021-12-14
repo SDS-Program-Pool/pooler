@@ -1,127 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Register - Program Pool</title>
-        <!-- Load Favicon-->
-        <link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <!-- Load Material Icons from Google Fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
-        <!-- Roboto and Roboto Mono fonts from Google Fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
-        <!-- Load main stylesheet-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="bg-pattern-doubs">
-        <!-- Layout wrapper-->
-        <div id="layoutAuthentication">
-            <!-- Layout content-->
-            <div id="layoutAuthentication_content">
-                <!-- Main page content-->
-                <main>
-                    <!-- Main content container-->
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8">
-                                <div class="card card-raised shadow-10 mt-5 mt-xl-10 mb-4">
-                                    <div class="card-body p-5">
-                                        <!-- Auth header with logo image-->
-                                        <div class="text-center">
-                                            <img class="mb-3" src="assets/img/icons/background.svg" alt="..." style="height: 48px" />
-                                            <h1 class="display-5 mb-0">Login</h1>
-                                            <div class="subheading-1 mb-5">to continue to app</div>
-                                        </div>
-                                        <!-- Login submission form-->
+@extends('v1.layouts.app')
+@section('title', 'Login')
 
-                                        <form method="POST" action="{{ route('register') }}">
-                                            @csrf
-                                            <div class="mb-4">
-                                                <input class="w-100" label="username" id="username" type="text" name="username" outlined id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username">
-                                            </div>
+@section('content')
 
-                                            @error('username')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror                                 
-                                            <input id="email" name="email" type="text"> email
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror                
-                        
-                                            <input id="first_name" name="first_name" type="text">
-
-                                            @error('first_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror                
-                        
-                                            <input id="last_name" name="last_name" type="text">
+@error('username')
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#username">The username or password is incorrect</a>
+      </li>
+    </ul>
+  </div>
+</div>
+@enderror
 
 
-                                            @error('last_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror  
+<form method="POST" action="{{ route('login') }}">
+    @csrf
+    <div class="govuk-form-group @error('username') govuk-form-group--error @enderror"> 
+        <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">CSC Username</label> 
+        @error('username')
+        <span id="usernamepass-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Your username or password is incorrect
+        </span>
+        @enderror
+
+        <input type="text" name="username" id="username" class="govuk-input govuk-!-width-one-half @error('username') govuk-input--error @enderror" value="{{ old('username') }}" maxlength="20" aria-describedby="username-hint" autocomplete="username"> 
+    </div> 
+
+    <div class="govuk-form-group @error('username') govuk-form-group--error @enderror"> 
+        <div class="govuk-form-group"> <label for="password" class="govuk-label">Password</label> 
+            <input type="password" name="password" id="password" class="govuk-input govuk-!-width-three-quarters @error('username') govuk-input--error @enderror" autocomplete="current-password"> 
+        </div> 
+    </div>
+        <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Register</button> 
+</form>
 
 
-                                            <div class="mb-4">
-                                                    <input class="w-100" label="Password" outlined icontrailing="visibility_off" type="password" id="password" type="text" name="password" required autocomplete="password"> 
-                                            </div>
-
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror  
-                                            <div class="d-flex align-items-center">
-                                                <mwc-formfield label="Remember password"><mwc-checkbox></mwc-checkbox></mwc-formfield>
-                                            </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small fw-500 text-decoration-none" href="app-auth-password-basic.html">Forgot Password?</a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    Login
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- Auth card message-->
-                                <div class="text-center mb-5"><a class="small fw-500 text-decoration-none link-white" href="app-auth-register-basic.html">Need an account? Sign up!</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <!-- Layout footer-->
-            <div id="layoutAuthentication_footer">
-                <!-- Auth footer-->
-                <footer class="p-4">
-                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between small">
-                        <div class="me-sm-3 mb-2 mb-sm-0"><div class="fw-500 text-white">Copyright &copy; Program Pool 2021</div></div>
-                        <div class="ms-sm-3">
-                            <a class="fw-500 text-decoration-none link-white" href="#!">Privacy</a>
-                            <a class="fw-500 text-decoration-none link-white mx-4" href="#!">Terms</a>
-                            <a class="fw-500 text-decoration-none link-white" href="#!">Help</a>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <!-- Load Bootstrap JS bundle-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <!-- Load global scripts-->
-        <script type="module" src="js/material.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+@endsection
