@@ -72,7 +72,7 @@
       Submitted Projects
     </dt>
     <dd class="govuk-summary-list__value">
-      Amount of projects done here...
+      {{Auth::user()->projects->count()}}
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="{{route('projects.index')}}">
