@@ -23,5 +23,4 @@ class ProjectMarkReview extends Model
     {
         return $this->hasMany(ProjectMark::class);
     }
-
 }

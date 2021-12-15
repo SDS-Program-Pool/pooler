@@ -6,7 +6,6 @@ use App\Models\UserNotes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class UserNoteController extends Controller
 {
     public function store(Request $request)
@@ -20,7 +19,6 @@ class UserNoteController extends Controller
             ['notes' => $request->notes]
         );
 
-        return redirect()->route('dashboard.index')->with('message', 'Note Updated');        
-
+        return redirect()->route('dashboard.index')->with('message', 'Note Updated');
     }
 }

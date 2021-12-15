@@ -137,9 +137,9 @@ return [
         // Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-       // Features::twoFactorAuthentication([
-         //   'confirmPassword' => false,
-      //  ]),
+        // Features::twoFactorAuthentication([
+        //   'confirmPassword' => false,
+        //  ]),
     ],
 
 ];

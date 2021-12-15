@@ -8,7 +8,6 @@ use App\Models\User;
 
 class MarkReviewAllocation
 {
-
     public function first_allocation($projectStrategy, $teamStrategy)
     {
         $team_members = $this->team_members($projectStrategy->id);
@@ -22,7 +21,7 @@ class MarkReviewAllocation
             $users_array[] = $user->id;
         }
 
-       // dd($array);
+        // dd($array);
 
         //dd($users_array);
 
