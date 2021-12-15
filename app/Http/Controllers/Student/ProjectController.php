@@ -34,6 +34,12 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
+        $validated = $request->validate([
+            'code-upload'  => 'required|mimes:tar,tar.gz,zip|max:50000',
+            'project_name' => 'required|min:3|max:255',
+            'team_type'    => 'required|in:IndividualTeamCreation,FeatureBranchTeamCreation,TeamCreation'
+        ]);
+
         // Trigger Project Creation
         $projectStrategy = $this->projectStrategy()->create($request);
         $projectStrategy->setStatus('Created');
@@ -72,10 +78,6 @@ class ProjectController extends Controller
 
     public function teamStrategy()
     {
-
-        // Validate that the team type exists do this... C.T
-
-        // Strategy Pattern to call correct function for business logic
 
         $team_type = request('team_type');
 

@@ -11,10 +11,6 @@ class Upload
     public function upload($request, $project)
     {
 
-        $validated = $request->validate([
-            'code-upload' => 'required|mimes:tar,tar.gz,zip|max:50000',
-        ]);
-
         $source = $request->file('code-upload')->store('public');
 
         $store = new ProjectSource();

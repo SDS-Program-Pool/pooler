@@ -22,27 +22,30 @@
     </ol>
   </div>
 
-  @error('code-upload')
+@if ($errors->any())
 <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
   <h2 class="govuk-error-summary__title" id="error-summary-title">
     There is a problem
   </h2>
   <div class="govuk-error-summary__body">
     <ul class="govuk-list govuk-error-summary__list">
-      <li>
-        <a href="#code-upload">
-          <li>{{ $message  }}</li>
-        </a>
-      </li>
-    </ul>
+  @foreach ($errors->all() as $error)
+        <li>
+          <a href="#team_type">
+            <li>{{ $error  }}</li>
+          </a>
+        </li>
+  @endforeach
+      </ul>
+    </div>
   </div>
-</div>
-@enderror
+@endif
+
 
                 <form enctype="multipart/form-data" method="POST" action="{{ route('projects.store') }}">
                     @csrf
 
-                    <div class="govuk-form-group">
+                    <div class="govuk-form-group @error('project_name') govuk-form-group--error @enderror">
                       <label class="govuk-label" for="project_name">
                         What is the name of the project?
                       </label>
@@ -53,7 +56,7 @@
                         <legend class="govuk-fieldset__legend">
                           What type of project are you uploading?
                         </legend>
-                        <div class="govuk-radios">
+                        <div class="govuk-radios @error('team_type') govuk-form-group--error @enderror">
                           <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="team_type" name="team_type" type="radio" value="IndividualTeamCreation">
                             <label class="govuk-label govuk-radios__label" for="team_type">
