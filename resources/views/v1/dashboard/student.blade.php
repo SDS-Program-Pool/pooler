@@ -63,7 +63,7 @@
 </div>
 
 <h1 class="govuk-heading-l">
-  Welcome back to the Program Pool, {{Auth::user()->username}}
+  Good {{$dayTerm}}, {{Auth::user()->FullName}}
 </h1>
 
 @if(Session::has('message'))
