@@ -9,11 +9,11 @@ class ProjectManualReviewController extends Controller
 {
     public function index()
     {
-        $project_reviews = Auth::user()->project_manual_reviews->all();
+        //$project_reviews = Auth::user()->project_manual_reviews->all();
 
-        dd($project_reviews);
+       // dd($project_reviews);
 
-        return view('v1.project.manual_review.index', compact('project_reviews'));
+        return view('v1.project.manual_review.index');
     }
 
     public function create()
