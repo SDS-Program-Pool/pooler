@@ -14,6 +14,7 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\ProjectCreated;
 
 class ProjectController extends Controller
 {
@@ -62,6 +63,10 @@ class ProjectController extends Controller
         $alloc_2 = $alloc_2->first_allocation($projectStrategy, $teamStrategy);
 
         // Send an email notif to the user to let them know all is okay
+        $user = User::whereId(Auth::id())->firstOrFail();
+        $user->notify(new ProjectCreated($projectStrategy));
+
+
 
         return redirect()->route('projects.index')->with('message', 'Project Created!');
     }
