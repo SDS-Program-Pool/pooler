@@ -85,7 +85,7 @@
       Marked Projects
     </dt>
     <dd class="govuk-summary-list__value">
-      Amount of marked projects you've marked here...
+      {{Auth::user()->project_mark_reviews->count()}}
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="{{route('tasks.index')}}">
@@ -116,18 +116,27 @@
       <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">To-do list</h2>
         <ul class="govuk-list">
+
+
+          
+
+          @foreach(Auth::user()->ToMark as $list)
+
           <li>
-            <a class="govuk-link" href="#">Something you have to do here...</a>
+            <a class="govuk-link" href="#">{{$list}}</a>
           </li>
+          
+          @endforeach
+
+          @foreach(Auth::user()->ToMarkReview as $list)
+
           <li>
-            <a class="govuk-link" href="#">Something you have to do here...</a>
+            <a class="govuk-link" href="#">{{$list}}</a>
           </li>
-          <li>
-            <a class="govuk-link" href="#">Something you have to do here...</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">Something you have to do here...</a>
-          </li>
+          
+          @endforeach
+
+
         </ul>
       </div>
     </div>

@@ -30,6 +30,7 @@ class DashboardController extends Controller
 
         // for testing purposes only!!
 
+
         return view('v1.dashboard.student');
 
         if (Auth::user()->hasRole('student')) {

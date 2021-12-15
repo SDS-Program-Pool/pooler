@@ -56,4 +56,33 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    public function project_mark_reviews()
+    {
+        return $this->hasMany(ProjectMarkReview::class,'user_id');       
+    }
+
+    public function project_mark_allocations()
+    {
+        return $this->hasMany(ProjectMarkAllocation::class,'user_id');       
+    }
+
+    public function project_mark_review_allocations()
+    {
+        return $this->hasMany(ProjectMarkReviewAllocation::class,'user_id');       
+    }
+
+    public function getToDoCountAttribute()
+    {
+        return $this->project_mark_allocations->count() + $this->project_mark_review_allocations->count();
+    }
+    public function getToMarkAttribute()
+    {
+        return $this->project_mark_allocations;
+    }
+
+    public function getToMarkReviewAttribute()
+    {
+       return $this->project_mark_review_allocations;
+    }
 }
