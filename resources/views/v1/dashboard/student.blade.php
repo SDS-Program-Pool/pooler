@@ -123,7 +123,7 @@
           @foreach(Auth::user()->ToMark as $list)
 
           <li>
-            <a class="govuk-link" href="#">{{$list}}</a>
+            <a class="govuk-link" href="{{route('marking.show',$list->project->id)}}">Mark Project - {{$list->project->name}}</a>
           </li>
           
           @endforeach
@@ -131,7 +131,7 @@
           @foreach(Auth::user()->ToMarkReview as $list)
 
           <li>
-            <a class="govuk-link" href="#">{{$list}}</a>
+            <a class="govuk-link" href="{{route('marking_review.show',$list->project->id)}}">Mark Review Project - {{$list->project->name}}</a>
           </li>
           
           @endforeach
