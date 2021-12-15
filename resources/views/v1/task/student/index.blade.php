@@ -14,7 +14,7 @@
         <a class="govuk-breadcrumbs__link" href="{{ route('dashboard.index') }}">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">My Projects</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('tasks.index') }}">My Tasks</a>
       </li>
     </ol>
   </div>
