@@ -16,7 +16,7 @@ class UserNotes extends Model
      */
     protected $fillable = [
         'user_id',
-        'notes',
+        'note',
     ];
 
     public function user()

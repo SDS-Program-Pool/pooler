@@ -11,12 +11,12 @@ class UserNoteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'notes' => 'required|max:4096',
+            'note' => 'required|max:4096',
         ]);
 
         $userNotes = UserNotes::updateOrCreate(
             ['user_id' => Auth::id()],
-            ['notes' => $request->notes]
+            ['note' => $request->note]
         );
 
         return redirect()->route('dashboard.index')->with('message', 'Note Updated');

@@ -24,9 +24,3 @@ class Upload
 
     }
 }
-
-// Validate the ZIP File
-
-// Upload the ZIP File
-
-// Error Handling for ZIP File

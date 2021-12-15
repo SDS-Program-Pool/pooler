@@ -125,10 +125,6 @@
             </div>
           </details>
 
-
-              
-
-
           <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="high">

@@ -169,7 +169,7 @@
       <div id="notes-hint" class="govuk-hint">
         Do not include personal data here.
       </div>
-      <textarea class="govuk-textarea" id="notes" name="notes" rows="5" aria-describedby="notes-hint">{{Auth::user()->notes->notes ?? ''}}</textarea>
+      <textarea class="govuk-textarea" id="note" name="note" rows="5" aria-describedby="notes-hint">{{Auth::user()->notes->note ?? ''}}</textarea>
     </div>
     <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Save</button> 
 
