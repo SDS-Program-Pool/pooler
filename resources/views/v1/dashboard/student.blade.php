@@ -127,7 +127,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Mark History</h1>
-        <p class="govuk-body">View your average mark here.</p>
+        <p class="govuk-body">This feature has not yet been enabled</p>
       </div>
 
       <div class="govuk-grid-column-one-third">

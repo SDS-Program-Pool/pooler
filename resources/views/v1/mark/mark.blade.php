@@ -69,16 +69,15 @@
               </span>
             </summary>
             <div class="govuk-details__text">
-              Refer to Moodle/WM145
-
-
-
+              <a href="https://moodle.warwick.ac.uk/pluginfile.php/2253941/mod_resource/content/3/feedback.txt">Moodle</a>
             </div>
           </details>
-          <div id="mark-hint" class="govuk-hint">
-            Include an integer from 40 -> 100. Do not include a percentage sign
+
+          <div class="govuk-inset-text">
+            <p id="grade-descriptor">Descriptor -</p>
           </div>
-        <input class="govuk-input govuk-input--width-2" id="mark" name="mark" type="number">
+
+        <input class="govuk-input govuk-input--width-2" id="mark" name="mark" type="number" onkeyup="showGradeDescriptor()">
       </div>
 
       <div class="govuk-form-group">
@@ -86,9 +85,22 @@
             Can you provide any more feedback?
           </label>
         </h1>
-        <div id="qualfeedback-hint" class="govuk-hint">
-          Including things such as where the $user went right or wrong.
-        </div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Advice on feedback
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p> Be kind and constructive. The aim is to help the author get better at
+            programming, not to cause them to lose confidence or feel stupid.</p>
+            <p> Try to find some nice things to say about the code or coding style.
+            If you suspect that the author is a better programmer than you are
+            currently then do your best to feedback your understanding of what the
+            code does but don't forget: just because it is confusing doesn't mean
+            that it is good!</p>
+          </div>
+        </details>
         <textarea class="govuk-textarea" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
       </div>
 
@@ -99,6 +111,24 @@
               How confident are you in your marking?
             </h1>
           </legend>
+            
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Advice on confidence
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p> HIGH means that you are pretty sure that your mark and feedback are correct.</p>
+              <p> MEDIUM means you think your mark and feedback are OK.</p>
+              <p> LOW means that you perhaps don't understand the code or you aren't that confident about your mark or feedback comments.</p>
+            </div>
+          </details>
+
+
+              
+
+
           <div class="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="confidence" name="confidence" type="radio" value="high">
@@ -127,5 +157,26 @@
     Save and continue
   </button>
 </form>
+
+<script>
+  function showGradeDescriptor() {
+    var mark = document.getElementById("mark").value;
+
+    if (mark <= 49 ){
+      document.getElementById('grade-descriptor').innerText = "Descriptor - Work of limited quality, demonstrating some relevant knowledge and understanding."
+    }
+    else if(mark <= 59){
+      document.getElementById('grade-descriptor').innerText = "Descriptor - Competent work, demonstrating reasonable knowledge and understanding, some analysis, organisation, accuracy, relevance, presentation and appropriate skills.Work of limited quality, demonstrating some relevant knowledge and understanding."
+    }
+    else if(mark <= 69){
+      document.getElementById('grade-descriptor').innerText = "Descriptor - High quality work demonstrating good knowledge and understanding, analysis, organisation, accuracy, relevance, presentation and appropriate skills."
+    }
+    else if(mark > 89){
+      document.getElementById('grade-descriptor').innerText = "Descriptor - Very high quality work demonstrating excellent knowledge and understanding, analysis, organisation, accuracy, relevance, presentation and appropriate skills."
+    }
+
+}
+</script>
+
 
 @endsection
