@@ -43,9 +43,11 @@
         <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Sign in</button> 
 </form>
 
+
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Problems signing in</h2>
 <ul class="govuk-list"> 
+    <li><a class="govuk-link" href="/register" id="forgotten-password" data-ga-action="Forgot-Password" data-ga-category="Sign-In" data-ga-label="HMRC">I need an account</a></li> 
     <li><a class="govuk-link" href="/login/forgot-password" id="forgotten-password" data-ga-action="Forgot-Password" data-ga-category="Sign-In" data-ga-label="HMRC">I have forgotten my password</a></li> 
-   </ul>
+</ul>
 
 @endsection

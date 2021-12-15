@@ -65,8 +65,6 @@ class ProjectController extends Controller
         $user = User::whereId(Auth::id())->firstOrFail();
         $user->notify(new ProjectCreated($projectStrategy));
 
-
-
         return redirect()->route('projects.index')->with('message', 'Project Created!');
     }
 

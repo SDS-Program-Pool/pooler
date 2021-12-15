@@ -54,6 +54,9 @@
   </label>
   <input class="govuk-input govuk-!-width-one-half" id="one-half" name="one-half" type="text">
 </div>-->
+
+<h1 class="govuk-heading-xl">Dashboard</h1>
+
 <div class="govuk-breadcrumbs">
   <ol class="govuk-breadcrumbs__list">
     <li class="govuk-breadcrumbs__list-item">

@@ -92,7 +92,7 @@
                       <label class="govuk-label" for="code-upload">
                         Upload your code. Max 50MB. Supported filetypes .zip .tar .tar.gz
                       </label>
-                      <input class="govuk-file-upload @error('code-upload') govuk-input--error @enderror" id="code-upload" name="code-upload" type="file">
+                      <input class="govuk-file-upload @error('code-upload') govuk-input--error @enderror" id="code-upload" name="code-upload" type="file" accept=".tar,.tar.gz,.zip">
                     </div>
 
 
