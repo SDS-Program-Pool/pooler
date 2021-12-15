@@ -48,9 +48,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFullNameAttribute() {
-		return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
-	}
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
+    }
 
     public function notes()
     {
@@ -64,23 +65,24 @@ class User extends Authenticatable
 
     public function project_mark_reviews()
     {
-        return $this->hasMany(ProjectMarkReview::class,'user_id');       
+        return $this->hasMany(ProjectMarkReview::class, 'user_id');
     }
 
     public function project_mark_allocations()
     {
-        return $this->hasMany(ProjectMarkAllocation::class,'user_id');       
+        return $this->hasMany(ProjectMarkAllocation::class, 'user_id');
     }
 
     public function project_mark_review_allocations()
     {
-        return $this->hasMany(ProjectMarkReviewAllocation::class,'user_id');       
+        return $this->hasMany(ProjectMarkReviewAllocation::class, 'user_id');
     }
 
     public function getToDoCountAttribute()
     {
         return $this->project_mark_allocations->count() + $this->project_mark_review_allocations->count();
     }
+
     public function getToMarkAttribute()
     {
         return $this->project_mark_allocations;
@@ -88,6 +90,6 @@ class User extends Authenticatable
 
     public function getToMarkReviewAttribute()
     {
-       return $this->project_mark_review_allocations;
+        return $this->project_mark_review_allocations;
     }
 }

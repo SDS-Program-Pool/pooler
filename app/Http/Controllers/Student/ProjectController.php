@@ -65,8 +65,8 @@ class ProjectController extends Controller
      */
     public function show(Request $request)
     {
-        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->with('source','marks','mark_review_marks')->firstOrFail();
-        
+        $project_data = Project::whereUserId(Auth::id())->whereId($request->route('id'))->with('source', 'marks', 'mark_review_marks')->firstOrFail();
+
         return view('v1.project.show', compact('project_data'));
     }
 

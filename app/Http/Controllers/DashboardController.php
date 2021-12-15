@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
 
-        // implement a strategy pattern to determine what controllers should be loaded. 
+        // implement a strategy pattern to determine what controllers should be loaded.
         $hour = date('H');
         $dayTerm = ($hour > 17) ? 'Evening' : (($hour > 12) ? 'Afternoon' : 'Morning');
 
@@ -29,7 +29,6 @@ class DashboardController extends Controller
         //dd($user->hasRole('student'));
 
         // for testing purposes only!!
-
 
         return view('v1.dashboard.student');
 

@@ -58,9 +58,9 @@ class ProjectMarkController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'mark' => 'required|numeric|min:40|max:100',
+            'mark'         => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
-            'confidence' => 'required|',
+            'confidence'   => 'required|',
         ]);
 
         $mark = new ProjectMark();

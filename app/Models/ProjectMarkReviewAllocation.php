@@ -14,10 +14,10 @@ class ProjectMarkReviewAllocation extends Model
         return $this->belongsTo(Project::class);
     }
 
-
     public function getMarkByAttribute()
     {
         $value = $this->created_at;
+
         return $value;
     }
 }
