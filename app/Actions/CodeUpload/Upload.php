@@ -3,14 +3,12 @@
 namespace App\Actions\CodeUpload;
 
 use App\Models\ProjectSource;
-use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
 
 class Upload
 {
     public function upload($request, $project)
     {
-
         $source = $request->file('code-upload')->store('public');
 
         $store = new ProjectSource();
@@ -21,6 +19,5 @@ class Upload
         $store->save();
 
         return $store;
-
     }
 }
