@@ -46,7 +46,7 @@
                       <label class="govuk-label" for="project_name">
                         What is the name of the project?
                       </label>
-                      <input class="govuk-input" id="project_name" name="project_name" type="text"></div>
+                      <input class="govuk-input" id="project_name" name="project_name" type="text" value="{{old('project_name') ?? ''}}"></div>
 
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -64,7 +64,7 @@
                             </div>
                           </div>
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="team_type-2" name="team_type" type="radio" value="TeamCreation">
+                            <input class="govuk-radios__input" id="team_type-2" name="team_type" type="radio" value="TeamCreation" disabled>
                             <label class="govuk-label govuk-radios__label" for="team_type-2">
                               Team
                             </label>
@@ -73,7 +73,7 @@
                             </div>
                           </div>
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="team_type-3" name="team_type" type="radio" value="FeatureBranchTeamCreation">
+                            <input class="govuk-radios__input" id="team_type-3" name="team_type" type="radio" value="FeatureBranchTeamCreation" disabled>
                             <label class="govuk-label govuk-radios__label" for="team_type-3">
                               Feature Branch
                             </label>

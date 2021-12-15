@@ -29,24 +29,24 @@ Route::get('profile', [ProfileController::class, 'index'])->middleware(['auth'])
  * Projects.
  */
 Route::get('projects', [ProjectController::class, 'index'])->middleware(['auth'])->name('projects.index');
-Route::get('project/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
-Route::post('project/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
-Route::get('project/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');
+Route::get('projects/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
+Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
+Route::get('projects/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');
 
 /**
  * Project Mark.
  */
-Route::post('project/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
-Route::post('project/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
+Route::post('projects/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
+Route::post('projects/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
 
-Route::get('project/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
-Route::get('project/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
+Route::get('projects/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
+Route::get('projects/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
 
 /**
  * Project Mark Review.
  */
-Route::post('project/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
-Route::get('project/{id}/review', [ProjectMarkReviewController::class, 'show'])->middleware(['auth'])->name('marking_review.show');
+Route::post('projects/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
+Route::get('projects/{id}/review', [ProjectMarkReviewController::class, 'show'])->middleware(['auth'])->name('marking_review.show');
 
 /**
  * Project Download.
