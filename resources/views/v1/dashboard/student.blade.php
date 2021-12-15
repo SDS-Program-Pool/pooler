@@ -66,6 +66,23 @@
   Welcome back to the Program Pool, {{Auth::user()->username}}
 </h1>
 
+@if(Session::has('message'))
+
+<div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      {{ Session::get('message') }}
+    </h3>
+  </div>
+</div>
+
+@endif
+
 <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
@@ -141,19 +158,23 @@
         </ul>
       </div>
     </div>
+
+    <form method="POST" action="{{ route('user_notes.store') }}">
+      @csrf
     <div class="govuk-form-group govuk-!-padding-top-3">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="more-detail">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="notes">
           Custom Notes
         </label>
       </h1>
-      <div id="more-detail-hint" class="govuk-hint">
+      <div id="notes-hint" class="govuk-hint">
         Do not include personal data here.
       </div>
-      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      <textarea class="govuk-textarea" id="notes" name="notes" rows="5" aria-describedby="notes-hint">{{Auth::user()->notes->notes ?? ''}}</textarea>
     </div>
-    <button class="govuk-button" data-module="govuk-button">
-      Save
-    </button>
+    <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Save</button> 
+
+  </form>
+
 
   </main>
 </div>

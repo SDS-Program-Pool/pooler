@@ -9,6 +9,16 @@ class UserNotes extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'user_id',
+        'notes',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

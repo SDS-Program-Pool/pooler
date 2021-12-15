@@ -12,6 +12,7 @@ use App\Http\Controllers\Student\TaskController;
 use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use App\Http\Controllers\Staff\ProjectController as StaffProjectController;
 use App\Http\Controllers\Staff\StudentController as StaffStudentController;
+use App\Http\Controllers\UserNoteController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -75,3 +76,9 @@ Route::get('staff', [StaffDashboardController::class, 'index'])->middleware(['au
 Route::get('staff/projects', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_projects.index');
 Route::get('staff/students', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_students.index');
 Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
+
+
+/**
+ * Custom User Notes
+ */
+Route::post('user/notes', [UserNoteController::class, 'store'])->middleware(['auth'])->name('user_notes.store');
