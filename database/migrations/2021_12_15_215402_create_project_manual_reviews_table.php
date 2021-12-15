@@ -14,8 +14,15 @@ class CreateProjectManualReviewsTable extends Migration
     public function up()
     {
         Schema::create('project_manual_reviews', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->BigInteger('user_id')->unsigned()->nullable(); // Requester
+            $table->foreignId('project_id');
+            $table->longText('comments');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('set null');
+            $table->foreign('project_id')->references('id')->on('projects')
+            ->onDelete('cascade');
         });
     }
 
