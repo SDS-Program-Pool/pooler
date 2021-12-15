@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\OpenSourceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectManualReviewController;
 use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use App\Http\Controllers\Staff\ProjectController as StaffProjectController;
 use App\Http\Controllers\Staff\StudentController as StaffStudentController;
@@ -29,6 +30,9 @@ Route::get('profile', [ProfileController::class, 'index'])->middleware(['auth'])
  * Projects.
  */
 Route::get('projects', [ProjectController::class, 'index'])->middleware(['auth'])->name('projects.index');
+Route::get('projects/staff-review', [ProjectManualReviewController::class, 'index'])->middleware(['auth'])->name('projects_manualreview.index');
+Route::get('projects/{id}/staff-review', [ProjectManualReviewController::class, 'create'])->middleware(['auth'])->name('projects_manualreview.create');
+Route::post('projects/{id}/staff-review', [ProjectManualReviewController::class, 'store'])->middleware(['auth'])->name('projects_manualreview.store');
 Route::get('projects/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
 Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
 Route::get('projects/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');

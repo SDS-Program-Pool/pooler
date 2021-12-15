@@ -17,6 +17,11 @@
             Upload Code
           </a>
         </li>
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="{{ route('projects_manualreview.index') }}">
+            Request Staff Review
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
