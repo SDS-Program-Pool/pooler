@@ -22,6 +22,23 @@
     </ol>
   </div>
 
+  @error('code-upload')
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#code-upload">
+          <li>{{ $message  }}</li>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+@enderror
+
                 <form enctype="multipart/form-data" method="POST" action="{{ route('projects.store') }}">
                     @csrf
 
@@ -68,12 +85,13 @@
                       </fieldset>
                     </div>
 
-                    <div class="govuk-form-group">
+                    <div class="govuk-form-group @error('code-upload') govuk-form-group--error @enderror">
                       <label class="govuk-label" for="code-upload">
-                        Upload a zip or tar of your code. Max 50MB
+                        Upload your code. Max 50MB. Supported filetypes .zip .tar .tar.gz
                       </label>
-                      <input class="govuk-file-upload" id="code-upload" name="code-upload" type="file">
+                      <input class="govuk-file-upload @error('code-upload') govuk-input--error @enderror" id="code-upload" name="code-upload" type="file">
                     </div>
+
 
                   <!--   <details class="govuk-details" data-module="govuk-details">
                       <summary class="govuk-details__summary">

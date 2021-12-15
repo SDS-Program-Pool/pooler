@@ -63,7 +63,7 @@
 </div>
 
 <h1 class="govuk-heading-l">
-  Good {{$dayTerm}}, {{Auth::user()->FullName}}
+  Good {{$dayTerm}}, {{Auth::user()->first_name}}
 </h1>
 
 @if(Session::has('message'))
