@@ -117,9 +117,10 @@
         <h2 class="govuk-heading-m">To-do list</h2>
         <ul class="govuk-list">
 
-
+          @if(Auth::user()->ToMark->isEmpty() || Auth::user()->ToMarkReview->isEmpty())
+            <p> Nothing to do!</p>
+          @endif
           
-
           @foreach(Auth::user()->ToMark as $list)
 
           <li>
