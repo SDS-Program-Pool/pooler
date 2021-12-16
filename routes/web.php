@@ -68,6 +68,12 @@ Route::get('tasks', [TaskController::class, 'index'])->middleware(['auth'])->nam
 Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');
 
 /**
+ * Custom User Notes.
+ */
+Route::post('user/notes', [UserNoteController::class, 'store'])->middleware(['auth'])->name('user_notes.store');
+
+
+/**
  * Open Source Licences.
  */
 Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensource.index');
@@ -83,8 +89,3 @@ Route::middleware(['teachingteam'])->group(function () {
     Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
     
 });
-
-/**
- * Custom User Notes.
- */
-Route::post('user/notes', [UserNoteController::class, 'store'])->middleware(['auth'])->name('user_notes.store');

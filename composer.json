@@ -6,7 +6,6 @@
     "license": "GPL-3.0-only",
     "require": {
         "php": "^7.3|^8.0",
-        "directorytree/ldaprecord-laravel": "^2.5",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/fortify": "^1.8",
@@ -26,7 +25,6 @@
         "laravel/telescope": "^4.6",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
-        "phpstan/phpstan": "^1.2",
         "phpunit/phpunit": "^9.5.8"
     },
     "autoload": {
