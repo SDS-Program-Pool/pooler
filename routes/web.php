@@ -24,7 +24,7 @@ Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->na
 /**
  * Profile.
  */
-Route::get('profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('profile.index');
+Route::get('user/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('profile.index');
 
 /**
  * Projects.
@@ -67,15 +67,13 @@ Route::get('projects/{id}/download', [DownloadController::class, 'getDownload'])
  */
 Route::get('tasks', [TaskController::class, 'index'])->middleware(['auth'])->name('tasks.index');
 
-/**
- * Settings.
- */
-Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');
 
 /**
  * Custom User Notes.
  */
 Route::post('user/notes', [UserNoteController::class, 'store'])->middleware(['auth'])->name('user_notes.store');
+
+
 
 /**
  * Open Source Licences.
