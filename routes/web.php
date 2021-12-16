@@ -75,10 +75,14 @@ Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensour
 /**
  * Staff Dashboard.
  */
-Route::get('staff', [StaffDashboardController::class, 'index'])->middleware(['auth'])->name('staff.index');
-Route::get('staff/projects', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_projects.index');
-Route::get('staff/students', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_students.index');
-Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
+Route::middleware(['teachingteam'])->group(function () {
+    
+    Route::get('staff', [StaffDashboardController::class, 'index'])->middleware(['auth'])->name('staff.index');
+    Route::get('staff/projects', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_projects.index');
+    Route::get('staff/students', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_students.index');
+    Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
+    
+});
 
 /**
  * Custom User Notes.
