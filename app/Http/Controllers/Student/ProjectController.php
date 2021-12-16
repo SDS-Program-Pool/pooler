@@ -18,6 +18,12 @@ use App\Notifications\ProjectCreated;
 
 class ProjectController extends Controller
 {
+    public function __construct(Upload $upload, Allocation $allocation)
+    {
+        $this->upload = $upload;
+        $this->allocation = $allocation;
+    }
+
     public function index()
     {
         $project_data = Project::whereUserId(Auth::id())->get();
@@ -48,14 +54,12 @@ class ProjectController extends Controller
         $teamStrategy = $this->teamStrategy()->create($request, $projectStrategy);
 
         // Upload Zip
-        $upload = new Upload();
-        $upload = $upload->upload($request, $projectStrategy);
+        $this->upload->handleZipUpload($request, $projectStrategy);
 
         // How do we handle this if the upload zip fails?? auto delete project stratgey automagically, let user delete, cron job deletion??
 
         // Allocate Code
-        $allocate = new Allocation();
-        $allocate = $allocate->first_allocation($projectStrategy, $teamStrategy);
+        $this->allocation->first_allocation($projectStrategy, $teamStrategy);
 
         // Allocate 2nd Mark
         $alloc_2 = new MarkReviewAllocation();

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Upload
 {
-    public function upload($request, $project)
+    public function handleZipUpload($request, $project)
     {
         $source = $request->file('code-upload')->store('public');
 
