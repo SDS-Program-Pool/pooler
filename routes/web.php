@@ -40,11 +40,13 @@ Route::get('projects/{id}', [ProjectController::class, 'show'])->middleware(['au
 /**
  * Project Mark.
  */
-Route::post('projects/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
-Route::post('projects/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
+Route::middleware(['mark'])->group(function () {
+    Route::post('projects/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
+    Route::post('projects/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');
+    Route::get('projects/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
+    Route::get('projects/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
+});
 
-Route::get('projects/{id}/mark/take', [ProjectMarkController::class, 'show'])->middleware(['auth'])->name('marking.show');
-Route::get('projects/{id}/mark', [ProjectMarkController::class, 'mark'])->middleware(['auth'])->name('marking.mark');
 
 /**
  * Project Mark Review.
@@ -55,7 +57,7 @@ Route::get('projects/{id}/review', [ProjectMarkReviewController::class, 'show'])
 /**
  * Project Download.
  */
-Route::get('download/{id}', [DownloadController::class, 'getDownload'])->middleware(['auth'])->name('downloads.index');
+Route::get('projects/{id}/download', [DownloadController::class, 'getDownload'])->middleware(['auth'])->name('downloads.index');
 
 /**
  * Tasks.
@@ -71,7 +73,6 @@ Route::get('settings', [SettingController::class, 'index'])->middleware(['auth']
  * Custom User Notes.
  */
 Route::post('user/notes', [UserNoteController::class, 'store'])->middleware(['auth'])->name('user_notes.store');
-
 
 /**
  * Open Source Licences.
