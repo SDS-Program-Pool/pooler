@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="/images/govuk-apple-touch-icon.png">
 
   <!--[if !IE 8]><!-->
-  <link href="/govuk-frontend/all.css" rel="stylesheet">
+  <link href="/govuk-frontend/govuk-frontend-3.14.0.min.css" rel="stylesheet">
   <!--<![endif]-->
 
 </head>
@@ -118,7 +118,7 @@
     </div>
   </footer>
 
-  <script src="/govuk-frontend/all.js"></script>
+  <script src="/govuk-frontend/govuk-frontend-3.14.0.min.js"></script>
   <script>
     window.GOVUKFrontend.initAll()
   </script>
