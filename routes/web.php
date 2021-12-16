@@ -51,8 +51,11 @@ Route::middleware(['mark'])->group(function () {
 /**
  * Project Mark Review.
  */
-Route::post('projects/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
-Route::get('projects/{id}/review', [ProjectMarkReviewController::class, 'show'])->middleware(['auth'])->name('marking_review.show');
+Route::middleware(['markreview'])->group(function () {
+    Route::post('projects/{id}/review', [ProjectMarkReviewController::class, 'store'])->middleware(['auth'])->name('marking_review.store');
+    Route::get('projects/{id}/review', [ProjectMarkReviewController::class, 'show'])->middleware(['auth'])->name('marking_review.show');
+});
+
 
 /**
  * Project Download.

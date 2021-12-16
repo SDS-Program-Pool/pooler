@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MarkReview
 {
@@ -16,6 +17,17 @@ class MarkReview
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $project = $request->route('id');
+
+        foreach(Auth::user()->project_mark_review_allocations as $projects_to_mark)
+        {
+             $to_mark[] = $projects_to_mark->project_id;
+        }
+ 
+        if(in_array($project, $to_mark)){
+             return $next($request);
+         }
+ 
+         return redirect('/');
     }
 }

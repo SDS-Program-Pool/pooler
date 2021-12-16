@@ -19,6 +19,7 @@ class Mark
     {
         // only allow the person who is in project_mark_allocations and taken === 1 to mark the project
         // if user->project_mark_allocations->array of IDs matches the URL then OKAY
+        // requires another if statement to check that if project has been rejected do not show the project.
         
        $project = $request->route('id');
 
