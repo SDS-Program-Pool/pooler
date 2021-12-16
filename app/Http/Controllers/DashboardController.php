@@ -2,21 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
+use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     public function index()
     {
-        $hour = date('H');
-        $dayTerm = ($hour > 17) ? 'Evening' : (($hour > 12) ? 'Afternoon' : 'Morning');
+        return $this->dashboardStrategy()->index();
+    }
 
-        return view('v1.dashboard.student', compact('dayTerm'));
+    public function dashboardStrategy()
+    {
+        if(Auth::user()->is_staff === 1)
+        {
+            $user_type = 'staff';
+        }
+        elseif(Auth::user()->is_admin === 1)
+        {
+            $user_type = 'staff';
+        }
+        else
+        {
+            $user_type = 'student';
+        }
 
+        $strategy = [
+
+            'staff'    => new StaffDashboardController(),
+            'student'  => new StudentDashboardController(),
+
+        ];
+
+        if (!array_key_exists($user_type, $strategy)) {
+            throw new \Exception('Could not find user type strategy');
+        }
+
+        return $strategy[$user_type];
     }
 }
