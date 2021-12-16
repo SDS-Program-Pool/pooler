@@ -21,7 +21,7 @@
           </a>
         </li>
           <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="{{route('settings.index')}}">
+            <a class="govuk-header__link" href="{{route('projects.index')}}">
               Settings
             </a>
           </li>
