@@ -26,6 +26,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'is_staff',
+        'is_admin',
         'email',
         'password',
     ];
@@ -48,11 +49,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function getFullNameAttribute()
-    {
-        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
-    }
 
     public function notes()
     {
@@ -97,5 +93,10 @@ class User extends Authenticatable
     public function getToMarkReviewAttribute()
     {
         return $this->project_mark_review_allocations;
+    }
+    
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
     }
 }
