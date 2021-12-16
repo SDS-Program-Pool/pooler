@@ -93,3 +93,14 @@ Route::middleware(['teachingteam'])->group(function () {
     Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
     
 });
+
+
+/**
+ * Admin Dashboard.
+ */
+Route::middleware(['admin'])->group(function () {
+    
+    Route::get('staff/user/create', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.create');
+    Route::post('staff/user/create', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.store');
+    
+});
