@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Project;
 use App\Models\ProjectMark;
 use App\Models\ProjectMarkAllocation;
+use App\Notifications\ProjectFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class ProjectMarkController extends Controller
 {
@@ -57,10 +60,18 @@ class ProjectMarkController extends Controller
 
     public function store(Request $request)
     {
+        $project = Project::whereId($request->route('id'))->first();
+
+        foreach($project->ProjectTeamMembers as $user_id)
+        {
+            $user = User::whereId($user_id)->firstOrFail();
+            $user->notify(new ProjectFeedback($project));
+        }
+        
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
-            'confidence'   => 'required|',
+            'confidence'   => 'required|in:high,medium,low',
         ]);
 
         $mark = new ProjectMark();
@@ -71,9 +82,11 @@ class ProjectMarkController extends Controller
         $mark->confidence = $request->confidence;
         $mark->save();
 
-        // update the projectmarkallocation to set marked to true
 
-        // $mark->project->setStatus('Marked by 1 user');
+        // send an email notifiaction to the project members
+        // need to get a collection of users...?
+
+        $project->setStatus('Marked by 1 user');
 
         return redirect()->route('tasks.index')->with('message', 'Project successfully marked.');
     }

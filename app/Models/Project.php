@@ -57,4 +57,12 @@ class Project extends Model
     {
         return $this->hasManyThrough(ProjectMarkReviewMark::class, ProjectMarkReview::class);
     }
+
+    public function getProjectTeamMembersAttribute()
+    {
+        foreach($this->team_members as $team_member){
+            $array[] = $team_member->user_id;
+        }
+        return $array;
+    }
 }
