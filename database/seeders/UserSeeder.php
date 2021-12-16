@@ -88,5 +88,23 @@ class UserSeeder extends Seeder
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
+        DB::table('users')->insert([
+            'first_name'    => Str::random(10),
+            'last_name'     => Str::random(10),
+            'username'      => 'staff',
+            'email'         => 'staff@warwick.ac.uk',
+            'password'      => Hash::make('Password1!'),
+            'is_staff'      => true,
+            'is_admin'      => false,
+        ]);
+        DB::table('users')->insert([
+            'first_name'    => Str::random(10),
+            'last_name'     => Str::random(10),
+            'username'      => 'admin',
+            'email'         => 'admin@warwick.ac.uk',
+            'password'      => Hash::make('Password1!'),
+            'is_staff'      => true,
+            'is_admin'      => true,
+        ]);
     }
 }
