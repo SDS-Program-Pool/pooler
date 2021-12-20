@@ -13,6 +13,7 @@ class TaskController extends Controller
     {
         $marking_array = ProjectMarkAllocation::whereUserId(Auth::id())->with('project')->get();
         $markReviewsArray = ProjectMarkReviewAllocation::whereUserId(Auth::id())->with('project')->get();
+        // loll this could be refactored to use the Auth::user() i'm stupid...
 
         return view('v1.task.student.index', compact('marking_array', 'markReviewsArray'));
     }

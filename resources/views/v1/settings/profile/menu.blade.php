@@ -8,7 +8,7 @@
     <nav>
       <ul id="navigation" class="govuk-header__navigation " aria-label="Navigation menu">
         <li class="govuk-header__navigation-item govuk-header__navigation-item">
-          <a class="govuk-header__link" href="{{route('projects.index')}}">
+          <a class="govuk-header__link" href="{{route('settings.index')}}">
             Settings
           </a>
         </li>

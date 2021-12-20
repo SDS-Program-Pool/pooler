@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
-    //
-    /**
-     * Have a strategy to determine if admin, staff or student 
-     * pass to appropraite setting controller
-     * which loads the appropraite views et al 
-     */
+    public function index()
+    {
+        $user = Auth::user();
+
+        return view('v1.settings.profile.index', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        
+    }
 }
