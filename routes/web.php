@@ -26,8 +26,8 @@ Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->na
  * Settings.
  */
 Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');
-Route::get('settings/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('settings_profile.index');
-Route::get('settings/profile/export', [StudentDataExportController::class, 'export'])->middleware(['auth'])->name('settings_profile_export.export');
+//Route::get('settings/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('settings_profile.index');
+//Route::get('settings/profile/export', [StudentDataExportController::class, 'export'])->middleware(['auth'])->name('settings_profile_export.export');
 
 
 /**

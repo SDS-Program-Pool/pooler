@@ -18,7 +18,15 @@ class Allocation
      */
     public function first_allocation($projectStrategy, $teamStrategy)
     {
-        $team_members = $this->team_members($projectStrategy->id);
+
+        $markers = Project::whereId($projectStrategy->id)->firstorFail();
+
+        foreach($markers->team_members as $member)
+        {
+            $team_member_user_id[] = $member->user_id;
+        }
+
+        $team_members = $team_member_user_id;
 
         $users = User::whereNotIn('id', $team_members)->get();
 
@@ -33,9 +41,7 @@ class Allocation
 
         // Generate the array keys of 3 random markers
         $markers_array = array_rand($users_array, 3);
-        // requires an if statement to check if users array contains data and to do array rand.
-        // else just return a warning that the code could not be allocated...???
-        // where someone can say yes/no
+
 
         // Generate the user ID's of those based on the array keys from above
 
