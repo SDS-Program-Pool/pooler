@@ -13,6 +13,7 @@ use App\Http\Controllers\Student\ProjectMarkController;
 use App\Http\Controllers\Student\ProjectMarkReviewController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Student\TaskController;
+use App\Http\Controllers\Student\DataExportController as StudentDataExportController;
 use App\Http\Controllers\UserNoteController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->na
  */
 Route::get('settings', [SettingController::class, 'index'])->middleware(['auth'])->name('settings.index');
 Route::get('settings/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('settings_profile.index');
+Route::get('settings/profile/export', [StudentDataExportController::class, 'export'])->middleware(['auth'])->name('settings_profile_export.export');
+
 
 /**
  * Projects.
@@ -62,6 +65,7 @@ Route::middleware(['markreview'])->group(function () {
  * Project Download.
  */
 Route::get('projects/{id}/download', [DownloadController::class, 'getDownload'])->middleware(['auth'])->name('downloads.index');
+
 
 /**
  * Tasks.
