@@ -48,7 +48,7 @@
         </span>
         @enderror
 
-        <input type="text" name="username" id="username" class="govuk-input govuk-!-width-one-half @error('username') govuk-input--error @enderror" value="{{ old('username') }}" maxlength="20" aria-describedby="username-hint" autocomplete="username"> 
+        <input type="text" name="username" id="username" class="govuk-input govuk-!-width-one-half @error('username') govuk-input--error @enderror" value="{{ old('username') }}" aria-describedby="username-hint" autocomplete="username"> 
     </div> 
 
     <div class="govuk-form-group @error('username') govuk-form-group--error @enderror"> 

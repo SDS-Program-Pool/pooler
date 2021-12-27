@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 /**
  * Dashboard.
  */
-Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard.index');
+Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
 
 /**
  * Settings.

@@ -44,7 +44,7 @@
             <span class="govuk-visually-hidden">Error:</span> Your username is not in the ACL
         </span>
         @enderror
-        <input type="text" name="username" id="username" class="govuk-input govuk-!-width-one-half @error('username') govuk-input--error @enderror" value="{{ old('username') }}" maxlength="20" aria-describedby="username-hint" autocomplete="username"> 
+        <input type="text" name="username" id="username" class="govuk-input govuk-!-width-one-half @error('username') govuk-input--error @enderror" value="{{ old('username') }}" aria-describedby="username-hint" autocomplete="username"> 
     </div> 
 
     <div class="govuk-form-group @error('email') govuk-form-group--error @enderror"> 
@@ -54,7 +54,7 @@
           <span class="govuk-visually-hidden">Error:</span> Your email is in error state
       </span>
       @enderror
-      <input type="email" name="email" id="email" class="govuk-input govuk-!-width-one-half @error('email') govuk-input--error @enderror" value="{{ old('email') }}" maxlength="20" aria-describedby="email-hint" autocomplete="email"> 
+      <input type="email" name="email" id="email" class="govuk-input govuk-!-width-one-half @error('email') govuk-input--error @enderror" value="{{ old('email') }}" aria-describedby="email-hint" autocomplete="email"> 
   </div> 
 
     <div class="govuk-form-group @error('password') govuk-form-group--error @enderror"> 
