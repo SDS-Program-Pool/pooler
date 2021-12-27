@@ -12,7 +12,7 @@
             Settings
           </a>
         </li>
-        <li class="govuk-header__navigation-item">
+       <!-- <li class="govuk-header__navigation-item">
           <a class="govuk-header__link" href="{{ route('projects.create') }}">
             Notifications
           </a>
@@ -21,7 +21,7 @@
             <a class="govuk-header__link" href="{{ route('projects.create') }}">
               Export Data
             </a>
-        </li>
+        </li>-->
       </ul>
     </nav>
   </div>

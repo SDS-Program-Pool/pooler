@@ -19,8 +19,6 @@
     </ol>
   </div>
 
-  <form method="POST" action="{{ route('register') }}">
-    @csrf
 
 
     <fieldset class="govuk-fieldset">
@@ -70,32 +68,8 @@
       <input type="email" name="email" id="email" class="govuk-input govuk-!-width-one-half @error('email') govuk-input--error @enderror" value="{{ $user->email }}" maxlength="20" aria-describedby="email-hint" autocomplete="email" disabled> 
   </div> 
 
-    <div class="govuk-form-group @error('password') govuk-form-group--error @enderror"> 
-        <div class="govuk-form-group"> <label for="password" class="govuk-label">Password</label> 
-          @error('password')
-          <span id="usernamepass-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Your password does not meet system requirments
-          </span>
-          @enderror
-            <input type="password" name="password" id="password" class="govuk-input govuk-!-width-three-quarters @error('password') govuk-input--error @enderror" autocomplete="current-password"> 
-        </div> 
-    </div>
-
-    <div class="govuk-form-group @error('password') govuk-form-group--error @enderror"> 
-        <div class="govuk-form-group"> <label for="password" class="govuk-label">Password</label> 
-          @error('password')
-          <span id="usernamepass-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> Your password does not meet system requirments
-          </span>
-          @enderror
-            <input type="password" name="password" id="password" class="govuk-input govuk-!-width-three-quarters @error('password') govuk-input--error @enderror" autocomplete="current-password"> 
-        </div> 
-    </div>
-
 </fieldset>
 
-        <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Register</button> 
-</form>
 
 
 
