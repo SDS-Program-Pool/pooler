@@ -14,7 +14,4 @@ class SettingController extends Controller
         return view('v1.settings.profile.index', compact('user'));
     }
 
-    public function store(Request $request)
-    {
-    }
 }

@@ -41,6 +41,7 @@
   </div>
 </div>
 
+<p class="govuk-body">Already confirmed? Refresh this page.</p>
 
 <form method="POST" action="{{ route('verification.send') }}" class="text-center">
     @csrf
