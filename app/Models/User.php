@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use App\Http\Controllers\ProjectManualReviewController;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -93,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->project_mark_review_allocations;
     }
-    
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name).' '.ucfirst($this->last_name);

@@ -11,13 +11,14 @@ class TeachingTeam
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->is_staff === 1) {
+        if (Auth::user() && Auth::user()->is_staff === 1) {
             return $next($request);
         }
 

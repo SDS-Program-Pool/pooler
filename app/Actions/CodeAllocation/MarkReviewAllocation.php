@@ -11,16 +11,14 @@ class MarkReviewAllocation
     public function first_allocation($projectStrategy, $teamStrategy)
     {
         $team_members = $this->team_members($projectStrategy->id);
-        
+
         $markers = Project::whereId($projectStrategy->id)->firstorFail();
 
-        foreach($markers->team_members as $member)
-        {
+        foreach ($markers->team_members as $member) {
             $team_member_user_id[] = $member->user_id;
         }
 
-        foreach($markers->mark_allocations as $marker)
-        {
+        foreach ($markers->mark_allocations as $marker) {
             $marker_user_id[] = $marker->user_id;
         }
 

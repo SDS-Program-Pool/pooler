@@ -18,11 +18,9 @@ class Allocation
      */
     public function first_allocation($projectStrategy, $teamStrategy)
     {
-
         $markers = Project::whereId($projectStrategy->id)->firstorFail();
 
-        foreach($markers->team_members as $member)
-        {
+        foreach ($markers->team_members as $member) {
             $team_member_user_id[] = $member->user_id;
         }
 
@@ -41,7 +39,6 @@ class Allocation
 
         // Generate the array keys of 3 random markers
         $markers_array = array_rand($users_array, 3);
-
 
         // Generate the user ID's of those based on the array keys from above
 

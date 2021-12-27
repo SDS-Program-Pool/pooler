@@ -11,8 +11,9 @@ class Mark
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     *
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
@@ -20,19 +21,17 @@ class Mark
         // only allow the person who is in project_mark_allocations and taken === 1 to mark the project
         // if user->project_mark_allocations->array of IDs matches the URL then OKAY
         // requires another if statement to check that if project has been rejected do not show the project.
-        
-       $project = $request->route('id');
 
-       foreach(Auth::user()->project_mark_allocations as $projects_to_mark)
-       {
+        $project = $request->route('id');
+
+        foreach (Auth::user()->project_mark_allocations as $projects_to_mark) {
             $to_mark[] = $projects_to_mark->project_id;
-       }
+        }
 
-       if(in_array($project, $to_mark)){
+        if (in_array($project, $to_mark)) {
             return $next($request);
         }
 
         return redirect('/');
-
     }
 }

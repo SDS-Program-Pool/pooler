@@ -6,14 +6,12 @@ use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
-use Illuminate\Support\Facades\Auth;
-
 
 class StudentDataExport implements FromQuery, WithHeadings, WithMapping
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function headings(): array
     {
         return [
@@ -31,7 +29,6 @@ class StudentDataExport implements FromQuery, WithHeadings, WithMapping
             $user->id,
         ];
     }
-
 
     public function query()
     {

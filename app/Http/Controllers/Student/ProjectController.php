@@ -12,9 +12,9 @@ use App\Actions\Team\TeamCreation;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\User;
+use App\Notifications\ProjectCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\ProjectCreated;
 
 class ProjectController extends Controller
 {
