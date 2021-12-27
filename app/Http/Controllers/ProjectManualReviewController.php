@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectManualReviewController extends Controller
 {
@@ -11,7 +11,7 @@ class ProjectManualReviewController extends Controller
     {
         //$project_reviews = Auth::user()->project_manual_reviews->all();
 
-       // dd($project_reviews);
+        // dd($project_reviews);
 
         return view('v1.project.manual_review.index');
     }

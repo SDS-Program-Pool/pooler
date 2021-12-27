@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\Project;
 use App\Models\ProjectMark;
 use App\Models\ProjectMarkAllocation;
+use App\Models\User;
 use App\Notifications\ProjectFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 class ProjectMarkController extends Controller
 {
@@ -62,12 +61,11 @@ class ProjectMarkController extends Controller
     {
         $project = Project::whereId($request->route('id'))->first();
 
-        foreach($project->ProjectTeamMembers as $user_id)
-        {
+        foreach ($project->ProjectTeamMembers as $user_id) {
             $user = User::whereId($user_id)->firstOrFail();
             $user->notify(new ProjectFeedback($project));
         }
-        
+
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
@@ -81,7 +79,6 @@ class ProjectMarkController extends Controller
         $mark->qualitative_feedback = $request->qualfeedback;
         $mark->confidence = $request->confidence;
         $mark->save();
-
 
         // send an email notifiaction to the project members
         // need to get a collection of users...?

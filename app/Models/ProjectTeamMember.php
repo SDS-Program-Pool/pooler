@@ -13,6 +13,7 @@ class ProjectTeamMember extends Model
     {
         return $this->belongsTo(ProjectTeam::class);
     }
+
     public function project()
     {
         return $this->belongsTo(Project::class);

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-
     public function index()
     {
         return $this->dashboardStrategy()->index();
@@ -16,16 +15,11 @@ class DashboardController extends Controller
 
     public function dashboardStrategy()
     {
-        if(Auth::user()->is_staff === 1)
-        {
+        if (Auth::user()->is_staff === 1) {
             $user_type = 'staff';
-        }
-        elseif(Auth::user()->is_admin === 1)
-        {
+        } elseif (Auth::user()->is_admin === 1) {
             $user_type = 'staff';
-        }
-        else
-        {
+        } else {
             $user_type = 'student';
         }
 
