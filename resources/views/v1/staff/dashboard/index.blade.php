@@ -22,6 +22,14 @@
               Mark Review Requests
             </a>
           </li>
+          @if(Auth::user()->is_admin === 1)
+          <li class="govuk-header__navigation-item">
+            <a class="govuk-header__link" href="{{route('projects.index')}}">
+              Create Staff
+            </a>
+          </li>
+
+          @endif
       </ul>
     </nav>
   </div>

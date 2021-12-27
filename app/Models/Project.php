@@ -66,4 +66,24 @@ class Project extends Model
 
         return $array;
     }
+
+    public function getTypeAttribute()
+    {
+        if($this->is_team_individual === 1)
+        {
+            return "Individual Project";
+        }
+        elseif($this->is_team === 1)
+        {
+            return "Team Project";
+        }
+        elseif($this->is_team_feature_branch === 1)
+        {
+            return "Feature Branch Project";
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
