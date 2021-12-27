@@ -166,7 +166,6 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class, // Fortify C.T 16-10-21
-        Spatie\Permission\PermissionServiceProvider::class, // Spatie Permissions C.T 18-10-21
 
         /*
          * Application Service Providers...
