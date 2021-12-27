@@ -52,6 +52,10 @@ class FortifyServiceProvider extends ServiceProvider
             return view('v1.auth.reset-password');
         });
 
+        Fortify::verifyEmailView(function () {
+            return view('v1.auth.verify-email');
+        });
+
         RateLimiter::for('login', function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());
         });
@@ -59,5 +63,6 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+        
     }
 }
