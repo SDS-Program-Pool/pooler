@@ -66,40 +66,31 @@
     </main>
   </div>
 
+
   <footer class="govuk-footer " role="contentinfo">
     <div class="govuk-width-container ">
-      <div class="govuk-footer__meta">
-        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-          <h2 class="govuk-visually-hidden">Support links</h2>
-          <ul class="govuk-footer__inline-list">
-            <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="mailto:contact@program-pool.co.uk">
-                Help
-              </a>
-            </li>
-            <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#2">
-                Cookies
-              </a>
-            </li>
-            <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="mailto:contact@program-pool.co.uk">
+      <div class="govuk-footer__navigation">
+        <div class="govuk-footer__section govuk-grid-column-one-thirds">
+          <h2 class="govuk-footer__heading govuk-heading-m">Related Resources</h2>
+          <ul class="govuk-footer__list govuk-footer__list--columns-1">
+            <li class="govuk-footer__list-item">
+              <a class="govuk-footer__link" href="mailto:u2136323@live.warwick.ac.uk">
                 Contact
               </a>
             </li>
-            <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#4">
-                Terms and conditions
+            <li class="govuk-footer__list-item">
+              <a class="govuk-footer__link" href="https://github.com/SDS-Program-Pool/pooler/wiki">
+                Help
               </a>
             </li>
-            <li class="govuk-footer__inline-list-item">
+            <li class="govuk-footer__list-item">
               <a class="govuk-footer__link" href="{{route('opensource.index')}}">
                 Open Source Licences
               </a>
             </li>
 
             @if (Auth::check())
-            <li class="govuk-footer__inline-list-item">
+            <li class="govuk-footer__list-item">
             <a class="govuk-footer__link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               Logout
             </a>
@@ -108,6 +99,15 @@
             </form>
             </li>
             @endif
+          </ul>
+        </div>
+      </div>
+      <hr class="govuk-footer__section-break">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          <ul class="govuk-footer__inline-list">
+            
 
           </ul>
 
@@ -117,8 +117,11 @@
               <p> You are logged in as {{Auth::user()->username}} </p>
             @endif
 
-            <p> This page took {{ round(microtime(true) - LARAVEL_START, 3) }} seconds to render</p>
+           <!-- <p> This page took {{ round(microtime(true) - LARAVEL_START, 3) }} seconds to render</p>-->
             <p> This system is hosted on the Cyber Security Centre infrastructure.</p>
+            <div class="govuk-footer__meta-custom">
+              Built by the <a href="https://github.com/SDS-Program-Pool/pooler" class="govuk-footer__link">Program Pool team</a>
+            </div>
           </span>
           
         </div>
