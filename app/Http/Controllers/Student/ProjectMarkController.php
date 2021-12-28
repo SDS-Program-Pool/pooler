@@ -8,6 +8,7 @@ use App\Models\ProjectMark;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
 use App\Notifications\ProjectFeedback;
+use App\Notifications\ProjectRejected;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +48,14 @@ class ProjectMarkController extends Controller
             $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
             $ProjectMarkAllocation->taken_by_user = false;
             $ProjectMarkAllocation->save();
+
+            $staff_members = User::whereIsStaff(true)->get();
+
+
+            foreach ($staff_members as $staff_member) {
+                $user = User::whereId($staff_member->id)->firstOrFail();
+                $user->notify(new ProjectRejected($request->route('id')));
+            }
 
             $ProjectMarkAllocation->project->setStatus('Project rejected for Marking by a marker');
 
