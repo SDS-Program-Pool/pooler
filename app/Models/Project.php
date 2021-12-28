@@ -40,7 +40,7 @@ class Project extends Model
 
     public function mark_review_allocations()
     {
-        return $this->hasMany(ProjectMarkAllocation::class);
+        return $this->hasMany(ProjectMarkReviewAllocation::class);
     }
 
     public function marks()

@@ -16,8 +16,8 @@ class ProjectController extends Controller
     }
     public function show(Request $request)
     {
-        $projectData = Project::all();
+        $project = Project::whereId($request->route('id'))->with('source', 'marks', 'mark_review_marks')->firstOrFail();
 
-        return view('v1.staff.projects.index', compact('projectData'));
+        return view('v1.staff.projects.show', compact('project'));
     }
 }

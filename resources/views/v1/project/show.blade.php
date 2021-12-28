@@ -5,11 +5,6 @@
 
 @section('content')
 
-<!-- TO DO:
-
-  => Fix tabs
-
--->
 
 <h1 class="govuk-heading-xl">Project - {{ $project_data->name }}</h1>
 

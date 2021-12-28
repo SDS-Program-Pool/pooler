@@ -63,7 +63,7 @@
         <th scope="row" class="govuk-table__header">{{$project->name}}</th>
         <td class="govuk-table__cell">{{$project->Type}}</td>
         <td class="govuk-table__cell"> avg mark</td>
-        <td class="govuk-table__cell"><a href="{{route('staff_students.show',$project->id)}}"> View</td>
+        <td class="govuk-table__cell"><a href="{{route('staff_projects.show',$project->id)}}"> View</td>
       </tr>
       @endforeach
     </tbody>
