@@ -24,7 +24,7 @@ class MarkReviewAllocation
 
         $array = array_merge($team_members, $marker_user_id);
 
-        $users = User::whereNotIn('id', $array)->get();
+        $users = User::whereNotIn('id', $array)->whereIsStudent(true)->get();
 
         foreach ($users as $user) {
             $users_array[] = $user->id;

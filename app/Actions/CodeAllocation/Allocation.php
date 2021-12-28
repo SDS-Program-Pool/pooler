@@ -26,7 +26,7 @@ class Allocation
 
         $team_members = $team_member_user_id;
 
-        $users = User::whereNotIn('id', $team_members)->get();
+        $users = User::whereNotIn('id', $team_members)->whereIsStudent(true)->get();
 
         foreach ($users as $user) {
             $users_array[] = $user->id;
