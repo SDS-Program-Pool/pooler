@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectMarkReview;
+use App\Models\ProjectMarkReviewAllocation;
 use App\Models\ProjectMarkReviewMark;
+use App\Models\User;
+use App\Notifications\ProjectFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +46,18 @@ class ProjectMarkReviewController extends Controller
             $mark->save();
         }
 
-        // $mark->project->setStatus('Marked by 1 user');
+        $ProjectMarkAllocation = ProjectMarkReviewAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+        $ProjectMarkAllocation->marked = true;
+        $ProjectMarkAllocation->save();
+
+        $project = Project::whereId($request->route('id'))->first();
+
+        foreach ($project->ProjectTeamMembers as $user_id) {
+            $user = User::whereId($user_id)->firstOrFail();
+            $user->notify(new ProjectFeedback($project));
+        }
+
+        $project->setStatus('Mark Review by 1 user');
 
         return redirect()->route('tasks.index')->with('message', 'Project successfully mark marked.');
     }

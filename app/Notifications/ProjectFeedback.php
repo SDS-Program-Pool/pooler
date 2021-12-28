@@ -10,14 +10,16 @@ class ProjectFeedback extends Notification
 {
     use Queueable;
 
+    protected $project;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($project)
     {
-        //
+        $this->project = $project;
     }
 
     /**
@@ -42,9 +44,9 @@ class ProjectFeedback extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Your Project Has Feedback'. $this->project->name)
+                    ->action('Notification Action', url(''.$this->project->id))
+                    ->line('Please login to the system for further information');
     }
 
     /**

@@ -59,12 +59,6 @@ class ProjectMarkController extends Controller
 
     public function store(Request $request)
     {
-        $project = Project::whereId($request->route('id'))->first();
-
-        foreach ($project->ProjectTeamMembers as $user_id) {
-            $user = User::whereId($user_id)->firstOrFail();
-            $user->notify(new ProjectFeedback($project));
-        }
 
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
@@ -80,8 +74,17 @@ class ProjectMarkController extends Controller
         $mark->confidence = $request->confidence;
         $mark->save();
 
-        // send an email notifiaction to the project members
-        // need to get a collection of users...?
+        $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+        $ProjectMarkAllocation->marked = true;
+        $ProjectMarkAllocation->save();
+
+
+        $project = Project::whereId($request->route('id'))->first();
+
+        foreach ($project->ProjectTeamMembers as $user_id) {
+            $user = User::whereId($user_id)->firstOrFail();
+            $user->notify(new ProjectFeedback($project));
+        }
 
         $project->setStatus('Marked by 1 user');
 
