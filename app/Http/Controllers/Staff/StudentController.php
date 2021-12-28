@@ -18,12 +18,9 @@ class StudentController extends Controller
 
     public function create()
     {
-
     }
 
     public function store()
     {
-        
     }
-    
 }

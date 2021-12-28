@@ -53,7 +53,6 @@ class Allocation
 
             $user = User::whereId($project_mark_allocation->user_id)->firstOrFail();
             $user->notify(new MarkAllocation());
-
         }
 
         // need a return statement for success or fail codes???

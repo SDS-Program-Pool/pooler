@@ -9,13 +9,11 @@ class CreateStaffController extends Controller
 {
     public function create()
     {
-     
-     //   return view('v1.admin.staff.create');
 
+     //   return view('v1.admin.staff.create');
     }
 
     public function store(Request $request)
     {
-
     }
 }
