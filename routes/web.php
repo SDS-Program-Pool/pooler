@@ -1,15 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\CreateStaffController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\OpenSourceController;
-use App\Http\Controllers\ProfileController;
+//use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectManualReviewController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Staff\DashboardController as StaffDashboardController;
 use App\Http\Controllers\Staff\ProjectController as StaffProjectController;
 use App\Http\Controllers\Staff\StudentController as StaffStudentController;
-use App\Http\Controllers\Student\DataExportController as StudentDataExportController;
+//use App\Http\Controllers\Student\DataExportController as StudentDataExportController;
 use App\Http\Controllers\Student\ProjectController;
 use App\Http\Controllers\Student\ProjectMarkController;
 use App\Http\Controllers\Student\ProjectMarkReviewController;
@@ -84,6 +85,7 @@ Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensour
 Route::middleware(['teachingteam'])->group(function () {
     Route::get('staff', [StaffDashboardController::class, 'index'])->middleware(['auth'])->name('staff.index');
     Route::get('staff/projects', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_projects.index');
+    Route::get('staff/projects/{id}', [StaffProjectController::class, 'show'])->middleware(['auth'])->name('staff_projects.show');
     Route::get('staff/students', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_students.index');
     Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
 });
@@ -92,6 +94,6 @@ Route::middleware(['teachingteam'])->group(function () {
  * Admin Dashboard.
  */
 Route::middleware(['admin'])->group(function () {
-    Route::get('staff/user/create', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.create');
-    Route::post('staff/user/create', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.store');
+    Route::get('staff/user/create', [CreateStaffController::class, 'create'])->middleware(['auth'])->name('staff_staff.create');
+    Route::post('staff/user/create', [CreateStaffController::class, 'store'])->middleware(['auth'])->name('staff_staff.store');
 });

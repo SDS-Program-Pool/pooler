@@ -1,12 +1,10 @@
 @extends('v1.layouts.app')
-@section('title', 'View Project')
-
-@extends('v1.project.menu')
+@section('title', 'View Student Project')
 
 @section('content')
 
 
-<h1 class="govuk-heading-xl">Project - {{ $project_data->name }}</h1>
+<h1 class="govuk-heading-xl">Project - {{ $project->name }}</h1>
 
 <div class="govuk-breadcrumbs govuk-!-padding-bottom-4">
     <ol class="govuk-breadcrumbs__list">
@@ -17,7 +15,7 @@
         <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">My Projects</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.show',$project_data->id) }}">Project - {{ $project_data->name }}</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('projects.show',$project->id) }}">Project - {{ $project->name }}</a>
       </li>
     </ol>
 </div>
@@ -57,7 +55,7 @@
           Project Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ $project_data->name }}
+          {{ $project->name }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -70,7 +68,7 @@
           Upload Date
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ $project_data->created_at}}
+          {{ $project->created_at}}
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
@@ -79,10 +77,10 @@
           File
         </dt>
         <dd class="govuk-summary-list__value">
-          {{$project_data->source->source}}
+          {{$project->source->source}}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="{{ route('downloads.index', $project_data->id) }}">
+          <a class="govuk-link" href="{{ route('downloads.index', $project->id) }}">
             Download<span class="govuk-visually-hidden"> file</span>
           </a>
         </dd>
@@ -93,7 +91,7 @@
         </dt>
         <dd class="govuk-summary-list__value">
           <strong class="govuk-tag govuk-tag--green">
-            {{$project_data->latestStatus();}}
+            {{$project->latestStatus();}}
           </strong>
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
@@ -103,7 +101,7 @@
           Status History
         </dt>
         <dd class="govuk-summary-list__value">
-          @foreach ($project_data->statuses as $status)
+          @foreach ($project->statuses as $status)
             <strong class="govuk-tag govuk-tag--green">
               {{$status->name}} @ {{$status->created_at}}
             </strong>
@@ -116,7 +114,16 @@
 
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark">
     <h2 class="govuk-heading-l">Mark</h2>
-    @if($project_data->marks->isEmpty())
+    
+    <!-- Allocated to -->
+
+        @foreach($project->mark_allocations as $marker)
+       
+        <p class="govuk-body"> <b>Allocated to {{$marker->user->FullName}}</b> ({{$marker->user->username}})</p>
+        
+        @endforeach
+    
+    @if($project->marks->isEmpty())
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
@@ -126,7 +133,7 @@
     </div>
     @else
     <dl class="govuk-summary-list">
-      @foreach($project_data->marks as $mark)
+      @foreach($project->marks as $mark)
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Feedback ID # {{$mark->id}}
@@ -146,18 +153,26 @@
 
   <div class="govuk-tabs__panel govuk-tabs__panel" id="mark-review">
     <h2 class="govuk-heading-l">Mark Review</h2>
-    @if($project_data->mark_review->isEmpty())
+        <!-- Allocated to -->
+
+        @foreach($project->mark_review_allocations as $reviewer)
+       
+        <p class="govuk-body"> <b>Allocated to {{$reviewer->user->FullName}}</b> ({{$reviewer->user->username}})</p>
+        
+        @endforeach
+
+    @if($project->mark_review->isEmpty())
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-warning-text__assistive">Warning</span>
-        This project has not yet been marked. 
+        This project has not yet been marked reviewed. 
       </strong>
     </div>
     @else
     <dl class="govuk-summary-list">
 
-      @foreach($project_data->mark_review_marks as $mark_reviews)
+      @foreach($project->mark_review_marks as $mark_reviews)
   
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -178,7 +193,7 @@
 
   <div class="govuk-tabs__panel govuk-tabs__panel" id="final-outcome">
     <h2 class="govuk-heading-l">Mark Review</h2>
-    @if($project_data->mark_review->isEmpty())
+    @if($project->mark_review->isEmpty())
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">

@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'username'      => 'student',
             'email'         => 'demo@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker1',
             'email'         => 'demo1@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -40,6 +42,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker2',
             'email'         => 'demo2@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -49,6 +52,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker3',
             'email'         => 'demo3@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -58,6 +62,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker4',
             'email'         => 'demo4@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -67,6 +72,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker5',
             'email'         => 'demo5@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -76,6 +82,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker6',
             'email'         => 'demo6@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -85,6 +92,7 @@ class UserSeeder extends Seeder
             'username'      => 'marker7',
             'email'         => 'demo7@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => true,
             'is_staff'      => false,
             'is_admin'      => false,
         ]);
@@ -94,6 +102,7 @@ class UserSeeder extends Seeder
             'username'      => 'staff',
             'email'         => 'staff@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => false,
             'is_staff'      => true,
             'is_admin'      => false,
         ]);
@@ -103,6 +112,7 @@ class UserSeeder extends Seeder
             'username'      => 'admin',
             'email'         => 'admin@warwick.ac.uk',
             'password'      => Hash::make('Password1!'),
+            'is_student'    => false,
             'is_staff'      => true,
             'is_admin'      => true,
         ]);

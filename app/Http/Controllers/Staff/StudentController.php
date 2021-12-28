@@ -15,4 +15,12 @@ class StudentController extends Controller
 
         return view('v1.staff.students.index', compact('userData'));
     }
+
+    public function create()
+    {
+    }
+
+    public function store()
+    {
+    }
 }

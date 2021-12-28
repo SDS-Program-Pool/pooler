@@ -7,18 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MarkAllocation extends Notification implements ShouldQueue
+class ProjectRejected extends Notification implements ShouldQueue
 {
     use Queueable;
+
+    protected $project;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($project)
     {
-        //
+        $this->project = $project;
     }
 
     /**
@@ -43,9 +45,8 @@ class MarkAllocation extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->line('You have been allocated a project to mark')
-                    ->action('Notification Action', url('/'))
-                    ->line('Login to system and check tasks to view more.');
+                    ->line('A student project was rejected for marking')
+                    ->line('This was project # '.$this->project);
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Models\ProjectMark;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
 use App\Notifications\ProjectFeedback;
+use App\Notifications\ProjectRejected;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,6 +49,13 @@ class ProjectMarkController extends Controller
             $ProjectMarkAllocation->taken_by_user = false;
             $ProjectMarkAllocation->save();
 
+            $staff_members = User::whereIsStaff(true)->get();
+
+            foreach ($staff_members as $staff_member) {
+                $user = User::whereId($staff_member->id)->firstOrFail();
+                $user->notify(new ProjectRejected($request->route('id')));
+            }
+
             $ProjectMarkAllocation->project->setStatus('Project rejected for Marking by a marker');
 
             return redirect()->route('tasks.index')->with('message', 'Project Rejected!');
@@ -59,13 +67,6 @@ class ProjectMarkController extends Controller
 
     public function store(Request $request)
     {
-        $project = Project::whereId($request->route('id'))->first();
-
-        foreach ($project->ProjectTeamMembers as $user_id) {
-            $user = User::whereId($user_id)->firstOrFail();
-            $user->notify(new ProjectFeedback($project));
-        }
-
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
@@ -80,8 +81,16 @@ class ProjectMarkController extends Controller
         $mark->confidence = $request->confidence;
         $mark->save();
 
-        // send an email notifiaction to the project members
-        // need to get a collection of users...?
+        $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
+        $ProjectMarkAllocation->marked = true;
+        $ProjectMarkAllocation->save();
+
+        $project = Project::whereId($request->route('id'))->first();
+
+        foreach ($project->ProjectTeamMembers as $user_id) {
+            $user = User::whereId($user_id)->firstOrFail();
+            $user->notify(new ProjectFeedback($project));
+        }
 
         $project->setStatus('Marked by 1 user');
 

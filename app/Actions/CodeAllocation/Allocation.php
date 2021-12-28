@@ -5,6 +5,7 @@ namespace App\Actions\CodeAllocation;
 use App\Models\Project;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
+use App\Notifications\MarkAllocation;
 
 class Allocation
 {
@@ -26,7 +27,7 @@ class Allocation
 
         $team_members = $team_member_user_id;
 
-        $users = User::whereNotIn('id', $team_members)->get();
+        $users = User::whereNotIn('id', $team_members)->whereIsStudent(true)->get();
 
         foreach ($users as $user) {
             $users_array[] = $user->id;
@@ -50,7 +51,8 @@ class Allocation
 
             $project_mark_allocation->save();
 
-            // send an email as well to the person
+            $user = User::whereId($project_mark_allocation->user_id)->firstOrFail();
+            $user->notify(new MarkAllocation());
         }
 
         // need a return statement for success or fail codes???

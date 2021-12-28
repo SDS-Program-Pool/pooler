@@ -101,7 +101,12 @@
             that it is good!</p>
           </div>
         </details>
-        <textarea class="govuk-textarea" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="4000">
+          <textarea class="govuk-textarea govuk-js-character-count" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
+          <div id="qualfeedback-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 4000 characters
+          </div>
+        </div>
       </div>
 
       <div class="govuk-form-group">
