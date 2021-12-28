@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CreateStaffController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\OpenSourceController;
@@ -93,6 +94,6 @@ Route::middleware(['teachingteam'])->group(function () {
  * Admin Dashboard.
  */
 Route::middleware(['admin'])->group(function () {
-    Route::get('staff/user/create', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.create');
-    Route::post('staff/user/create', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_usercreate.store');
+    Route::get('staff/user/create', [CreateStaffController::class, 'create'])->middleware(['auth'])->name('staff_staff.create');
+    Route::post('staff/user/create', [CreateStaffController::class, 'store'])->middleware(['auth'])->name('staff_staff.store');
 });
