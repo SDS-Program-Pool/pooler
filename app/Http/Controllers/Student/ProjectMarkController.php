@@ -51,7 +51,6 @@ class ProjectMarkController extends Controller
 
             $staff_members = User::whereIsStaff(true)->get();
 
-
             foreach ($staff_members as $staff_member) {
                 $user = User::whereId($staff_member->id)->firstOrFail();
                 $user->notify(new ProjectRejected($request->route('id')));
@@ -68,7 +67,6 @@ class ProjectMarkController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
             'qualfeedback' => 'required|min:3|max:500',
@@ -86,7 +84,6 @@ class ProjectMarkController extends Controller
         $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
         $ProjectMarkAllocation->marked = true;
         $ProjectMarkAllocation->save();
-
 
         $project = Project::whereId($request->route('id'))->first();
 

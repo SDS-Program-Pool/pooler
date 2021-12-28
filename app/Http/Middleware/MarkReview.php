@@ -24,8 +24,7 @@ class MarkReview
             $to_mark[] = $projects_to_mark->project_id;
         }
 
-        if(empty($to_mark))
-        {
+        if (empty($to_mark)) {
             return redirect('/');
         }
 

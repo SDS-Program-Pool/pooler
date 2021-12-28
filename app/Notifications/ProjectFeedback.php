@@ -45,7 +45,7 @@ class ProjectFeedback extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->line('Your Project Has Feedback'. $this->project->name)
+                    ->line('Your Project Has Feedback'.$this->project->name)
                     ->action('Notification Action', url(''.$this->project->id))
                     ->line('Please login to the system for further information');
     }

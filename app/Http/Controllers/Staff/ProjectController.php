@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Staff;
 
-use App\Models\Project;
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,6 +14,7 @@ class ProjectController extends Controller
 
         return view('v1.staff.projects.index', compact('projectData'));
     }
+
     public function show(Request $request)
     {
         $project = Project::whereId($request->route('id'))->with('source', 'marks', 'mark_review_marks')->firstOrFail();
