@@ -5,8 +5,8 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.x  | :white_check_mark: |
+| 1.x-beta  | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Contact u2136323@live.warwick.ac.uk & csc-warp@warwick.ac.uk
+Contact u2136323@live.warwick.ac.uk
