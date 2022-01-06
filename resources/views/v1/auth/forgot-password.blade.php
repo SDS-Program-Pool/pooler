@@ -50,7 +50,7 @@
         </span>
         @enderror
 
-        <input type="text" name="email" id="email" class="govuk-input govuk-!-width-one-half @error('email') govuk-input--error @enderror" value="{{ old('email') }}" maxlength="20" aria-describedby="email-hint" autocomplete="email"> 
+        <input type="text" name="email" id="email" class="govuk-input govuk-!-width-one-half @error('email') govuk-input--error @enderror" value="{{ old('email') }}" aria-describedby="email-hint" autocomplete="email"> 
     </div> 
 
         <button type="submit" class="govuk-button" data-module="govuk-button" id="continue" formnovalidate="">Reset Password</button> 
