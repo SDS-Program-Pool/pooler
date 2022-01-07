@@ -7,7 +7,7 @@
 </a>
 
 # What is Program Pool
-A system to allow students to exchange code with each other, conduct peer marking etc for WM145.
+A web application to enable the sharing of code between students for peer marking. Build using the Laravel framework.
 
 ## Current Features
 - Auth
