@@ -7,7 +7,7 @@
 </a>
 
 # What is Program Pool
-A web application to enable the sharing of code between students for peer marking. Build using the Laravel framework.
+A web application to enable the sharing of code between students for peer marking. Built using the Laravel framework.
 
 ## Current Features
 - Auth
