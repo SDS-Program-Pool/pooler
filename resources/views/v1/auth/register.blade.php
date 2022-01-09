@@ -38,7 +38,7 @@
     </div>
 
     <div class="govuk-form-group @error('username') govuk-form-group--error @enderror"> 
-        <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">CSC Username</label> 
+        <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">CSC Username (c123456)</label> 
         @error('username')
         <span id="usernamepass-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> Your username is not in the ACL
@@ -48,7 +48,7 @@
     </div> 
 
     <div class="govuk-form-group @error('email') govuk-form-group--error @enderror"> 
-      <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">E-Mail Address</label> 
+      <label for="user_id" class="govuk-label" aria-describedby="user_id-hint">University E-Mail Address</label> 
       @error('email')
       <span id="email-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Your email is in error state
