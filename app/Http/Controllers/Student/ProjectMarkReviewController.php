@@ -18,6 +18,11 @@ class ProjectMarkReviewController extends Controller
     {
         $projectArray = Project::whereId($request->route('id'))->with('source', 'marks')->firstOrFail();
 
+        if($projectArray->mark_review->count() < 3)
+        {
+            return redirect()->route('tasks.index')->with('message', 'Project does not have 3 marks, unable to mark review just yet.');
+        }
+
         return view('v1.markreview.show', compact('projectArray'));
     }
 

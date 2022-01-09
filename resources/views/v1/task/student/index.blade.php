@@ -63,7 +63,7 @@
             @foreach($marking_array as $marking)
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
-                <td class="govuk-table__cell">Allocated @ {{$marking->created_at}}</td>
+                <td class="govuk-table__cell">Allocated @ {{$marking->project->created_at}}</td>
                 <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag--blue">
                   Ready to Mark
@@ -106,13 +106,19 @@
       @foreach($markReviewsArray as $markReview)
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">{{$markReview->project->name}}</th>
-        <td class="govuk-table__cell">Allocated @ {{$markReview->created_at}} Due @ $date</td>
+        <td class="govuk-table__cell">Allocated @ {{$markReview->created_at}}</td>
         <td class="govuk-table__cell">
-          <strong class="govuk-tag govuk-tag--blue">
-          Ready to Mark
+          @if($markReview->project->mark_review->count() < 3)
+          <strong class="govuk-tag govuk-tag--red">
+          Unable to mark
           </strong>
+          @else
+          <strong class="govuk-tag govuk-tag--blue">
+            Ready to mark
+            </strong>
+          @endif
         </td>
-        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>View More</td>
+        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>@if($markReview->project->mark_review->count() == 3) View More @endif</td>
       </tr>
       @endforeach
         
