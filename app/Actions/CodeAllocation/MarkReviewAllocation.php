@@ -23,6 +23,7 @@ class MarkReviewAllocation
             $marker_user_id[] = $marker->user_id;
         }
 
+
         $array = array_merge($team_members, $marker_user_id);
 
         $users = User::whereNotIn('id', $array)->whereIsStudent(true)->get();
@@ -31,9 +32,6 @@ class MarkReviewAllocation
             $users_array[] = $user->id;
         }
 
-        // dd($array);
-
-        //dd($users_array);
 
         if (sizeof($users_array) < 3) {
             // log unavail to allocate the project, manual allocation required.
@@ -61,10 +59,6 @@ class MarkReviewAllocation
         }
 
         // need a return statement for success or fail codes???
-    }
-
-    public function re_allocate()
-    {
     }
 
     /**
