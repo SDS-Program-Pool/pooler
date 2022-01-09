@@ -10,7 +10,7 @@
           </a>
         </li>
         <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="{{route('tasks.index')}}">
+          <a class="govuk-header__link" href="{{route('staff_students.index')}}">
             Students
           </a>
         </li>

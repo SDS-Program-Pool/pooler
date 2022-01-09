@@ -14,10 +14,10 @@
         <a class="govuk-breadcrumbs__link" href="/">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Student Projects</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('staff_projects.index') }}">Student Projects</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.show',$project->id) }}">Project - {{ $project->name }}</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('staff_projects.show',$project->id) }}">Project - {{ $project->name }}</a>
       </li>
     </ol>
 </div>

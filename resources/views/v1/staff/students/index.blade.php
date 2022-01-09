@@ -1,5 +1,5 @@
 @extends('v1.layouts.app')
-@section('title', 'Dashboard')
+@section('title', 'Student List')
 
 @extends('v1.staff.dashboard.menu')
 
@@ -13,7 +13,7 @@
         <a class="govuk-breadcrumbs__link" href="{{ route('dashboard.index') }}">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Students</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('staff_students.index') }}">Students</a>
       </li>
     </ol>
   </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -16,11 +17,12 @@ class StudentController extends Controller
         return view('v1.staff.students.index', compact('userData'));
     }
 
-    public function create()
-    {
-    }
 
-    public function store()
+    public function show(Request $request)
     {
+
+        $student = User::whereId($request->route('id'))->with('projects')->firstOrFail();
+
+        return view('v1.staff.students.show', compact('student'));
     }
 }
