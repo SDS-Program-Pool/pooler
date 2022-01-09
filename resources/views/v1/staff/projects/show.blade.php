@@ -1,6 +1,8 @@
 @extends('v1.layouts.app')
 @section('title', 'View Student Project')
 
+@extends('v1.staff.dashboard.menu')
+
 @section('content')
 
 
@@ -12,7 +14,7 @@
         <a class="govuk-breadcrumbs__link" href="/">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">My Projects</a>
+        <a class="govuk-breadcrumbs__link" href="{{ route('projects.index') }}">Student Projects</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
         <a class="govuk-breadcrumbs__link" href="{{ route('projects.show',$project->id) }}">Project - {{ $project->name }}</a>

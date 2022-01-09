@@ -1,35 +1,7 @@
 @extends('v1.layouts.app')
 @section('title', 'Projects')
 
-@section('menu')
-
-<div class="govuk-header__content">
-  <a href="{{route('dashboard.index')}}" class="govuk-header__link govuk-header__link--service-name">
-    Program Pool
-  </a>
-    <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide navigation menu">Menu</button>
-    <nav>
-      <ul id="navigation" class="govuk-header__navigation " aria-label="Navigation menu">
-        <li class="govuk-header__navigation-item govuk-header__navigation-item">
-          <a class="govuk-header__link" href="{{route('projects.index')}}">
-            My Projects
-          </a>
-        </li>
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="{{route('tasks.index')}}">
-            Tasks
-          </a>
-        </li>
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="{{route('settings.index')}}">
-              Settings
-            </a>
-          </li>
-      </ul>
-    </nav>
-  </div>
-
-@endsection
+@extends('v1.staff.dashboard.menu')
 
 @section('content')
 
@@ -62,7 +34,7 @@
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">{{$project->name}}</th>
         <td class="govuk-table__cell">{{$project->Type}}</td>
-        <td class="govuk-table__cell"> avg mark</td>
+        <td class="govuk-table__cell"></td>
         <td class="govuk-table__cell"><a href="{{route('staff_projects.show',$project->id)}}"> View</td>
       </tr>
       @endforeach
