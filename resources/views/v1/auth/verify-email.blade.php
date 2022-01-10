@@ -22,7 +22,7 @@
 <h1 class="govuk-heading-xl">Verification email submitted</h1>
 
 <div class="govuk-hint" id="username-hint">
-  Warwick Cyber Security Center Labs. This service is restricted to authorized users only. All activities on this system are logged.
+  {{config('organisation.motd')}}
 </div>
 
 

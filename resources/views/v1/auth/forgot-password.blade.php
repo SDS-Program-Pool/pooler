@@ -21,7 +21,7 @@
 <h1 class="govuk-heading-xl">Reset Password</h1>
 
 <div class="govuk-hint" id="email-hint">
-  Warwick Cyber Security Center Labs. This service is restricted to authorized users only. All activities on this system are logged.
+  {{config('organisation.motd')}}
 </div>
 
 @if (session('status'))

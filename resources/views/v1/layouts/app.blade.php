@@ -31,7 +31,7 @@
         <a href="/" class="govuk-header__link govuk-header__link--homepage">
           <span class="govuk-header__logotype">
             <span class="govuk-header__logotype-text">
-              WMG CSC
+              {{config('organisation.name')}}
             </span>
           </span>
         </a>
@@ -118,7 +118,7 @@
             @endif
 
            <!-- <p> This page took {{ round(microtime(true) - LARAVEL_START, 3) }} seconds to render</p>-->
-            <p> This system is hosted on the Cyber Security Centre infrastructure.</p>
+            <p>  {{config('organisation.hosted_on_loc')}} </p>
             <div class="govuk-footer__meta-custom">
               Built by the <a href="https://github.com/SDS-Program-Pool/pooler" class="govuk-footer__link">Program Pool team</a>
             </div>
@@ -126,8 +126,9 @@
           
         </div>
         <div class="govuk-footer__meta-item">
-          <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://warwick.ac.uk/fac/sci/wmg/research/digital/csc/">
-            Copyright &COPY; {{ now()->year }} WMG CSC</a>
+          <a class="govuk-footer__link govuk-footer__copyright-logo" href="{{config('organisation.url')}}">
+            Copyright &COPY; {{ now()->year }} {{config('organisation.name')}}
+          </a>
         </div>
       </div>
     </div>
