@@ -47,17 +47,23 @@
     @csrf
 
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
     </div>
+  </div>
 @endif 
 
 
-    <div class="govuk-form-group">
+
+    <div class="govuk-form-group @error('mark') govuk-form-group--error @enderror">
         <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
             What is the mark of this project?
           </label>
@@ -77,10 +83,15 @@
             <p id="grade-descriptor">Descriptor -</p>
           </div>
 
+          @error('mark')
+          <p id="more-detail-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{$message}}
+          </p>
+          @enderror
         <input class="govuk-input govuk-input--width-2" id="mark" name="mark" type="number" onkeyup="showGradeDescriptor()">
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group @error('qualfeedback') govuk-form-group--error @enderror">
         <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="qualfeedback">
             Can you provide any more feedback?
           </label>
@@ -102,20 +113,32 @@
           </div>
         </details>
         <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="4000">
-          <textarea class="govuk-textarea govuk-js-character-count" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
+          
+          @error('qualfeedback')
+          <p id="more-detail-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{$message}}
+          </p>
+          @enderror
+      
+          <textarea class="govuk-textarea govuk-textarea--error govuk-js-character-count govuk-textarea--error" id="qualfeedback" name="qualfeedback" rows="5" aria-describedby="qualfeedback-hint"></textarea>
           <div id="qualfeedback-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
             You can enter up to 4000 characters
           </div>
         </div>
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group @error('confidence') govuk-form-group--error @enderror">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
               How confident are you in your marking?
             </h1>
           </legend>
+          @error('confidence')
+            <p id="confidence-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ $message }}
+            </p>
+          @enderror
             
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">

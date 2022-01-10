@@ -69,7 +69,7 @@ class ProjectMarkController extends Controller
     {
         $validated = $request->validate([
             'mark'         => 'required|numeric|min:40|max:100',
-            'qualfeedback' => 'required|min:3|max:500',
+            'qualfeedback' => 'required|min:3|max:4000',
             'confidence'   => 'required|in:high,medium,low',
         ]);
 
