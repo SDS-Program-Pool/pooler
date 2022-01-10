@@ -11,10 +11,10 @@
 <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        <a class="govuk-breadcrumbs__link" href="{{route('dashboard.index')}}">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Settings</a>
+        <a class="govuk-breadcrumbs__link" href="{{route('settings.index')}}">Settings</a>
       </li>
     </ol>
   </div>
@@ -27,6 +27,8 @@
             Update Account
           </h1>
         </legend>
+
+    <a class="govuk-body"> <b> Values are read only for now. Change password by logging out and going to /reset-password</b> </a>
 
     <div class="govuk-form-group @error('first_name') govuk-form-group--error @enderror"> 
         <label for="first_name" class="govuk-label" aria-describedby="user_id-hint">First Name</label> 
