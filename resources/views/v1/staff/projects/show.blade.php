@@ -142,7 +142,7 @@
         </dt>
         <dd class="govuk-summary-list__value">
           <p class="govuk-body">Percentage - {{$mark->mark_percentage}} %</p>
-          <p class="govuk-body">Feedback <pre> {{$mark->qualitative_feedback}} </pre> </p>
+          <p class="govuk-body">Feedback {{$mark->qualitative_feedback}} </p>
 
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
