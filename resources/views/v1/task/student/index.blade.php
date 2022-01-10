@@ -65,11 +65,18 @@
                 <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
                 <td class="govuk-table__cell">Allocated @ {{$marking->project->created_at}}</td>
                 <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-tag--blue">
-                  Ready to Mark
+                  @if($marking->taken_by_user === 0)
+                  <strong class="govuk-tag govuk-tag--red">
+                    Rejected for marking
                   </strong>
+                  @else
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Ready to Mark
+                  </strong>
+                  @endif
+
                 </td>
-                <td class="govuk-table__cell"><a href="{{ route('marking.show',$marking->project->id) }}" target=”_blank”>View More</td>
+                <td class="govuk-table__cell"><a href="{{ route('marking.show',$marking->project->id) }}" target=”_blank”>@if($marking->taken_by_user === 0) @else View More @endif</td>
               </tr>
             @endforeach
           
