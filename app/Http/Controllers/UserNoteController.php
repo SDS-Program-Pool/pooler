@@ -11,7 +11,7 @@ class UserNoteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'note' => 'required|max:4096',
+            'note' => 'max:40960',
         ]);
 
         $userNotes = UserNotes::updateOrCreate(
