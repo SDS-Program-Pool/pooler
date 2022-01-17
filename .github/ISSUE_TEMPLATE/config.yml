@@ -1,0 +1,4 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Lab deployment support
+    about: Please do not report issues with lab deployment here e.g outbound emails faling. 
