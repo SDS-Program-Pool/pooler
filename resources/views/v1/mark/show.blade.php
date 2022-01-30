@@ -37,7 +37,7 @@
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">{{$marking_array->name}}</th>
         <td class="govuk-table__cell">{{$marking_array->created_at}}</td>
-        <td class="govuk-table__cell">a model thing.</td>
+        <td class="govuk-table__cell">Date</td>
         <td class="govuk-table__cell"><a href="{{route("downloads.index",$marking_array->id)}}"> Download </a> </td>
       </tr>
     </tbody>

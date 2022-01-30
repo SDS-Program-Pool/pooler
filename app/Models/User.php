@@ -87,12 +87,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getToMarkAttribute()
     {
-        return $this->project_mark_allocations;
+        return $this->project_mark_allocations->whereNull('marked');
     }
 
     public function getToMarkReviewAttribute()
     {
-        return $this->project_mark_review_allocations;
+        return $this->project_mark_review_allocations->whereNull('marked');
     }
 
     public function getFullNameAttribute()
