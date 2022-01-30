@@ -82,6 +82,14 @@ class ProjectController extends Controller
         return view('v1.project.show', compact('project_data'));
     }
 
+    public function delete(Request $request)
+    {
+        $deleted = Project::where('id', $request->route('id'))->delete();
+
+        return redirect()->route('projects.index')->with('message', 'Project Deleted!');
+        
+    }
+
     public function teamStrategy()
     {
         $team_type = request('team_type');

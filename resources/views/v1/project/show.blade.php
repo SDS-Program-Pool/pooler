@@ -48,6 +48,11 @@
         Final Outcome
       </a>
     </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#actions">
+        Actions
+      </a>
+    </li>
   </ul>
   <div class="govuk-tabs__panel" id="overview">
     <h2 class="govuk-heading-l">Overview</h2>
@@ -226,8 +231,24 @@
     </dl>
     @endif 
     </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel" id="actions">
+    <h2 class="govuk-heading-l">Actions</h2>
+
+    
+    <form method="POST" action="{{ route('projects.delete', $project_data->id) }}">
+      @csrf
+      <button type="submit" onclick="return confirm('Are you sure you would like to delete this project?');" class="govuk-button govuk-button--warning" data-module="govuk-button">
+        Delete project
+      </button>
+    </form>
+
+
   </div>
 
+
+  </div>
+</div>
 
 
 </div>
