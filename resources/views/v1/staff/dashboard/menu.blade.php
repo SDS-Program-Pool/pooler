@@ -14,19 +14,6 @@
             Students
           </a>
         </li>
-        <!--<li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="{{route('projects.index')}}">
-              Mark Review Requests
-            </a>
-          </li>
-          @if(Auth::user()->is_admin === 1)
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="{{route('staff_staff.create')}}">
-              Create Staff
-            </a>
-          </li>-->
-
-          @endif
       </ul>
     </nav>
   </div>
