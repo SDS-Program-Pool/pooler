@@ -25,8 +25,8 @@ class AddDeletedAtToProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::table('projects', function ($table) {
+            $table->dropSoftDeletes();
         });
     }
 }
