@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectMarkEscalationTeamsTable extends Migration
+class AddCanReviewEscalationToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateProjectMarkEscalationTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_mark_escalation_teams', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('can_review_escalation')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateProjectMarkEscalationTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_mark_escalation_teams');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('can_review_escalation');
+        });
     }
 }

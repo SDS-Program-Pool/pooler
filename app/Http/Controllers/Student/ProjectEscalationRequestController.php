@@ -9,6 +9,7 @@ class ProjectEscalationRequestController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request->route('id'));
         // Allow a user to esalate their proejct to the upper marking team.
     }
 }

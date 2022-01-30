@@ -14,6 +14,7 @@ use App\Http\Controllers\Staff\StudentController as StaffStudentController;
 use App\Http\Controllers\Student\ProjectController;
 use App\Http\Controllers\Student\ProjectMarkController;
 use App\Http\Controllers\Student\ProjectMarkReviewController;
+use App\Http\Controllers\Student\ProjectEscalationRequestController;
 use App\Http\Controllers\Student\TaskController;
 use App\Http\Controllers\UserNoteController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,7 @@ Route::get('projects/create', [ProjectController::class, 'create'])->middleware(
 Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
 Route::get('projects/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');
 Route::post('projects/{id}/delete}', [ProjectController::class, 'delete'])->middleware(['auth'])->name('projects.delete');
+Route::post('projects/{id}/escalate}', [ProjectEscalationRequestController::class, 'store'])->middleware(['auth'])->name('projects_escalate.store');
 
 /**
  * Project Mark.
