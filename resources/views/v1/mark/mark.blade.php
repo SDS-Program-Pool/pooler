@@ -127,13 +127,42 @@
         </div>
       </div>
 
-      <div class="govuk-form-group @error('confidence') govuk-form-group--error @enderror">
+
+      <div class="govuk-form-group @error('additional-feedback') govuk-form-group--error @enderror">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
-              How confident are you in your marking?
+              Do you want to upload additional feedback?
             </h1>
           </legend>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Advice on additional feedback
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>File types supported: pdf, zip, txt.</p>
+            </div>
+          </details>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="file-upload-1">
+                Upload a file
+              </label>
+              <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+            </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group @error('confidence') govuk-form-group--error @enderror">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="qualfeedback">
+              How confident are you in your marking?
+            </label>
+          </h1>
+          </legend>
+
           @error('confidence')
             <p id="confidence-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ $message }}
