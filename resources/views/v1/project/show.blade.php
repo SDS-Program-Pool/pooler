@@ -235,10 +235,10 @@
   <div class="govuk-tabs__panel govuk-tabs__panel" id="actions">
     <h2 class="govuk-heading-l">Actions</h2>
 
-    <form method="POST" action="{{ route('projects.escalationrequest.store', $project_data->id) }}">
+    <form method="POST" action="{{ route('projects_escalate.store', $project_data->id) }}">
       @csrf
-      <button type="submit" onclick="return confirm('Are you sure you would like to escalate this project?');" class="govuk-button govuk-button--warning" data-module="govuk-button">
-        Delete project
+      <button type="submit" onclick="return confirm('Are you sure you would like to escalate this project?');" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Escalate project
       </button>
     </form>
 
