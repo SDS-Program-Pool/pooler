@@ -95,6 +95,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->project_mark_review_allocations->whereNull('marked');
     }
 
+    public function getEscalationMarkerAttribute()
+    {
+        return $this->wherecan_review_escalation(true)->whereIsStudent(true);
+    }
+
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name).' '.ucfirst($this->last_name);

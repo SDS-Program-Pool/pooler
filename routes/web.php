@@ -41,8 +41,8 @@ Route::post('projects/{id}/staff-review', [ProjectManualReviewController::class,
 Route::get('projects/create', [ProjectController::class, 'create'])->middleware(['auth'])->name('projects.create');
 Route::post('projects/create', [ProjectController::class, 'store'])->middleware(['auth'])->name('projects.store');
 Route::get('projects/{id}', [ProjectController::class, 'show'])->middleware(['auth'])->name('projects.show');
-Route::post('projects/{id}/delete}', [ProjectController::class, 'delete'])->middleware(['auth'])->name('projects.delete');
-Route::post('projects/{id}/escalate}', [ProjectEscalationRequestController::class, 'store'])->middleware(['auth'])->name('projects_escalate.store');
+Route::post('projects/{id}/delete', [ProjectController::class, 'delete'])->middleware(['auth'])->name('projects.delete');
+Route::post('projects/{id}/escalate', [ProjectEscalationRequestController::class, 'store'])->middleware(['auth'])->name('projects_escalate.store');
 
 /**
  * Project Mark.

@@ -14,7 +14,7 @@ class AddCanReviewEscalationToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('can_review_escalation')->nullable();
+            $table->boolean('can_review_escalation')->nullable()->after('is_admin');
         });
     }
 
