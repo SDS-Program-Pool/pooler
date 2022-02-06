@@ -53,7 +53,8 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header">Dates</th>
+        <th scope="col" class="govuk-table__header">Allocated</th>
+        <th scope="col" class="govuk-table__header">Due By</th>
         <th scope="col" class="govuk-table__header">Status</th>
         <th scope="col" class="govuk-table__header">Mark Work</th>
       </tr>
@@ -63,7 +64,8 @@
             @foreach($marking_array as $marking)
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">{{$marking->project->name}}</th>
-                <td class="govuk-table__cell">Allocated @ {{$marking->project->created_at}}</td>
+                <td class="govuk-table__cell">{{$marking->project->created_at}}</td>
+                <td class="govuk-table__cell">{{$marking->project->DueDate}}</td>
                 <td class="govuk-table__cell">
                   @if($marking->taken_by_user === 0)
                   <strong class="govuk-tag govuk-tag--red">

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\ModelStatus\HasStatuses;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+
 
 class Project extends Model
 {
@@ -80,5 +82,11 @@ class Project extends Model
         } else {
             return null;
         }
+    }
+
+    public function getDueDateAttribute()
+    {
+        return Carbon::Parse($this->created_at)->addDays(7);
+
     }
 }
