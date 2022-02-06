@@ -115,7 +115,7 @@
         <th scope="row" class="govuk-table__header">{{$markReview->project->name}}</th>
         <td class="govuk-table__cell">Allocated @ {{$markReview->created_at}}</td>
         <td class="govuk-table__cell">
-          @if($markReview->project->mark_review->count() < 3)
+          @if($markReview->project->marks->count() < 3)
           <strong class="govuk-tag govuk-tag--red">
           Unable to mark
           </strong>
@@ -125,7 +125,7 @@
             </strong>
           @endif
         </td>
-        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>@if($markReview->project->mark_review->count() == 3) View More @endif</td>
+        <td class="govuk-table__cell"><a href="{{ route('marking_review.show',$markReview->project->id) }}" target=”_blank”>@if($markReview->project->mark_review->count() < 3) View More @endif</td>
       </tr>
       @endforeach
         
