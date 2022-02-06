@@ -47,6 +47,7 @@ Route::post('projects/{id}/escalate', [ProjectEscalationRequestController::class
 /**
  * Project Mark.
  */
+
 Route::middleware(['mark'])->group(function () {
     Route::post('projects/{id}/mark', [ProjectMarkController::class, 'store'])->middleware(['auth'])->name('marking.store');
     Route::post('projects/{id}/mark/take', [ProjectMarkController::class, 'acceptOrReject'])->middleware(['auth'])->name('marking.accept_or_reject');

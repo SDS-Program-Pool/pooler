@@ -1,7 +1,5 @@
 @extends('v1.layouts.app')
 @section('title', 'Dashboard')
-
-@extends('v1.layouts.app')
 @extends('v1.staff.dashboard.menu')
 
 @section('content')
