@@ -58,8 +58,42 @@ class Allocation
         // need a return statement for success or fail codes???
     }
 
-    public function re_allocate()
+    public function re_allocate($projectId)
     {
+        // add 1 marker to the project.
+
+        $markers = Project::whereId($projectId)->firstorFail();
+
+        foreach ($markers->team_members as $member) {
+            $team_member_user_id[] = $member->user_id;
+        }
+
+        $team_members = $team_member_user_id;
+
+        $users = User::whereNotIn('id', $team_members)->whereIsStudent(true)->get();
+
+        foreach ($users as $user) {
+            $users_array[] = $user->id;
+        }
+
+        if (sizeof($users_array) < 1) {
+            // log unavail to allocate the project, manual allocation required.
+            return redirect()->route('projects.index')->with('message', 'Unable to allocate project to a marker');
+        }
+
+        // Generate the array keys of 3 random markers
+        $markers_array = array_rand($users_array, 1);
+
+        $project_mark_allocation = new ProjectMarkAllocation();
+
+        $project_mark_allocation->project_id = $projectId;
+        $project_mark_allocation->user_id = $users_array[$markers_array];
+
+        $project_mark_allocation->save();
+
+        $user = User::whereId($project_mark_allocation->user_id)->firstOrFail();
+        $user->notify(new MarkAllocation());
+
     }
 
     /**

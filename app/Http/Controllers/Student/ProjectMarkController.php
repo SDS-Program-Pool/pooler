@@ -7,13 +7,18 @@ use App\Models\Project;
 use App\Models\ProjectMark;
 use App\Models\ProjectMarkAllocation;
 use App\Models\User;
+use App\Actions\CodeAllocation\AcceptReject;
 use App\Notifications\ProjectFeedback;
-use App\Notifications\ProjectRejected;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectMarkController extends Controller
 {
+    public function __construct(AcceptReject $AcceptReject)
+    {
+        $this->AcceptReject = $AcceptReject;
+    }
+
     public function show(Request $request)
     {
         $marking_array = Project::whereId($request->route('id'))->with('source')->firstOrFail();
@@ -34,35 +39,8 @@ class ProjectMarkController extends Controller
             'take_project' => 'required|boolean',
         ]);
 
-        if ($request->take_project == true) {
-            // Project taken (YES they'll mark it)
-            $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::id())->firstOrFail();
-            $ProjectMarkAllocation->taken_by_user = true;
-            $ProjectMarkAllocation->save();
-
-            $ProjectMarkAllocation->project->setStatus('Project Taken for Marking');
-
-            return redirect()->route('marking.mark', $request->route('id'));
-        } elseif ($request->take_project == false) {
-            // Project rejected
-            $ProjectMarkAllocation = ProjectMarkAllocation::whereProjectId($request->route('id'))->whereUserId(Auth::user()->id)->firstOrFail();
-            $ProjectMarkAllocation->taken_by_user = false;
-            $ProjectMarkAllocation->save();
-
-            $staff_members = User::whereIsStaff(true)->get();
-
-            foreach ($staff_members as $staff_member) {
-                $user = User::whereId($staff_member->id)->firstOrFail();
-                $user->notify(new ProjectRejected($request->route('id')));
-            }
-
-            $ProjectMarkAllocation->project->setStatus('Project rejected for Marking by a marker');
-
-            return redirect()->route('tasks.index')->with('message', 'Project Rejected!');
-        }
-
-        return redirect()->route('tasks.index')->with('message', 'How have you got here!');
-        // could remove elseif statement and just have the code so if somehow the validation fails the logic just defaults to reject??? C.T
+        $this->AcceptReject->handleProject($request);
+    
     }
 
     public function store(Request $request)
