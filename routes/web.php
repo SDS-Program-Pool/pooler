@@ -85,18 +85,18 @@ Route::get('opensource', [OpenSourceController::class, 'index'])->name('opensour
 /**
  * Staff Dashboard.
  */
-Route::middleware(['teachingteam'])->group(function () {
-    Route::get('staff', [StaffDashboardController::class, 'index'])->middleware(['auth'])->name('staff.index');
-    Route::get('staff/projects', [StaffProjectController::class, 'index'])->middleware(['auth'])->name('staff_projects.index');
-    Route::get('staff/projects/{id}', [StaffProjectController::class, 'show'])->middleware(['auth'])->name('staff_projects.show');
-    Route::get('staff/students', [StaffStudentController::class, 'index'])->middleware(['auth'])->name('staff_students.index');
-    Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->middleware(['auth'])->name('staff_students.show');
+Route::middleware(['auth','teachingteam'])->group(function () {
+    Route::get('staff', [StaffDashboardController::class, 'index'])->name('staff.index');
+    Route::get('staff/projects', [StaffProjectController::class, 'index'])->name('staff_projects.index');
+    Route::get('staff/projects/{id}', [StaffProjectController::class, 'show'])->name('staff_projects.show');
+    Route::get('staff/students', [StaffStudentController::class, 'index'])->name('staff_students.index');
+    Route::get('staff/students/{id}', [StaffStudentController::class, 'show'])->name('staff_students.show');
 });
 
 /**
  * Admin Dashboard.
  */
-Route::middleware(['admin'])->group(function () {
-    Route::get('staff/user/create', [CreateStaffController::class, 'create'])->middleware(['auth'])->name('staff_staff.create');
-    Route::post('staff/user/create', [CreateStaffController::class, 'store'])->middleware(['auth'])->name('staff_staff.store');
+Route::middleware(['auth','admin'])->group(function () {
+    Route::get('staff/user/create', [CreateStaffController::class, 'create'])->name('staff_staff.create');
+    Route::post('staff/user/create', [CreateStaffController::class, 'store'])->name('staff_staff.store');
 });
