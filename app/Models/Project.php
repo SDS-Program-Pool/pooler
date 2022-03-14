@@ -13,7 +13,6 @@ class Project extends Model
 {
     use HasFactory;
     use HasStatuses;
-    use SoftDeletes;
 
     public $incrementing = false;
 

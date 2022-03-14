@@ -13,7 +13,7 @@
 </div>
 
 <h1 class="govuk-heading-l">
-  Welcome back to Program Pool, {{Auth::user()->username}}
+  Welcome back to Program Pool, {{Auth::user()->first_name}}
 </h1>
 
 
@@ -24,13 +24,14 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third">
         <h1 class="govuk-heading-xl">Projects</h1>
-        <p class="govuk-body">Projects Submitted - </p>
-        <p class="govuk-body">Cohort Average Mark - </p>
+        <p class="govuk-body">Projects Submitted - {{$projectCount}}</p>
+        <p class="govuk-body">Cohort Average Mark - {{$markAverage}} %</p>
 
       </div>
 
       <div class="govuk-grid-column-one-third">
-        <h1 class="govuk-heading-xl">Project</h1>
+        <h1 class="govuk-heading-xl">Projects awaiting marks</h1>
+
         <p class="govuk-body">View your average mark here.</p>
       </div>
     </div>
