@@ -13,4 +13,8 @@ class ProjectMarkReviewMark extends Model
     {
         return $this->belongsTo(ProjectMarkReview::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

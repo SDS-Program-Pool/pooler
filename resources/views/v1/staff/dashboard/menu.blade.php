@@ -14,6 +14,11 @@
             Students
           </a>
         </li>
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="{{route('staff_dataexport.index')}}">
+            Data Export
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
