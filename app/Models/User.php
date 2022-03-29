@@ -75,6 +75,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(ProjectMarkAllocation::class, 'user_id');
     }
 
+    public function project_marks()
+    {
+        return $this->hasMany(ProjectMark::class, 'user_id');
+    }
+
     public function project_mark_review_allocations()
     {
         return $this->hasMany(ProjectMarkReviewAllocation::class, 'user_id');

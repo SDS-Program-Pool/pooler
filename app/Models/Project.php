@@ -56,6 +56,11 @@ class Project extends Model
         return $this->hasMany(ProjectMarkReview::class, 'project_id');
     }
 
+    public function escalation()
+    {
+        return $this->hasOne(ProjectMarkEscalation::class, 'project_id');
+    }
+
     public function mark_review_marks()
     {
         return $this->hasManyThrough(ProjectMarkReviewMark::class, ProjectMarkReview::class);
